@@ -87,6 +87,7 @@ Model Context Protocol (MCP) connects AI agents to tools, data, APIs, files, ide
 ## Appendix
 
 - [Framework Mapping](appendix/framework-mapping.md) — Alignment with OWASP MCP Top 10, OWASP LLM Top 10, NIST AI RMF, ISO 42001, SOC 2, and internal AI governance
+- [Operator Field Notes](appendix/operator-field-notes.md) — Practical review prompts, rollout advice, evidence packs, and common governance judgment calls
 
 ---
 

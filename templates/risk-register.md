@@ -14,6 +14,14 @@
 | 4 | | | | | | | | | | | | | |
 | 5 | | | | | | | | | | | | | |
 
+### Example Entry
+
+| # | MCP Server Name | Owner | Source | Risk Tier | Data Accessed | Actions Allowed | Identity Used | Approval Status | Residual Risk | Risk Owner | Required Controls | Last Review | Next Review |
+|---|----------------|-------|--------|-----------|---------------|-----------------|---------------|-----------------|---------------|------------|-------------------|-------------|-------------|
+| 14 | engineering-wiki-search | priya.shah@example.com | Internal | Tier 1 | Engineering wiki spaces only; excludes HR/legal/security/customer data | Read/search only | User OAuth | Approved | Low | priya.shah@example.com | Inventory, owner, scoped auth, central logging | 2026-06-15 | 2027-06-15 |
+
+Keep notes short but decision-useful. A good entry says what was approved, what was excluded, and what change triggers re-review.
+
 ## Field Definitions
 
 | Field | Description | Values |

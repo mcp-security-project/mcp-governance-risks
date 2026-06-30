@@ -156,6 +156,22 @@ Three standard outcomes plus exception path:
 
 ---
 
+### Before deciding: reviewer pause
+
+Before recording the outcome, the approver should be able to answer these questions without opening a new investigation:
+
+| Question | Why it matters |
+|----------|----------------|
+| What is the highest-risk tool exposed by this server? | Prevents approving by friendly server name instead of actual capability |
+| What other MCP servers can run in the same agent session? | Reveals tool-chaining and exfiltration paths |
+| Which identity is used for each high-risk action? | Confirms audit attribution and least privilege |
+| What evidence proves logging works? | Avoids approving controls that exist only in design |
+| What exact change would force re-review? | Prevents silent scope expansion after approval |
+
+If any answer is unclear, use conditional approval or return the request for clarification. Do not fill the gap with assumptions.
+
+---
+
 ### Outcome 1: Approve
 
 **Approve when all of the following are true:**
@@ -323,6 +339,14 @@ Every decision — approve, conditional, reject, exception — must record:
 - Next review date
 
 Use the [Approval Decision Form](../templates/approval-decision-form.md). Decisions are auditable for 3+ years per organizational retention policy.
+
+Good approval notes are specific. Instead of writing "approved, low risk," write what was approved and what was excluded:
+
+> Approved as Tier 1 for read-only search of internal engineering wiki pages. HR, legal, security incident, and customer support spaces are excluded. No write tools approved. Re-review required if additional spaces, write tools, external sharing, or service-account access are added.
+
+For conditional approvals, include the constraint, owner, deadline, and verification step:
+
+> Conditionally approved for a 30-day pilot with 10 users. Production rollout blocked until tool call logs include user identity, agent session ID, tool name, sanitized parameters, authorization result, and outcome. Engineering owner must provide sample logs; AppSec must verify before status changes to approved.
 
 ---
 

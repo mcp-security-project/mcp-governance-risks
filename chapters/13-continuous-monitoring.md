@@ -91,6 +91,36 @@ Every MCP tool call at **Tier 2 and above** must produce a log entry with:
 
 Logs must forward to SIEM or centralized logging. Retention must meet compliance requirements (often 1–7 years for regulated data).
 
+### Example structured log
+
+Use a consistent schema so MCP events can be searched across servers and platforms. The exact field names can vary, but the meaning should not.
+
+```json
+{
+  "timestamp": "2026-06-29T14:32:01Z",
+  "event_type": "mcp.tool_call",
+  "user_id": "jane.smith@company.com",
+  "agent_session_id": "agent-session-abc123",
+  "mcp_server": "github-repo-management",
+  "tool_name": "create_pull_request",
+  "action_type": "write",
+  "target": {
+    "system": "github",
+    "repository": "payments-api"
+  },
+  "parameters_sanitized": {
+    "branch": "feature/payment-timeout",
+    "base": "main"
+  },
+  "authorization_result": "HITL-approved",
+  "outcome": "success",
+  "data_classification": "confidential",
+  "duration_ms": 1200
+}
+```
+
+For failed or denied calls, preserve the same shape and set `outcome` to `denied` or `error`. Consistent failure logs are especially useful during incident response because they show what the agent attempted, not only what succeeded.
+
 ---
 
 ## Alerting Rules
@@ -179,6 +209,22 @@ flowchart LR
 | AppSec | Define alert rules; conduct periodic reviews; tune thresholds |
 | SecOps | Triage alerts; escalate incidents |
 | CISO | Review monthly metrics; approve Tier 4 continuous monitoring gaps |
+
+---
+
+## Tuning Without Going Blind
+
+Early alert rules will be noisy. That is normal. The goal is to tune alerts without removing the signals needed for investigation.
+
+| Problem | Better response | Risky response |
+|---------|-----------------|----------------|
+| Too many failed auth alerts | Raise threshold after baseline; group by user/server/session | Disable failed auth alerts entirely |
+| Too many volume alerts | Create separate baselines for normal business hours and batch jobs | Ignore volume anomalies for all servers |
+| HITL denial alerts are noisy | Alert only on repeated denials or denial followed by similar approved action | Stop logging denials |
+| DLP false positives | Redact noisy fields and refine classifiers | Allow raw sensitive payloads in logs |
+| Version change alerts fire often | Require change ticket ID in deployment metadata | Treat version changes as operational noise |
+
+Keep at least one high-signal alert for each Tier 3 and Tier 4 server: privileged action without expected approval, unexpected scope expansion, or high-risk tool call outside approved identity.
 
 ---
 

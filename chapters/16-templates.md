@@ -232,6 +232,23 @@ Even when adapting format, preserve:
 
 Removing fields weakens governance and auditability.
 
+### Add fields when your environment needs them
+
+Some organizations need additional fields because of their architecture or regulatory context. Common additions include:
+
+| Field | Add when |
+|-------|----------|
+| Agent configuration ID | You approve combinations of agents and MCP servers, not only servers |
+| Data residency | Data may cross country or regional boundaries |
+| Tenant / workspace ID | SaaS platforms have multiple business tenants |
+| Service account ID | Server uses non-human identity |
+| SIEM index or log source | SecOps needs to find logs quickly |
+| Change ticket ID | MCP server releases are controlled through ITSM |
+| DLP policy ID | Sensitive data controls are enforced by named policies |
+| Exception expiry date | Any required control is temporarily missing |
+
+If a field helps answer "who did what, with which data, through which tool, and under whose approval," it probably belongs in the workflow.
+
 ---
 
 ## End-to-End Example: New Jira MCP

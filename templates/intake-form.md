@@ -92,3 +92,20 @@ List every tool the MCP server exposes:
 | Assigned reviewer | |
 | Initial tier assessment | |
 | Review status | [ ] In review  [ ] Complete |
+
+---
+
+## Requester Pre-Submission Checklist
+
+Complete this before sending the request to AppSec.
+
+- [ ] A named business or technical owner is listed
+- [ ] Every exposed tool is listed, including disabled or experimental tools
+- [ ] Read, write, delete, execute, deploy, and send actions are clearly marked
+- [ ] Data access is specific to systems, spaces, repos, tables, folders, or tenants
+- [ ] Authentication model is described, including whether user or service-account identity is used
+- [ ] Logging location is identified
+- [ ] Known limitations or missing controls are disclosed
+- [ ] Any other MCP servers expected in the same agent session are listed
+
+Requests with vague scope such as "internal data," "GitHub access," or "standard permissions" should be returned for clarification before risk scoring.
