@@ -1,5 +1,7 @@
 # MCP Exception / Risk Acceptance Form
 
+**Part of:** [MCP Governance & Risk Framework](../mcp-governance-risk-framework.md) — see [Chapter 7: Approval Workflow](../mcp-governance-risk-framework.md#chapter-7-approval-workflow), [Chapter 10: Minimum Security Baseline](../mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline), and [Chapter 16: Templates](../mcp-governance-risk-framework.md#chapter-16-templates).
+
 **Instructions:** Use this form when an MCP server cannot meet all minimum security requirements but has a critical business need. Exceptions are time-bound and require formal risk acceptance. They are not permanent approvals.
 
 ---

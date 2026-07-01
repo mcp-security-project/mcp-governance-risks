@@ -1,5 +1,7 @@
 # MCP Approval Decision Form
 
+**Part of:** [MCP Governance & Risk Framework](../mcp-governance-risk-framework.md) — see [Chapter 6: Risk Scoring](../mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model), [Chapter 7: Approval Workflow](../mcp-governance-risk-framework.md#chapter-7-approval-workflow), and [Chapter 16: Templates](../mcp-governance-risk-framework.md#chapter-16-templates).
+
 **Instructions:** Complete this form after security review. Record the approval decision and required controls. File in the risk register.
 
 ---

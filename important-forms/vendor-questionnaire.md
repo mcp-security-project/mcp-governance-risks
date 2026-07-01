@@ -1,5 +1,7 @@
 # Third-Party MCP Vendor Questionnaire
 
+**Part of:** [MCP Governance & Risk Framework](../mcp-governance-risk-framework.md) — see [Chapter 9: Third-Party MCP Review](../mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) and [Chapter 16: Templates](../mcp-governance-risk-framework.md#chapter-16-templates).
+
 **Instructions:** Complete this questionnaire for all external, open-source, and community MCP servers before approval. Procurement leads vendor trust review; AppSec leads security controls review.
 
 **MCP Server Name:** _________________________  

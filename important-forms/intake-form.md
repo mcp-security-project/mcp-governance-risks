@@ -1,5 +1,7 @@
 # MCP Server Intake Form
 
+**Part of:** [MCP Governance & Risk Framework](../mcp-governance-risk-framework.md) — see [Chapter 4: Asset Inventory](../mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory), [Chapter 7: Approval Workflow](../mcp-governance-risk-framework.md#chapter-7-approval-workflow), and [Chapter 16: Templates](../mcp-governance-risk-framework.md#chapter-16-templates).
+
 **Instructions:** Complete this form before connecting any MCP server to enterprise AI systems. Submit to your AppSec team or MCP governance portal. Incomplete forms will be returned.
 
 ---

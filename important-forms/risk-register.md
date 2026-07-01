@@ -1,5 +1,7 @@
 # MCP Risk Register
 
+**Part of:** [MCP Governance & Risk Framework](../mcp-governance-risk-framework.md) — see [Chapter 4: Asset Inventory](../mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory), [Chapter 15: Metrics for CISOs](../mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos), and [Chapter 16: Templates](../mcp-governance-risk-framework.md#chapter-16-templates).
+
 **Instructions:** Maintain this register as the single source of truth for all approved and conditionally approved MCP servers. Update upon approval, re-classification, periodic review, or decommissioning.
 
 ---
