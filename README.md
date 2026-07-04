@@ -1,10 +1,8 @@
 # MCP Governance & Risk Model
 
-**A CISO Guide for Approving, Classifying, and Managing MCP Risk**
+**A Guide for Approving, Classifying, and Managing MCP Risk**
 
 This guide helps organizations answer one central question: *Should this MCP server be allowed in our environment, and under what controls?*
-
-**Full framework (all 16 chapters):** [MCP Governance & Risk Framework](mcp-governance-risk-framework.md)
 
 Model Context Protocol (MCP) connects AI agents to tools, data, APIs, files, identity systems, cloud platforms, and business workflows. That connectivity spans security, engineering, legal, privacy, procurement, risk, and business ownership. This guide provides the governance framework to manage that risk systematically.
 
@@ -12,13 +10,13 @@ Model Context Protocol (MCP) connects AI agents to tools, data, APIs, files, ide
 
 ## How to Use This Guide
 
-**First-time readers (CISO / security leadership):** Start with [Chapter 1](mcp-governance-risk-framework.md#chapter-1-executive-summary) and [Chapter 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), then skim [Chapter 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) and [Chapter 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow). Or read the [full framework](mcp-governance-risk-framework.md) in one document.
+**First-time readers (CISO / security leadership):** Start with [Executive Summary](mcp-governance-risk-framework.md#chapter-1-executive-summary) and [Why MCP Needs Governance](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), then skim [MCP Server Classification Model](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) and [Approval Workflow](mcp-governance-risk-framework.md#chapter-7-approval-workflow). Or read the [full framework](mcp-governance-risk-framework.md) in one document.
 
-**Security architects / AppSec:** Read Chapters 3–10 in the [framework](mcp-governance-risk-framework.md). These chapters cover principles, inventory, classification, scoring, approval, ownership, third-party review, and minimum baselines.
+**Security architects / AppSec:** Read [MCP Governance Principles](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [MCP Asset Inventory](mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory), [MCP Server Classification Model](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [MCP Risk Scoring Model](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model), [Approval Workflow](mcp-governance-risk-framework.md#chapter-7-approval-workflow), [Risk Ownership and RACI](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci), [Third-Party MCP Review](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), and [Minimum Security Baseline](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) in the [framework](mcp-governance-risk-framework.md).
 
-**Operational teams:** Use Chapters 11–15 in the [framework](mcp-governance-risk-framework.md) for high-risk scenarios, shadow MCP handling, monitoring, incident response, and metrics.
+**Operational teams:** Use [High-Risk MCP Use Cases](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases), [Shadow MCP Governance](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance), [Continuous Monitoring](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring), [Incident Response Alignment](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment), and [Metrics for CISOs](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos) in the [framework](mcp-governance-risk-framework.md).
 
-**Practitioners submitting requests:** Start with [Chapter 16](mcp-governance-risk-framework.md#chapter-16-templates) and the [Important Forms](important-forms/) folder.
+**Practitioners submitting requests:** Start with [Templates](mcp-governance-risk-framework.md#chapter-16-templates) and the [Important Forms](important-forms/) folder.
 
 **Compliance mapping:** See [Framework Mapping](framework-mapping.md) for OWASP, NIST, ISO, and SOC 2 alignment.
 
@@ -26,7 +24,7 @@ Model Context Protocol (MCP) connects AI agents to tools, data, APIs, files, ide
 
 ## Audience
 
-- CISOs and delegated security risk boards
+- Security Leaders and delegated security risk boards
 - Security architects and AppSec leaders
 - AI governance teams
 - Enterprise architecture teams
@@ -55,36 +53,40 @@ Model Context Protocol (MCP) connects AI agents to tools, data, APIs, files, ide
 
 All chapters are available in the single [MCP Governance & Risk Framework](mcp-governance-risk-framework.md) document.
 
-| # | Chapter | Description |
-|---|---------|-------------|
-| 1 | [Executive Summary](mcp-governance-risk-framework.md#chapter-1-executive-summary) | One-page CISO brief, ecosystem context, and guide overview |
-| 2 | [Why MCP Needs Governance](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) | Threat landscape, MCP-specific risks, and why developer-only controls fail |
-| 3 | [MCP Governance Principles](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) | Five foundational principles every organization should adopt |
-| 4 | [MCP Asset Inventory](mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory) | Discovery, intake fields, and inventory management |
-| 5 | [MCP Server Classification Model](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) | Tier 0–4 classification with examples and approval authority |
-| 6 | [MCP Risk Scoring Model](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model) | Quantitative scoring worksheet and worked examples |
-| 7 | [Approval Workflow](mcp-governance-risk-framework.md#chapter-7-approval-workflow) | Intake through deployment: approve, conditionally approve, or reject |
-| 8 | [Risk Ownership and RACI](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci) | Roles, responsibilities, and accountability matrix |
-| 9 | [Third-Party MCP Review](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor checklist for external and open-source MCP servers |
-| 10 | [Minimum Security Baseline](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Required controls by tier and sample policy language |
-| 11 | [High-Risk MCP Use Cases](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Tier 3–4 scenarios and mandatory controls |
-| 12 | [Shadow MCP Governance](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance) | Detection, prohibition, and remediation of unapproved servers |
-| 13 | [Continuous Monitoring](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Logging, alerting, and periodic review cadence |
-| 14 | [Incident Response Alignment](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) | Playbook for MCP compromise and break-glass procedures |
-| 15 | [Metrics for CISOs](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos) | Monthly dashboard KPIs and data sources |
-| 16 | [Templates](mcp-governance-risk-framework.md#chapter-16-templates) | How to use intake, risk register, and approval forms |
+
+| #   | Chapter                                                                                                       | Description                                                                |
+| --- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| 1   | [Executive Summary](mcp-governance-risk-framework.md#chapter-1-executive-summary)                             | Brief, ecosystem context, and guide overview                               |
+| 2   | [Why MCP Needs Governance](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance)               | Threat landscape, MCP-specific risks, and why developer-only controls fail |
+| 3   | [MCP Governance Principles](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles)             | Five foundational principles every organization should adopt               |
+| 4   | [MCP Asset Inventory](mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory)                         | Discovery, intake fields, and inventory management                         |
+| 5   | [MCP Server Classification Model](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) | Tier 0–4 classification with examples and approval authority               |
+| 6   | [MCP Risk Scoring Model](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model)                   | Quantitative scoring worksheet and worked examples                         |
+| 7   | [Approval Workflow](mcp-governance-risk-framework.md#chapter-7-approval-workflow)                             | Intake through deployment: approve, conditionally approve, or reject       |
+| 8   | [Risk Ownership and RACI](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci)                 | Roles, responsibilities, and accountability matrix                         |
+| 9   | [Third-Party MCP Review](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review)                   | Vendor checklist for external and open-source MCP servers                  |
+| 10  | [Minimum Security Baseline](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline)            | Required controls by tier and sample policy language                       |
+| 11  | [High-Risk MCP Use Cases](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases)                | Tier 3–4 scenarios and mandatory controls                                  |
+| 12  | [Shadow MCP Governance](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance)                    | Detection, prohibition, and remediation of unapproved servers              |
+| 13  | [Continuous Monitoring](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring)                    | Logging, alerting, and periodic review cadence                             |
+| 14  | [Incident Response Alignment](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment)        | Playbook for MCP compromise and break-glass procedures                     |
+| 15  | [Metrics for CISOs](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos)                            | Monthly dashboard KPIs and data sources                                    |
+| 16  | [Templates](mcp-governance-risk-framework.md#chapter-16-templates)                                            | How to use intake, risk register, and approval forms                       |
+
 
 ---
 
 ## Important Forms
 
-| Form | Purpose |
-|------|---------|
-| [Intake Form](important-forms/intake-form.md) | Initial request for a new MCP server |
-| [Risk Register](important-forms/risk-register.md) | Ongoing inventory of approved MCP servers and their risk posture |
-| [Vendor Questionnaire](important-forms/vendor-questionnaire.md) | Third-party and open-source MCP review |
-| [Approval Decision Form](important-forms/approval-decision-form.md) | Document approve / conditional / reject decisions |
-| [Exception / Risk Acceptance Form](important-forms/exception-risk-acceptance-form.md) | Formal risk acceptance for exceptions |
+
+| Form                                                                                  | Purpose                                                          |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [Intake Form](important-forms/intake-form.md)                                         | Initial request for a new MCP server                             |
+| [Risk Register](important-forms/risk-register.md)                                     | Ongoing inventory of approved MCP servers and their risk posture |
+| [Vendor Questionnaire](important-forms/vendor-questionnaire.md)                       | Third-party and open-source MCP review                           |
+| [Approval Decision Form](important-forms/approval-decision-form.md)                   | Document approve / conditional / reject decisions                |
+| [Exception / Risk Acceptance Form](important-forms/exception-risk-acceptance-form.md) | Formal risk acceptance for exceptions                            |
+
 
 ---
 
@@ -98,8 +100,9 @@ All chapters are available in the single [MCP Governance & Risk Framework](mcp-g
 
 This guide sits within a broader MCP security ecosystem:
 
-- **MCP Security Taxonomy** — Defines the risk language
-- **MCP Governance & Risk Model** (this guide) — Decides what is allowed and who owns risk
-- **MCP Testing Guide** — Validates whether controls actually work
-- **Awesome MCP CVE** — Tracks real-world failure patterns
-- **Awesome MCP Security List** — Curates resources, tools, research, and guidance
+- [MCP Security Taxonomy](https://github.com/safe-agentic-framework/safe-mcp) — Defines the risk language
+- [MCP Governance & Risk Model](https://github.com/mcp-security-project/mcp-governance-risks) (this guide) — Decides what is allowed and who owns risk
+- [MCP Testing Guide](https://github.com/appsecco/pentesting-mcp-servers-checklist) — Validates whether controls actually work
+- [Awesome MCP CVE](https://github.com/awesome-mcp-security/awesome-mcp-cve) — Tracks real-world failure patterns
+- [Awesome MCP Security List](https://github.com/awesome-mcp-security/awesome-mcp-security) — Curates resources, tools, research, and guidance
+

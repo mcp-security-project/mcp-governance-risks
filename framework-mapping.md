@@ -2,7 +2,7 @@
 
 **Purpose:** Map MCP Governance & Risk Model controls to established security and AI governance frameworks. Use this appendix for compliance audits, gap assessments, and alignment with existing organizational programs.
 
-**Related guide:** This mapping references controls defined in the [MCP Governance & Risk Framework](mcp-governance-risk-framework.md) (Chapters 3–15).
+**Related guide:** This mapping references controls defined in the [MCP Governance & Risk Framework](mcp-governance-risk-framework.md) ([MCP Governance Principles](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) through [Metrics for CISOs](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos)).
 
 ---
 
@@ -103,7 +103,7 @@ Use this section to map guide controls to your organization's internal AI govern
 
 | Internal Policy | Guide Section | Alignment Notes |
 |-----------------|---------------|-----------------|
-| [Your AI Usage Policy] | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Adopt MCP-specific policy language from Chapter 10 |
+| [Your AI Usage Policy] | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Adopt MCP-specific policy language from [Minimum Security Baseline](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
 | [Your AI Risk Assessment Process] | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model) | MCP tier classification and scoring as AI risk assessment |
 | [Your Third-Party AI Vendor Policy] | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Extend vendor review to include MCP vendor questionnaire |
 | [Your AI Incident Response Plan] | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) | Add MCP-specific playbook to existing IR plan |

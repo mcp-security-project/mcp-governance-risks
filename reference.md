@@ -17,16 +17,16 @@ These links appear in the [MCP Governance & Risk Framework](mcp-governance-risk-
 
 | Resource | URL | Used in |
 |----------|-----|---------|
-| MCP Specification | https://spec.modelcontextprotocol.io/ | Ch. 1, 2 |
-| MCP Authorization Specification | https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ | Ch. 1, 2, 3, 5, 7, 9, 10 |
-| MCP Security Best Practices | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices | Ch. 1, 2, 10 |
-| OWASP MCP Top 10 | https://owasp.org/www-project-mcp-top-10/ | Ch. 1–5, 9, 11–13 |
-| OWASP Top 10 for LLM Applications | https://owasp.org/www-project-top-10-for-large-language-model-applications/ | Ch. 1, 2, 3, 11 |
-| NIST AI Risk Management Framework (AI RMF 1.0) | https://www.nist.gov/itl/ai-risk-management-framework | Ch. 1 |
-| ISO/IEC 42001:2023 | https://www.iso.org/standard/81230.html | Ch. 1 |
-| Awesome MCP Security List | https://github.com/awesome-mcp-security/awesome-mcp-security | Ch. 1, 2 |
-| Awesome MCP CVE | https://github.com/awesome-mcp-security/awesome-mcp-cve | Ch. 1, 2 |
-| NIST SP 800-61 Rev. 2 (Incident Response) | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final | Ch. 14 |
+| MCP Specification | https://spec.modelcontextprotocol.io/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
+| MCP Authorization Specification | https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow), [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
+| MCP Security Best Practices | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
+| OWASP MCP Top 10 | https://owasp.org/www-project-mcp-top-10/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary)–[Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases)–[Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) |
+| OWASP Top 10 for LLM Applications | https://owasp.org/www-project-top-10-for-large-language-model-applications/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) |
+| NIST AI Risk Management Framework (AI RMF 1.0) | https://www.nist.gov/itl/ai-risk-management-framework | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary) |
+| ISO/IEC 42001:2023 | https://www.iso.org/standard/81230.html | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary) |
+| Awesome MCP Security List | https://github.com/awesome-mcp-security/awesome-mcp-security | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
+| Awesome MCP CVE | https://github.com/awesome-mcp-security/awesome-mcp-cve | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
+| NIST SP 800-61 Rev. 2 (Incident Response) | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) |
 
 ---
 
@@ -133,7 +133,7 @@ These links appear in the [MCP Governance & Risk Framework](mcp-governance-risk-
 | NIST AI RMF Playbook | https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-1-0 | Implementation guidance |
 | NIST AI RMF — Generative AI Profile | https://www.nist.gov/itl/ai-risk-management-framework/generative-artificial-intelligence-profile | GenAI-specific RMF guidance |
 | NIST Cybersecurity Framework 2.0 | https://www.nist.gov/cyberframework | Mapped in COMPEL MCP baseline |
-| NIST SP 800-61 Rev. 2 — Incident Response | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final | Ch. 14 IR alignment |
+| NIST SP 800-61 Rev. 2 — Incident Response | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) IR alignment |
 | NIST SP 800-207 — Zero Trust Architecture | https://csrc.nist.gov/pubs/sp/800/207/final | OWASP AISVS MCP controls |
 | ISO/IEC 42001:2023 — AI management systems | https://www.iso.org/standard/81230.html | Formal AI governance programs |
 | EU AI Act (official text) | https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689 | Regulated AI system obligations |
@@ -340,7 +340,7 @@ These references were identified during an internet review and are recommended a
 | OWASP AI Agent Security Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html | Agentic security guidance adjacent to MCP governance |
 | OWASP LLM Prompt Injection Prevention Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html | Useful for prompt/tool-output injection controls |
 | OWASP RAG Security Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html | Relevant when MCP servers expose retrieval and knowledge-base tools |
-| OWASP Logging Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html | Supports audit log design in Chapters 10 and 13 |
+| OWASP Logging Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html | Supports audit log design in [Minimum Security Baseline](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) and [Continuous Monitoring](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) |
 | OWASP Secrets Management Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html | Supports MCP01/token and secret handling controls |
 | OWASP Software Supply Chain Security Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html | Supports third-party and OSS MCP review |
 
