@@ -10,10 +10,12 @@ MCP adoption is accelerating across engineering teams. Agents can read wikis, op
 
 ## What's in this repository
 
-| Document | Description |
-|----------|-------------|
+
+| Document                                                                       | Description                                                                                                  |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | [mcp-governance-risk-framework-v1.0.md](mcp-governance-risk-framework-v1.0.md) | **Main guide (v1.0)** — inventory, classification, risk scoring, governance principles, and rollout guidance |
-| [reference.md](reference.md) | **Reference links** — curated URLs for MCP security, compliance, threat modeling, and vendor review |
+| [reference.md](reference.md)                                                   | **Reference links** — curated URLs for MCP security, compliance, threat modeling, and vendor review          |
+
 
 ### Framework v1.0 scope
 
@@ -53,12 +55,14 @@ Focus on data scope, third-party server review, and vendor trust factors in [Cha
 
 These four rules are designed to be adopted as organizational policy:
 
-| Rule | Implication |
-|------|-------------|
-| **No owner = No approval** | Every MCP server requires a named owner before approval |
-| **No logging = No production use** | Servers without audit trails cannot operate in production |
-| **No scope definition = No access** | Data and action scope must be documented before connection |
-| **No review = No enterprise deployment** | Periodic review is mandatory by risk tier |
+
+| Rule                                     | Implication                                                |
+| ---------------------------------------- | ---------------------------------------------------------- |
+| **No owner = No approval**               | Every MCP server requires a named owner before approval    |
+| **No logging = No production use**       | Servers without audit trails cannot operate in production  |
+| **No scope definition = No access**      | Data and action scope must be documented before connection |
+| **No review = No enterprise deployment** | Periodic review is mandatory by risk tier                  |
+
 
 ---
 
@@ -71,19 +75,21 @@ These four rules are designed to be adopted as organizational policy:
 5. **Assign owners** — Name business and technical owners for every Tier 2+ server
 6. **Report metrics** — Track inventory coverage, shadow MCP count, and overdue reviews monthly
 
-See [Recommended First Steps](mcp-governance-risk-framework-v1.0.md#recommended-first-steps) and the [90-day rollout plan](mcp-governance-risk-framework-v1.0.md#practical-rollout-plan-90-days) for detailed guidance.
+
 
 ---
 
 ## Classification tiers at a glance
 
-| Tier | Description | Example | Approval authority |
-|------|-------------|---------|-------------------|
-| **0** | Public data, read-only | Public docs, weather API | Lightweight review |
-| **1** | Internal, non-sensitive read | Internal wiki search | Security + business owner |
-| **2** | Sensitive read | CRM, HR knowledge base | Security + data owner |
-| **3** | Write-capable | GitHub PR merge, CI/CD trigger | Security architecture + platform owner |
-| **4** | Privileged / critical | Cloud admin, IAM, production deploy | CISO or risk board |
+
+| Tier  | Description                  | Example                             | Approval authority                     |
+| ----- | ---------------------------- | ----------------------------------- | -------------------------------------- |
+| **0** | Public data, read-only       | Public docs, weather API            | Lightweight review                     |
+| **1** | Internal, non-sensitive read | Internal wiki search                | Security + business owner              |
+| **2** | Sensitive read               | CRM, HR knowledge base              | Security + data owner                  |
+| **3** | Write-capable                | GitHub PR merge, CI/CD trigger      | Security architecture + platform owner |
+| **4** | Privileged / critical        | Cloud admin, IAM, production deploy | CISO or risk board                     |
+
 
 ---
 
