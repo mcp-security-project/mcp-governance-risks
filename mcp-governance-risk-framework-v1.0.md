@@ -124,10 +124,6 @@ You do not need a perfect program on day one. You need a credible start that pro
 
 ### Step 1: Stand up an MCP inventory
 
-You do not need a perfect program on day one. You need a credible start that produces visible progress within 30–90 days. The five steps below are ordered deliberately: each builds on the previous one.
-
-### **Step 1: Stand up an MCP inventory**
-
 Capture every MCP server you can identify  approved, in-flight, and suspected shadow deployments.  AppSec or security architecture, with engineering team leads as data sources.
 
 Server name, owner (or "unknown"), use case, data accessed, actions permitted, source (internal / third-party / OSS), deployment location, approval status.
@@ -346,7 +342,7 @@ Session security is easy to overlook when teams focus on initial authentication.
 
 The overall design of how MCP servers authenticate clients, validate tokens, enforce scopes, and authorize tool access. Poor authorization design is a category of risk, not a single vulnerability.
 
-For authenticated HTTP-based MCP servers, the MCP authorization specification (Version 2025-11-25) requires OAuth 2.1 security best practices when authorization is supported, including:
+Authorization is optional under the MCP specification. When an HTTP-based MCP server supports authentication, it should conform to the [MCP Authorization Specification (Version 2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/), which requires OAuth 2.1-compatible security best practices, including:
 
 - **Audience validation** — MCP servers must only accept tokens intended for themselves
 - **Scope enforcement** — tools may only be invoked within the granted OAuth scope
@@ -442,7 +438,7 @@ This is not about distrusting developers. It is about recognizing that MCP risk 
 
 ## MCP-Specific Attack Patterns
 
-The following attack patterns are not theoretical. They are documented in OWASP guidance, MCP security guidance, and public security research. Understanding them helps you explain to leadership why MCP governance is urgent — not optional.
+The following attack patterns are not theoretical. These patterns are documented in OWASP guidance, MCP security guidance, public security research, and observed enterprise risk reviews. Understanding them helps you explain to leadership why MCP governance is urgent — not optional.
 
 ### **Tool chaining (primary risk)**
 
@@ -934,7 +930,7 @@ Every discovered MCP server must have a status. Status drives action.
 | **Approved**               | Inventoried, classified, reviewed, formally approved         | Monitor per tier cadence                                                                  |
 | **Conditionally approved** | Approved with documented conditions and remediation timeline | Track conditions; escalate if overdue                                                     |
 | **Pending**                | Submitted via intake; review not complete                    | Block production use until approved                                                       |
-| **Shadow**                 | Discovered without inventory entry or approval               | Fast-track intake; disconnect or restrict per [Shadow MCP priority](#shadow-mcp-priority) |
+| **Shadow**                 | Discovered without inventory entry or approval               | Initiate shadow MCP workflow; disconnect, fast-track intake, or reject based on priority (see [Shadow MCP priority](#shadow-mcp-priority)) |
 | **Rejected**               | Formally rejected; must not be connected                     | Block and monitor for reconnection                                                        |
 | **Decommissioned**         | Retired; credentials revoked                                 | Archive record; remove from allowlists                                                    |
 
@@ -1219,7 +1215,7 @@ Hard gates fall into two categories: **authorization hard gates** (for HTTP-base
 
 ### Authorization Hard Gates
 
-These gates apply to **HTTP-based MCP servers that support authentication**. STDIO/local servers are not subject to these OAuth-specific gates; see [Local MCP Hardening Requirements](#local-mcp-hardening-requirements) instead.
+These gates apply to **HTTP-based MCP servers that support authentication**. Authorization is optional under the MCP specification; when an HTTP server implements authentication, these OAuth-specific requirements apply. STDIO/local servers are not subject to these gates; they retrieve credentials from the environment and must meet [Local MCP Hardening Requirements](#local-mcp-hardening-requirements) instead.
 
 
 | Gate                       | Condition                                                                         | Result if failed |
@@ -1260,7 +1256,7 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 | **Identity Scope**    | Anonymous / public         | Standard corporate user        | Privileged user / broad service account |
 | **Exposure**          | Local with hardening       | Internal network               | Internet-facing / third-party hosted    |
 | **Vendor Trust**      | Internal, reviewed         | Known OSS / established vendor | Unknown / unverified                    |
-| **Auditability**      | Full logs with attribution | Partial logs                   | No logs (non-production pilots only)    |
+| **Auditability**      | Full logs with attribution | Partial logs                   | No logs (pilots, rejected, or exception triage only) |
 | **Reversibility**     | Easy rollback              | Partial rollback               | Irreversible action                     |
 | **Blast Radius**      | Single user                | Team / department              | Enterprise / production-wide            |
 
@@ -1329,7 +1325,7 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 
 **Auditability** — Can you see what the server did?
 
-> **Production rule:** A score of 5 (no logs) is permitted only for **non-production pilots**. Tier 2+ production use without audit logging is a **production hard gate failure** — see [Production Hard Gates](#production-hard-gates).
+> **Production rule:** Auditability score 5 is allowed only for non-production pilots, rejected servers, or exception triage. Production use without audit logging fails [Principle 5](#principle-5-auditability-requires-production-logging) and cannot be approved for Tier 2+ — see [Production Hard Gates](#production-hard-gates).
 
 
 | Score | Criteria                                                                           |
@@ -1338,7 +1334,7 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 | 2     | Full MCP-level logs, not yet in SIEM                                               |
 | 3     | Partial logs (tool name only, no user attribution)                                 |
 | 4     | Downstream system logs only (e.g., GitHub audit log, no MCP layer)                 |
-| 5     | No logs — non-production pilots only; **hard gate failure for Tier 2+ production** |
+| 5     | No logs — non-production pilots, rejected servers, or exception triage only; **hard gate failure for Tier 2+ production** |
 
 
 **Reversibility** — Can you undo the damage if something goes wrong?
@@ -1575,7 +1571,7 @@ The v1.0 guide aligns with security baselines conceptually; this catalog lists c
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ------------ | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | MCP-01     | Named owner documented                                                                                                                                       | Required     | Required     | Required | Required | Intake record with owner name                                                                                                                                   |
 | MCP-02     | Data and action scope documented                                                                                                                             | Required     | Required     | Required | Required | Scope statement in inventory                                                                                                                                    |
-| MCP-03     | For authenticated HTTP-based servers: OAuth 2.1 with audience/resource validation. For STDIO/local servers: credential handling and local hardening controls | If HTTP auth | If HTTP auth | Required | Required | Authorization test results ([Authorization Test Cases](#authorization-test-cases)) or signed [Local MCP Hardening](#local-mcp-hardening-requirements) checklist |
+| MCP-03     | For authenticated HTTP-based servers: OAuth 2.1-compatible authorization, protected resource metadata, resource/audience validation, and no token passthrough. For STDIO/local servers: credential source, local hardening, and secret-handling controls | If HTTP auth | If HTTP auth | Required | Required | Authorization test results ([Authorization Test Cases](#authorization-test-cases)) or signed [Local MCP Hardening](#local-mcp-hardening-requirements) checklist |
 | MCP-04     | No token passthrough                                                                                                                                         | Required     | Required     | Required | Required | Architecture review + test rejection of passthrough                                                                                                             |
 | MCP-05     | Audit logging with required fields                                                                                                                           | Recommended  | Required     | Required | Required | Sample log export + SIEM field mapping                                                                                                                          |
 | MCP-06     | HITL for write/delete/deploy                                                                                                                                 | Optional     | Recommended  | Required | Required | Screenshot or test of approval prompt                                                                                                                           |
@@ -1708,7 +1704,7 @@ If you cannot answer these questions today, you have work to do. Each question m
 | 3   | **What data can they access?**                      | Data classification documented per server: public, internal, sensitive, regulated — with DLP and minimization controls where required            |
 | 4   | **What actions can they perform?**                  | Tool-level inventory: read vs. write vs. execute vs. deploy — classified by highest-risk tool, not server name alone                             |
 | 5   | **Internal, third-party, OSS, or shadow?**          | Source and deployment model documented; shadow MCP prohibited and actively discovered                                                            |
-| 6   | **What auth model do they use?**                    | HTTP: OAuth 2.1 with audience validation, no token passthrough. STDIO: local credential handling and hardening — verified during security review |
+| 6   | **What auth model do they use?**                    | HTTP: OAuth 2.1-compatible authorization, protected resource metadata, resource/audience validation, no token passthrough. STDIO: credential source, local hardening, and secret-handling controls — verified during security review |
 | 7   | **Are tool calls logged and auditable?**            | Logs capture user, agent, tool, action, timestamp, and outcome — integrated with SIEM for Tier 2+                                                |
 | 8   | **Can they write, delete, execute, or exfiltrate?** | Write and execute capabilities explicitly documented; human-in-the-loop approval for sensitive actions                                           |
 | 9   | **What happens if compromised?**                    | Incident response playbook with break-glass procedures, owner escalation paths, and revocation steps                                             |
@@ -1765,7 +1761,7 @@ Use this checklist to assess readiness before presenting MCP governance to execu
 - [ ] Executive sponsor identified for MCP governance program (typically CISO or delegated risk board chair)
 - [ ] Cross-functional stakeholders identified: security, engineering, legal, privacy, procurement, business owners
 - [ ] Official MCP security guidance reviewed by AppSec team
-- [ ] OAuth 2.1 / audience validation requirements documented for authenticated HTTP-based MCP servers; local hardening requirements documented for STDIO servers
+- [ ] For authenticated HTTP-based MCP servers: OAuth 2.1-compatible authorization, protected resource metadata, resource/audience validation, and no token passthrough documented. For STDIO/local servers: credential source, local hardening, and secret-handling controls documented
 
 ### Inventory and classification
 

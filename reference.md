@@ -18,7 +18,7 @@ These links appear in the [MCP Governance & Risk Framework](mcp-governance-risk-
 | Resource | URL | Used in |
 |----------|-----|---------|
 | MCP Specification | https://spec.modelcontextprotocol.io/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
-| MCP Authorization Specification | https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow), [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
+| MCP Authorization Specification (2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/ | [Ch. 1](mcp-governance-risk-framework-v1.0.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles), [Ch. 6](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) |
 | MCP Security Best Practices | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
 | OWASP MCP Top 10 | https://owasp.org/www-project-mcp-top-10/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary)–[Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases)–[Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) |
 | OWASP Top 10 for LLM Applications | https://owasp.org/www-project-top-10-for-large-language-model-applications/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) |
@@ -53,11 +53,12 @@ These links appear in the [MCP Governance & Risk Framework](mcp-governance-risk-
 | Model Context Protocol (main site) | https://modelcontextprotocol.io/ |
 | MCP documentation index (`llms.txt`) | https://modelcontextprotocol.io/llms.txt |
 | MCP Specification (spec site) | https://spec.modelcontextprotocol.io/ |
-| MCP Specification (2025-03-26) | https://spec.modelcontextprotocol.io/specification/2025-03-26/ |
 | MCP Specification (2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/ |
-| MCP Authorization (2025-03-26) | https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization |
 | MCP Authorization (2025-11-25) | https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization |
-| MCP Authorization (spec site, 2025-03-26) | https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ |
+| MCP Authorization (spec site, 2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/ |
+| MCP Specification (2025-03-26) | https://spec.modelcontextprotocol.io/specification/2025-03-26/ |
+| MCP Authorization (2025-03-26, historical) | https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization |
+| MCP Authorization (spec site, 2025-03-26, historical) | https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ |
 | MCP Security Best Practices (draft spec path) | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices |
 | MCP Security Best Practices (2025-11-25) | https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices |
 | MCP Security Best Practices (docs tutorial) | https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices |
@@ -256,7 +257,7 @@ The [README](README.md) and [OWASP submission draft](owasp-project-submission-dr
 
 | Guide topic | Primary URLs |
 |-------------|--------------|
-| Approval & authorization | [MCP Authorization Spec](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/), [MCP Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices), [OWASP MCP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html) |
+| Approval & authorization | [MCP Authorization Spec (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/), [MCP Security Best Practices](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices), [OWASP MCP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html) |
 | Classification & risk scoring | [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/), [MSSS levels](https://github.com/mcp-security-standard/mcp-server-security-standard), [Framework Mapping Appendix](framework-mapping.md) |
 | Asset inventory & registry | [Official MCP Registry](https://registry.modelcontextprotocol.io/), [MCP Registry about](https://modelcontextprotocol.io/registry/about) |
 | Third-party / supply chain review | [OWASP MCP04](https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025-%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering), [Awesome MCP CVE](https://github.com/awesome-mcp-security/awesome-mcp-cve), [Vendor Questionnaire](important-forms/vendor-questionnaire.md) |
@@ -274,7 +275,8 @@ The [README](README.md) and [OWASP submission draft](owasp-project-submission-dr
 
 - **Draft status:** This file is not yet linked from the main guide navigation. Review before promoting to published status.
 - **OWASP MCP Top 10:** Currently in beta (v0.1). Risk names and URLs may change at final release. Note: published OWASP MCP risk names differ slightly from some internal guide chapter mappings — reconcile during final release.
-- **Dual spec hosts:** MCP documentation appears on both `modelcontextprotocol.io` and `spec.modelcontextprotocol.io`. Multiple spec versions (2025-03-26, 2025-11-25) coexist; verify which version your deployment targets.
+- **Current spec version:** This guide targets MCP Specification **2025-11-25** as the current authorization reference. Older versions (2025-03-26, 2025-06-18) remain listed for historical comparison.
+- **Dual spec hosts:** MCP documentation appears on both `modelcontextprotocol.io` and `spec.modelcontextprotocol.io`. Verify which version your deployment targets.
 - **Link rot:** Community awesome lists and blog posts change frequently. Prefer standards bodies, official MCP docs, and GitHub repos as canonical sources.
 - **Contributions:** Add new URLs via pull request. Prefer governance, risk, compliance, and MCP-specific security sources over general AI news.
 
@@ -396,7 +398,7 @@ The OWASP MCP Top 10 identifies the most critical security risks for MCP deploym
 
 | OWASP MCP Risk | Guide Section | Control / Implementation |
 |----------------|---------------|--------------------------|
-| MCP01 — Token Mismanagement & Audience Confusion | [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Enforce OAuth 2.1 with audience validation; reject token passthrough; verify during third-party review |
+| MCP01 — Token Mismanagement & Audience Confusion | [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance), [Appendix](mcp-governance-risk-framework-v1.0.md#authorization-test-cases) | For authenticated HTTP servers: enforce OAuth 2.1-compatible authorization with audience validation; reject token passthrough; verify during third-party review. For STDIO: enforce local hardening and credential handling |
 | MCP02 — Privilege Escalation | [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) (Principle 3), [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Least privilege per tool; separate read/write scopes; JIT access for Tier 4 |
 | MCP03 — Lack of Audit and Telemetry | [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) (Principle 5), [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Mandatory audit logging with user/agent/tool/action attribution; SIEM integration |
 | MCP04 — Prompt Injection via Tool Output | [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Prompt injection testing for Tier 2+; HITL for write actions; content sanitization |
