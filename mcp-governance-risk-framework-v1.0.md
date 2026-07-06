@@ -46,7 +46,7 @@ Consider three scenarios that security teams are already encountering:
 
 ### Why developer-only controls are not enough
 
-Engineering teams can implement technical controls — authentication, scoping, logging — but without organizational governance, predictable gaps appear:
+Engineering teams can implement technical controls — authentication, scoping, logging but without organizational governance, predictable gaps appear:
 
 
 | Gap                   | What happens in practice                                                          |
@@ -1183,8 +1183,6 @@ Developer tools can be high impact. Source code, CI/CD, cloud consoles, secrets 
 
 
 # Chapter 6: MCP Risk Scoring Model
-
-
 
 Classification (Tier 0–4) provides a categorical risk label. It answers: *What class of controls and approval authority applies?*
 
