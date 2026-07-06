@@ -61,7 +61,7 @@ Engineering teams can implement technical controls — authentication, scoping, 
 
 MCP security cannot be delegated entirely to developers. Security architecture, legal, privacy, procurement, and business owners must participate in MCP decisions not just the team that installed the server.
 
-The official MCP security guidance highlights architectural risks that governance must address: **confused deputy** issues (a server acting on tokens not intended for it), **token passthrough** (forwarding client tokens to downstream APIs without validation), **session security** weaknesses, and **authorization design** gaps. The MCP authorization specification requires OAuth 2.1 security best practices and **audience validation** — MCP servers must only accept tokens intended for themselves ([MCP Authorization Specification](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/)).
+The official MCP security guidance highlights architectural risks that governance must address: **confused deputy** issues (a server acting on tokens not intended for it), **token passthrough** (forwarding client tokens to downstream APIs without validation), **session security** weaknesses, and **authorization design** gaps. The [MCP Authorization Specification (Version 2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/) defines authorization as optional; when supported on HTTP-based transports, it requires OAuth 2.1 security best practices and **audience validation**, MCP servers must only accept tokens intended for themselves. STDIO transport does not follow the HTTP authorization specification.
 
 A single misconfigured MCP server can expose customer data, trigger unauthorized deployments, or provide a path for prompt-injection attacks to reach privileged systems. Organizations need a repeatable way to decide which MCP servers are allowed, under what controls, and who owns the residual risk.
 
@@ -83,19 +83,19 @@ Not every MCP server carries the same risk. MCP Server Classification Model defi
 
 ### **Score — quantify risk for decision-making**
 
-Classification provides categories; scoring provides nuance. MCP Risk Scoring Model offers hard gates plus an eight-factor weighted model (data sensitivity, action capability, identity scope, exposure, vendor trust, auditability, reversibility, blast radius) with worked examples. Scoring supports conditional approvals, exception documentation, and board-level reporting.
+Classification provides categories; scoring provides nuance. MCP Risk Scoring Model offers authorization and production hard gates plus an eight-factor weighted model (data sensitivity, action capability, identity scope, exposure, vendor trust, auditability, reversibility, blast radius) with worked examples. Scoring supports conditional approvals, exception documentation, and board-level reporting.
 
 ### **Approve — structured decisions, not informal consent**
 
-[Chapter 3](#chapter-3-mcp-governance-principles) and [Chapter 6](#chapter-6-mcp-risk-scoring-model) define approval criteria: hard gates, tier assignment, scoring bands, and paths to approve, conditionally approve, or reject. Conditional approval is explicit — useful when a server has business value but controls need improvement — rather than an informal "just use it for now."
+[Chapter 3](#chapter-3-mcp-governance-principles) and [Chapter 6](#chapter-6-mcp-risk-scoring-model) define approval criteria: authorization and production hard gates, tier assignment, scoring bands, and paths to approve, conditionally approve, or reject. Conditional approval is explicit useful when a server has business value but controls need improvement rather than an informal "just use it for now."
 
 ### **Assign ownership — accountability that survives incidents**
 
-Risk Ownership and RACI guidance in [Chapter 3](#chapter-3-mcp-governance-principles) covers accountability across business, engineering, AppSec, CISO, legal/privacy, and procurement. Every approved MCP server has a named owner who accepts residual risk. When something goes wrong at 2 a.m., someone is accountable — not "the AI team" in the abstract.
+Risk Ownership and RACI guidance in [Chapter 3](#chapter-3-mcp-governance-principles) covers accountability across business, engineering, AppSec, CISO, legal/privacy, and procurement. Every approved MCP server has a named owner who accepts residual risk. When something goes wrong at 2 a.m., someone is accountable not "the AI team" in the abstract.
 
 ### **Monitor — governance that continues after approval**
 
-Approval is not the end state. [Chapter 4](#chapter-4-mcp-asset-inventory) and the [Detection and Incident Response](#detection-and-incident-response) appendix cover logging requirements, SIEM fields, alerting, and periodic review cadence by risk tier. [Chapter 1](#step-5-define-monthly-metrics) defines monthly CISO metrics — inventory coverage, shadow MCP count, overdue reviews, high-risk approvals — so governance health is visible, not assumed.
+Approval is not the end state. [Chapter 4](#chapter-4-mcp-asset-inventory) and the [Detection and Incident Response](#detection-and-incident-response) appendix cover logging requirements, SIEM fields, alerting, and periodic review cadence by risk tier. [Chapter 1](#step-5-define-monthly-metrics) defines monthly CISO metrics inventory coverage, shadow MCP count, overdue reviews, high-risk approvals, so governance health is visible, not assumed.
 
 The model is designed to be practical: it includes policy language, metrics, and references to external standards (see [References and Further Reading](#references-and-further-reading)). Detailed control-by-control mappings to OWASP MCP Top 10, OWASP LLM Top 10, NIST AI RMF, ISO 42001, and SOC 2 are not included in v1.0; use [reference.md](reference.md) as a starting point if you need to build those mappings for your organization.
 
@@ -106,12 +106,12 @@ The model is designed to be practical: it includes policy language, metrics, and
 These four rules require formal exception and risk acceptance if bypassed. They appear throughout the guide and should be adopted as organizational policy language.
 
 
-| Rule                                     | Implication                                                                             | Why it exists                                                                                                                                                            |
-| ---------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **No owner = No approval**               | Every MCP server requires a named business or technical owner before it can be approved | Without ownership, there is no one to monitor usage, respond to incidents, or accept residual risk                                                                       |
+| Rule                                     | Implication                                                                             | Why it exists                                                                                                                                                                                                         |
+| ---------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **No owner = No approval**               | Every MCP server requires a named business or technical owner before it can be approved | Without ownership, there is no one to monitor usage, respond to incidents, or accept residual risk                                                                                                                    |
 | **No logging = No production use**       | Servers without audit trails cannot operate in production                               | OWASP MCP Top 10 identifies lack of audit and telemetry ([MCP08](https://owasp.org/www-project-mcp-top-10/)) as a major risk — without logs, you cannot determine what data agents accessed or who authorized actions |
-| **No scope definition = No access**      | Data and action scope must be documented before connection                              | Agents operate with delegated identity; undefined scope leads to over-privileged tools and unbounded blast radius                                                        |
-| **No review = No enterprise deployment** | Periodic review cadence is mandatory by risk tier                                       | MCP servers, their tools, and their dependencies change; a one-time approval decays quickly                                                                              |
+| **No scope definition = No access**      | Data and action scope must be documented before connection                              | Agents operate with delegated identity; undefined scope leads to over-privileged tools and unbounded blast radius                                                                                                     |
+| **No review = No enterprise deployment** | Periodic review cadence is mandatory by risk tier                                       | MCP servers, their tools, and their dependencies change; a one-time approval decays quickly                                                                                                                           |
 
 
 These rules are simple to state and hard to bypass without a documented exception. [Chapter 3: MCP Governance Principles](#chapter-3-mcp-governance-principles) provides the policy foundation and control requirements you can adapt for your AI usage policy, acceptable use policy, or secure development lifecycle.
@@ -141,13 +141,13 @@ Apply the Tier 0–4 model from Chapter 5 to every inventoried server. Classify 
 **Tier summary for quick reference:**
 
 
-| Tier | Description                  | Example                                              | Typical approval authority                        |
-| ---- | ---------------------------- | ---------------------------------------------------- | ------------------------------------------------- |
+| Tier | Description                  | Example                                              | Typical approval authority                                                                                                                         |
+| ---- | ---------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0    | Public data, read-only       | Public docs, weather API                             | Lightweight review — not risk-free; see [OWASP MCP03: Tool Poisoning](https://owasp.org/www-project-mcp-top-10/) and MCP06: Intent Flow Subversion |
-| 1    | Internal, non-sensitive read | Internal wiki search                                 | Security + business owner                         |
-| 2    | Sensitive read               | CRM, HR knowledge base, security tickets             | Security + data owner + privacy if required       |
-| 3    | Write-capable                | GitHub PR merge, Slack post, CI/CD trigger           | Security architecture + business + platform owner |
-| 4    | Privileged / critical        | Cloud admin, IAM, secrets manager, production deploy | CISO or delegated risk board                      |
+| 1    | Internal, non-sensitive read | Internal wiki search                                 | Security + business owner                                                                                                                          |
+| 2    | Sensitive read               | CRM, HR knowledge base, security tickets             | Security + data owner + privacy if required                                                                                                        |
+| 3    | Write-capable                | GitHub PR merge, Slack post, CI/CD trigger           | Security architecture + business + platform owner                                                                                                  |
+| 4    | Privileged / critical        | Cloud admin, IAM, secrets manager, production deploy | CISO or delegated risk board                                                                                                                       |
 
 
 Classification determines required controls, approval authority, and review cadence. Without it, every server gets the same treatment which means either everything is blocked or everything is allowed.
@@ -163,7 +163,7 @@ Adapt the policy language from [Chapter 3](#chapter-3-mcp-governance-principles)
  At minimum, 
 
 - publish the four governance rules (no owner, no logging, no scope, no review) and a shadow MCP prohibition.
-- Required controls by tier, authentication requirements (OAuth 2.1, audience validation), logging mandates, and consequences for non-compliant deployments.
+- Required controls by tier, authentication requirements (OAuth 2.1 with audience validation for authenticated HTTP servers; local hardening for STDIO), logging mandates, and consequences for non-compliant deployments.
 - Policy creates the mandate for governance. Without published expectations, inventory and classification remain voluntary and shadow MCP continues.
 - Policy published and communicated to engineering and AI platform teams within 30 days.
 
@@ -258,12 +258,14 @@ This is the fundamental shift: **you are no longer securing a deterministic appl
 
 Server-centric review alone is insufficient. Governance must also cover:
 
-| Component | Examples | Governance focus |
-| --------- | -------- | ---------------- |
-| **MCP Host** | Claude Desktop, Cursor, VS Code, internal agent platforms, CI agents, browser clients | Allowlists, client configuration review, connected-server inventory |
-| **MCP Client** | Client libraries inside the host that aggregate tools and manage sessions | Tool registry review, session binding, consent display |
-| **MCP Server** | GitHub MCP, filesystem MCP, custom internal servers | Classification, authorization, logging, vendor review |
-| **Transport** | stdio, HTTP, SSE | Encryption, network exposure, local vs. remote restrictions |
+
+| Component      | Examples                                                                              | Governance focus                                                    |
+| -------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **MCP Host**   | Claude Desktop, Cursor, VS Code, internal agent platforms, CI agents, browser clients | Allowlists, client configuration review, connected-server inventory |
+| **MCP Client** | Client libraries inside the host that aggregate tools and manage sessions             | Tool registry review, session binding, consent display              |
+| **MCP Server** | GitHub MCP, filesystem MCP, custom internal servers                                   | Classification, authorization, logging, vendor review               |
+| **Transport**  | stdio, HTTP, SSE                                                                      | Encryption, network exposure, local vs. remote restrictions         |
+
 
 Clients can aggregate tools from multiple servers into one registry. That aggregation is where **tool chaining** risk materializes — and why host and client governance are mandatory, not optional.
 
@@ -312,7 +314,7 @@ A MCP server accepts a token or authorization intended for a different service a
 - Server B uses the token to call Service C, which trusts Server B as a delegate
 - The user authorized access to A, but the action occurred on C
 
-**Why governance matters:** Confused deputy is not fixed by developer diligence alone. It requires organizational verification that every approved MCP server implements **audience validation** rejecting tokens not explicitly intended for that server. The [++MCP Authorization Specification](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/)++ states that MCP servers must only accept tokens intended for themselves.
+**Why governance matters:** Confused deputy is not fixed by developer diligence alone. It requires organizational verification that every approved HTTP-based MCP server implements **audience validation** rejecting tokens not explicitly intended for that server. The [MCP Authorization Specification (Version 2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/) requires this when authorization is supported on HTTP-based transports.
 
 ### **Token Passthrough**
 
@@ -344,7 +346,7 @@ Session security is easy to overlook when teams focus on initial authentication.
 
 The overall design of how MCP servers authenticate clients, validate tokens, enforce scopes, and authorize tool access. Poor authorization design is a category of risk, not a single vulnerability.
 
-The MCP authorization specification requires OAuth 2.1 security best practices, including:
+For authenticated HTTP-based MCP servers, the MCP authorization specification (Version 2025-11-25) requires OAuth 2.1 security best practices when authorization is supported, including:
 
 - **Audience validation** — MCP servers must only accept tokens intended for themselves
 - **Scope enforcement** — tools may only be invoked within the granted OAuth scope
@@ -356,6 +358,8 @@ The MCP authorization specification requires OAuth 2.1 security best practices, 
 - **State verification** — authorization requests must use and validate state parameters
 
 Authorization design must be verified during approval with **evidence and tests**, not assumed from a vendor datasheet. For third-party and open-source MCP servers, this verification is a mandatory step in vendor review. See [Authorization Test Cases](#authorization-test-cases) in the appendix.
+
+For STDIO/local servers, credential handling and [local MCP hardening](#local-mcp-hardening-requirements) apply instead of the HTTP OAuth requirements above.
 
 ### **Local MCP servers**
 
@@ -383,7 +387,7 @@ Many organizations assume their current security stack covers MCP because MCP us
 
 | Existing control           | Why it falls short for MCP                                                                               |
 | -------------------------- | -------------------------------------------------------------------------------------------------------- |
-| SSO for human users        | Agents operate with delegated tokens — SSO success does not mean the agent's tool calls are appropriate  |
+| SSO for human users        | Agents operate with delegated tokens, SSO success does not mean the agent's tool calls are appropriate   |
 | RBAC roles                 | MCP tools often map poorly to existing roles; a "developer" role may be too broad for a GitHub admin MCP |
 | Service account governance | Agents frequently use service accounts with static, over-privileged credentials                          |
 | PAM / JIT access           | Privileged access models designed for humans do not automatically apply to agent-initiated actions       |
@@ -438,7 +442,7 @@ This is not about distrusting developers. It is about recognizing that MCP risk 
 
 ## MCP-Specific Attack Patterns
 
-The following attack patterns are not theoretical. They are documented in OWASP guidance, MCP security research, and early incident reports. Understanding them helps you explain to leadership why MCP governance is urgent — not optional.
+The following attack patterns are not theoretical. They are documented in OWASP guidance, MCP security guidance, and public security research. Understanding them helps you explain to leadership why MCP governance is urgent — not optional.
 
 ### **Tool chaining (primary risk)**
 
@@ -586,13 +590,13 @@ If a proposed MCP deployment violates a principle, it must either be redesigned 
 ## The Five Principles at a Glance
 
 
-| #   | Principle                         | One-line rule                                     |
-| --- | --------------------------------- | ------------------------------------------------- |
-| 1   | No MCP Without Ownership          | No owner = no approval                            |
-| 2   | Classify Before You Connect       | Know the risk tier before connecting              |
-| 3   | Least Privilege for Tools         | Minimum permissions per tool, not per server name |
-| 4   | Human Approval Must Be Meaningful | HITL must show what, where, who, and impact       |
-| 5   | Auditability Requires Production Logging    | No logging = no production use                    |
+| #   | Principle                                | One-line rule                                     |
+| --- | ---------------------------------------- | ------------------------------------------------- |
+| 1   | No MCP Without Ownership                 | No owner = no approval                            |
+| 2   | Classify Before You Connect              | Know the risk tier before connecting              |
+| 3   | Least Privilege for Tools                | Minimum permissions per tool, not per server name |
+| 4   | Human Approval Must Be Meaningful        | HITL must show what, where, who, and impact       |
+| 5   | Auditability Requires Production Logging | No logging = no production use                    |
 
 
 ---
@@ -775,19 +779,19 @@ Servers without audit logging cannot be used in production. Period. The [OWASP M
 ## Applying Principles to Edge Cases
 
 
-| Scenario                                   | Principle           | Resolution                                                                            |
-| ------------------------------------------ | ------------------- | ------------------------------------------------------------------------------------- |
+| Scenario                                   | Principle           | Resolution                                                                                                                                                                          |
+| ------------------------------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Developer wants to test OSS MCP locally    | 2 — Classify        | Allow local testing only with [local MCP hardening](#local-mcp-hardening-requirements); prohibit production credentials; local deployment scores minimum Exposure 3 in risk scoring |
-| Urgent production need, no time for review | 1 — Ownership       | Exception process with CISO awareness; time-bound risk acceptance                     |
-| Vendor MCP has no logging API              | 5 — Auditability    | Reject for Tier 2+; or wrap with proxy that logs tool calls                           |
-| Team adds new tool to approved server      | 2 — Classify        | Re-classify; may require re-approval                                                  |
-| User complains HITL prompts are annoying   | 4 — Meaningful HITL | Reduce scope so fewer actions require approval; do not weaken prompt content          |
-| Business owner on extended leave           | 1 — Ownership       | Reassign owner within 30 days or suspend server                                       |
+| Urgent production need, no time for review | 1 — Ownership       | Exception process with CISO awareness; time-bound risk acceptance                                                                                                                   |
+| Vendor MCP has no logging API              | 5 — Auditability    | Reject for Tier 2+; or wrap with proxy that logs tool calls                                                                                                                         |
+| Team adds new tool to approved server      | 2 — Classify        | Re-classify; may require re-approval                                                                                                                                                |
+| User complains HITL prompts are annoying   | 4 — Meaningful HITL | Reduce scope so fewer actions require approval; do not weaken prompt content                                                                                                        |
+| Business owner on extended leave           | 1 — Ownership       | Reassign owner within 30 days or suspend server                                                                                                                                     |
 
 
 # Chapter 4: MCP Asset Inventory
 
-**A**You cannot classify, score, approve, or monitor what you cannot see. MCP asset inventory is the foundation of the entire governance model described in this guide. Without it:
+You cannot classify, score, approve, or monitor what you cannot see. MCP asset inventory is the foundation of the entire governance model described in this guide. Without it:
 
 - Shadow MCP servers proliferate undetected
 - Duplicate integrations go unnoticed (three teams each running their own GitHub MCP)
@@ -804,24 +808,24 @@ Every MCP server regardless of source, tier, or deployment model must be recorde
 ### Required fields
 
 
-| Field                   | Description                                    | Example                                                 | Why it matters                                          |
-| ----------------------- | ---------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| MCP server name         | Unique identifier                              | `github-repo-management`                                | Distinct from display name; used in logs and allowlists |
-| Display name            | Human-readable name                            | GitHub Repo Management MCP                              | For reports and dashboards                              |
-| Use case                | Business purpose                               | Enable agents to create PRs for engineering teams       | Justifies existence; drives classification              |
-| Owner                   | Named accountable person                       | [jane.smith@company.com](mailto:jane.smith@company.com) | Principle 1 — no owner, no approval                     |
-| Requesting team         | Team that requested access                     | Platform Engineering                                    | Escalation and communication                            |
-| Source / vendor         | Internal, OSS, commercial, community           | Internal fork of `@modelcontextprotocol/server-github`  | Determines vendor review depth                          |
-| Deployment location     | Where the server runs                          | Internal K8s cluster, developer laptop, vendor SaaS     | Affects exposure scoring                                |
-| Authentication model    | How the server authenticates                   | OAuth 2.1 with corporate GitHub App                     | Baseline compliance check                               |
-| Data accessed           | Classification of data touched                 | Internal source code (confidential)                     | Drives tier assignment                                  |
-| Tools / actions exposed | Tool names and capabilities                    | `search_repos` (read), `create_pr` (write)              | Classify by highest-risk tool                           |
-| Expected users          | Who will use this server                       | Engineering (200 users)                                 | Blast radius assessment                                 |
-| Approval status         | Approved / conditional / rejected / unapproved | Conditionally approved                                  | Governance state                                        |
-| Risk tier               | Tier 0–4                                       | Tier 3                                                  | Drives controls and review cadence                      |
-| Version                 | Pinned version or commit                       | v1.2.0                                                  | Supply chain tracking                                   |
-| Last review date        | Most recent security review                    | 2026-06-15                                              | Compliance tracking                                     |
-| Next review date        | Scheduled next review                          | 2026-09-15                                              | Prevents review decay                                   |
+| Field                   | Description                                    | Example                                                                       | Why it matters                                          |
+| ----------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------- |
+| MCP server name         | Unique identifier                              | `github-repo-management`                                                      | Distinct from display name; used in logs and allowlists |
+| Display name            | Human-readable name                            | GitHub Repo Management MCP                                                    | For reports and dashboards                              |
+| Use case                | Business purpose                               | Enable agents to create PRs for engineering teams                             | Justifies existence; drives classification              |
+| Owner                   | Named accountable person                       | [jane.smith@company.com](mailto:jane.smith@company.com)                       | Principle 1 — no owner, no approval                     |
+| Requesting team         | Team that requested access                     | Platform Engineering                                                          | Escalation and communication                            |
+| Source / vendor         | Internal, OSS, commercial, community           | Internal fork of `@modelcontextprotocol/server-github`                        | Determines vendor review depth                          |
+| Deployment location     | Where the server runs                          | Internal K8s cluster, developer laptop, vendor SaaS                           | Affects exposure scoring                                |
+| Authentication model    | How the server authenticates                   | OAuth 2.1 with corporate GitHub App (HTTP); local credential handling (STDIO) | Baseline compliance check                               |
+| Data accessed           | Classification of data touched                 | Internal source code (confidential)                                           | Drives tier assignment                                  |
+| Tools / actions exposed | Tool names and capabilities                    | `search_repos` (read), `create_pr` (write)                                    | Classify by highest-risk tool                           |
+| Expected users          | Who will use this server                       | Engineering (200 users)                                                       | Blast radius assessment                                 |
+| Approval status         | Approved / conditional / rejected / unapproved | Conditionally approved                                                        | Governance state                                        |
+| Risk tier               | Tier 0–4                                       | Tier 3                                                                        | Drives controls and review cadence                      |
+| Version                 | Pinned version or commit                       | v1.2.0                                                                        | Supply chain tracking                                   |
+| Last review date        | Most recent security review                    | 2026-06-15                                                                    | Compliance tracking                                     |
+| Next review date        | Scheduled next review                          | 2026-09-15                                                                    | Prevents review decay                                   |
 
 
 ### Optional but valuable fields
@@ -925,14 +929,14 @@ Everything connected through a centralized AI platform — the most controllable
 Every discovered MCP server must have a status. Status drives action.
 
 
-| Status                     | Definition                                                   | Action required                        |
-| -------------------------- | ------------------------------------------------------------ | -------------------------------------- |
-| **Approved**               | Inventoried, classified, reviewed, formally approved         | Monitor per tier cadence               |
-| **Conditionally approved** | Approved with documented conditions and remediation timeline | Track conditions; escalate if overdue  |
-| **Pending**                | Submitted via intake; review not complete                    | Block production use until approved    |
-| **Shadow**                 | Discovered without inventory entry or approval               |                                        |
-| **Rejected**               | Formally rejected; must not be connected                     | Block and monitor for reconnection     |
-| **Decommissioned**         | Retired; credentials revoked                                 | Archive record; remove from allowlists |
+| Status                     | Definition                                                   | Action required                                                                           |
+| -------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| **Approved**               | Inventoried, classified, reviewed, formally approved         | Monitor per tier cadence                                                                  |
+| **Conditionally approved** | Approved with documented conditions and remediation timeline | Track conditions; escalate if overdue                                                     |
+| **Pending**                | Submitted via intake; review not complete                    | Block production use until approved                                                       |
+| **Shadow**                 | Discovered without inventory entry or approval               | Fast-track intake; disconnect or restrict per [Shadow MCP priority](#shadow-mcp-priority) |
+| **Rejected**               | Formally rejected; must not be connected                     | Block and monitor for reconnection                                                        |
+| **Decommissioned**         | Retired; credentials revoked                                 | Archive record; remove from allowlists                                                    |
 
 
 ### Shadow MCP priority
@@ -951,8 +955,6 @@ Shadow MCP is one of the highest-priority governance gaps. Prioritize remediatio
 ---
 
 ## Inventory Maintenance
-
-++**Inventory Maintenance**++
 
 Inventory is not a one-time exercise. It decays without active maintenance.
 
@@ -1036,15 +1038,11 @@ Quarterly: verify every server still has a valid, reachable owner. Orphaned serv
 
 # Chapter 5: MCP Server Classification Model
 
-This chapter defines the *rules* that make governance work in practice. Every MCP governance program needs a small set of durable principles not dozens of policies nobody reads, but five clear rules that apply regardless of risk tier, vendor, or deployment model.
+Not every MCP server carries the same risk. A public documentation search connector and a production Kubernetes admin server should not receive the same scrutiny, controls, or approval authority.
 
-These principles should be:
+Classification answers one essential question before you connect: *What tier does this server belong in, based on the highest-risk tool it exposes?*
 
-- **Embedded in policy** — referenced in your AI usage policy, acceptable use policy, and secure development lifecycle
-- **Cited in approval decisions** — "Rejected per Principle 1: no named owner"
-- **Used to resolve ambiguity** — when edge cases arise, principles provide the tiebreaker
-
-If a proposed MCP deployment violates a principle, it must either be redesigned to comply or go through formal exception and risk acceptance
+The Tier 0–4 model provides a categorical risk label that drives required controls ([Formal Control Catalog](#formal-control-catalog)), approval authority, and review cadence. Use the decision tree and rules in this chapter during intake; pair tier assignment with the quantitative scoring in [Chapter 6](#chapter-6-mcp-risk-scoring-model) for borderline cases.
 
 ---
 
@@ -1143,18 +1141,16 @@ Every tier assignment must include written rationale in the approval record: whi
 | DDL, grant permissions, drop tables    | 4    | Privileged/admin               |
 
 
----
-
 ## Tier Summary Table
 
 
-| Tier | Data                            | Actions                 | Approval                            | CISO required | Review         |
-| ---- | ------------------------------- | ----------------------- | ----------------------------------- | ------------- | -------------- |
+| Tier | Data                            | Actions                 | Approval                            | CISO required | Review                                                                                                                                   |
+| ---- | ------------------------------- | ----------------------- | ----------------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | 0    | Public only                     | None (read public)      | Lightweight                         | No            | Annually — not risk-free; [MCP03 Tool Poisoning](https://owasp.org/www-project-mcp-top-10/) and MCP06 Intent Flow Subversion still apply |
-| 1    | Internal non-sensitive          | Read-only               | Security + business owner           | No            | Annually       |
-| 2    | Sensitive / regulated           | Read-only               | Security + data owner (+ legal)     | Sometimes     | Every 6 months |
-| 3    | Any                             | Write / delete / deploy | Security arch + business + platform | Sometimes     | Quarterly      |
-| 4    | Production / identity / finance | Admin / privileged      | CISO / risk board                   | **Required**  | Monthly        |
+| 1    | Internal non-sensitive          | Read-only               | Security + business owner           | No            | Annually                                                                                                                                 |
+| 2    | Sensitive / regulated           | Read-only               | Security + data owner (+ legal)     | Sometimes     | Every 6 months                                                                                                                           |
+| 3    | Any                             | Write / delete / deploy | Security arch + business + platform | Sometimes     | Quarterly                                                                                                                                |
+| 4    | Production / identity / finance | Admin / privileged      | CISO / risk board                   | **Required**  | Monthly                                                                                                                                  |
 
 
 ---
@@ -1173,8 +1169,6 @@ Not always. Read-only access to customer data, HR records, security tickets, sou
 
 Developer tools can be high impact. Source code, CI/CD, cloud consoles, secrets managers, and production logs are often more sensitive than ordinary business applications.
 
-**Reviewer move:** Classify by capability, not user population.
-
 ---
 
 ## References
@@ -1188,36 +1182,9 @@ Developer tools can be high impact. Source code, CI/CD, cloud consoles, secrets 
 | [OWASP MCP02: Privilege Escalation](https://owasp.org/www-project-mcp-top-10/)               | Least privilege and tier alignment |
 
 
----
-
-## Practitioner Checklist
-
-- [ ] Every inventoried MCP server has an assigned tier
-- [ ] Classification based on highest-risk tool, not server name
-- [ ] Tier rationale documented in approval record
-- [ ] Re-classification process defined for tool additions/changes
-- [ ] Approval authority mapped to each tier
-- [ ] Review cadence scheduled per tier
-- [ ] Tier 3–4 servers have enhanced controls per the [Formal Control Catalog](#formal-control-catalog)
-- [ ] Worked examples shared with engineering teams to set expectations
-
----
-
-**Next:** [Chapter 6 — MCP Risk Scoring Model](#chapter-6-mcp-risk-scoring-model) provides a quantitative method to complement tier classification and support borderline decisions.
-
----
-
----
-
 # Chapter 6: MCP Risk Scoring Model
 
-**Audience:** Security architects, risk analysts, and approval authorities  
-**Decision supported:** Quantifying MCP risk to inform approve / conditionally approve / reject decisions  
-**Reading time:** ~20 minutes
 
----
-
-## Why Score When You Already Have Tiers?
 
 Classification (Tier 0–4) provides a categorical risk label. It answers: *What class of controls and approval authority applies?*
 
@@ -1248,13 +1215,34 @@ Discrepancies between tier and score should be investigated — they may indicat
 
 ## Hard Gates (Non-Negotiable)
 
-Before applying the eight-factor scoring model, evaluate **hard gates**. If any gate fails, the server is **rejected** regardless of total score. These gates reflect mandatory requirements from the [MCP Authorization Specification](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and MCP security best practices.
+Before applying the eight-factor scoring model, evaluate **hard gates**. If any gate fails, the server is **rejected** regardless of total score.
 
-| Gate | Condition | Result if failed |
-| ---- | --------- | ---------------- |
-| **Token passthrough** | Server forwards client tokens to downstream APIs without independent validation | **Reject** |
-| **Audience validation** | Server accepts tokens not intended for itself (invalid or missing audience) | **Reject** |
-| **Broad token acceptance** | Server accepts tokens with scopes or audiences broader than the approved use case | **Reject** |
+Hard gates fall into two categories: **authorization hard gates** (for HTTP-based servers that support authentication) and **production hard gates** (for any server intended for production or enterprise use). Together they implement the governance rules from [Chapter 3](#chapter-3-mcp-governance-principles) and the [MCP Authorization Specification (Version 2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/).
+
+### Authorization Hard Gates
+
+These gates apply to **HTTP-based MCP servers that support authentication**. STDIO/local servers are not subject to these OAuth-specific gates; see [Local MCP Hardening Requirements](#local-mcp-hardening-requirements) instead.
+
+
+| Gate                       | Condition                                                                         | Result if failed |
+| -------------------------- | --------------------------------------------------------------------------------- | ---------------- |
+| **Token passthrough**      | Server forwards client tokens to downstream APIs without independent validation   | **Reject**       |
+| **Audience validation**    | Server accepts tokens not intended for itself (invalid or missing audience)       | **Reject**       |
+| **Broad token acceptance** | Server accepts tokens with scopes or audiences broader than the approved use case | **Reject**       |
+
+
+### Production Hard Gates
+
+These gates apply to any server intended for **production or enterprise deployment**, regardless of transport.
+
+
+| Gate                                      | Condition                                                                                  | Result if failed |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------- |
+| **No named owner**                        | Intake lacks a named accountable owner                                                     | **Reject**       |
+| **No documented scope**                   | Data and action scope not documented before connection                                     | **Reject**       |
+| **No production logging (Tier 2+)**       | Tier 2+ server intended for production without audit logging                               | **Reject**       |
+| **Production credentials on local STDIO** | Local STDIO server configuration contains production API keys, tokens, or service accounts | **Reject**       |
+
 
 Hard gates are not subject to conditional approval or risk acceptance. Remediation must occur before re-submission.
 
@@ -1272,9 +1260,9 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 | **Data Sensitivity**  | Public                     | Internal confidential          | Regulated / customer PII / secrets      |
 | **Action Capability** | Read-only                  | Write / modify                 | Delete / deploy / admin                 |
 | **Identity Scope**    | Anonymous / public         | Standard corporate user        | Privileged user / broad service account |
-| **Exposure**          | Local with hardening         | Internal network               | Internet-facing / third-party hosted    |
+| **Exposure**          | Local with hardening       | Internal network               | Internet-facing / third-party hosted    |
 | **Vendor Trust**      | Internal, reviewed         | Known OSS / established vendor | Unknown / unverified                    |
-| **Auditability**      | Full logs with attribution | Partial logs                   | No logs                                 |
+| **Auditability**      | Full logs with attribution | Partial logs                   | No logs (non-production pilots only)    |
 | **Reversibility**     | Easy rollback              | Partial rollback               | Irreversible action                     |
 | **Blast Radius**      | Single user                | Team / department              | Enterprise / production-wide            |
 
@@ -1320,13 +1308,13 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 **Exposure** — Where does the MCP server run and who can reach it?
 
 
-| Score | Criteria                                        |
-| ----- | ----------------------------------------------- |
+| Score | Criteria                                                                                                                 |
+| ----- | ------------------------------------------------------------------------------------------------------------------------ |
 | 1     | Local developer machine with full [local MCP hardening](#local-mcp-hardening-requirements) and no production credentials |
-| 2     | Internal network, VPN required                  |
-| 3     | Local developer machine without hardening, or internal network broadly accessible |
-| 4     | Internet-facing with authentication             |
-| 5     | Third-party SaaS, internet-facing, multi-tenant |
+| 2     | Internal network, VPN required                                                                                           |
+| 3     | Local developer machine without hardening, or internal network broadly accessible                                        |
+| 4     | Internet-facing with authentication                                                                                      |
+| 5     | Third-party SaaS, internet-facing, multi-tenant                                                                          |
 
 
 **Vendor Trust** — How well do you trust the MCP server source?
@@ -1343,14 +1331,16 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 
 **Auditability** — Can you see what the server did?
 
+> **Production rule:** A score of 5 (no logs) is permitted only for **non-production pilots**. Tier 2+ production use without audit logging is a **production hard gate failure** — see [Production Hard Gates](#production-hard-gates).
 
-| Score | Criteria                                                           |
-| ----- | ------------------------------------------------------------------ |
-| 1     | Full MCP-level logs with user/agent/tool/action, SIEM integrated   |
-| 2     | Full MCP-level logs, not yet in SIEM                               |
-| 3     | Partial logs (tool name only, no user attribution)                 |
-| 4     | Downstream system logs only (e.g., GitHub audit log, no MCP layer) |
-| 5     | No logs                                                            |
+
+| Score | Criteria                                                                           |
+| ----- | ---------------------------------------------------------------------------------- |
+| 1     | Full MCP-level logs with user/agent/tool/action, SIEM integrated                   |
+| 2     | Full MCP-level logs, not yet in SIEM                                               |
+| 3     | Partial logs (tool name only, no user attribution)                                 |
+| 4     | Downstream system logs only (e.g., GitHub audit log, no MCP layer)                 |
+| 5     | No logs — non-production pilots only; **hard gate failure for Tier 2+ production** |
 
 
 **Reversibility** — Can you undo the damage if something goes wrong?
@@ -1404,7 +1394,7 @@ Use a simple **1–5 score** for each factor. Total scores range from 8 (minimum
 
 ## Scoring Worksheet
 
-Use this worksheet during security review after hard gates pass. Record scores in the approval record.
+Use this worksheet during security review after all hard gates pass. Record scores in the approval record.
 
 ```
 MCP Server Name: _________________________
@@ -1557,7 +1547,8 @@ When multiple MCP servers are connected to the same agent, consider adjusting **
 
 ## Practitioner Checklist
 
-- [ ] Hard gates evaluated before scoring (token passthrough, audience validation, broad token acceptance)
+- [ ] Authorization hard gates evaluated (token passthrough, audience validation, broad token acceptance) for HTTP-based servers
+- [ ] Production hard gates evaluated (named owner, documented scope, production logging for Tier 2+, no production credentials on local STDIO)
 - [ ] Risk scoring worksheet used for every MCP server at or above Tier 2
 - [ ] All eight factors scored with documented rationale
 - [ ] Total score mapped to risk rating band
@@ -1581,20 +1572,43 @@ This concludes the v1.0 MCP Governance & Risk Framework. Use the appendix sectio
 
 The v1.0 guide aligns with security baselines conceptually; this catalog lists control-by-control evidence requirements by tier. Verify each control during approval and record evidence in the approval record.
 
-| Control ID | Control | Tier 0–1 | Tier 2 | Tier 3 | Tier 4 | Evidence required |
-| ---------- | ------- | -------- | ------ | ------ | ------ | ----------------- |
-| MCP-01 | Named owner documented | Required | Required | Required | Required | Intake record with owner name |
-| MCP-02 | Data and action scope documented | Required | Required | Required | Required | Scope statement in inventory |
-| MCP-03 | OAuth 2.1 with audience validation | Required | Required | Required | Required | Authorization test results ([Authorization Test Cases](#authorization-test-cases)) |
-| MCP-04 | No token passthrough | Required | Required | Required | Required | Architecture review + test rejection of passthrough |
-| MCP-05 | Audit logging with required fields | Recommended | Required | Required | Required | Sample log export + SIEM field mapping |
-| MCP-06 | HITL for write/delete/deploy | Optional | Recommended | Required | Required | Screenshot or test of approval prompt |
-| MCP-07 | Periodic review per tier cadence | Required | Required | Required | Required | Review date in risk register |
-| MCP-08 | Tool inventory and highest-risk classification | Required | Required | Required | Required | Tool list with tier rationale |
-| MCP-09 | Vendor/SBOM review for external servers | If external | Required | Required | Required | SBOM, CVE scan, version pin |
-| MCP-10 | Local MCP hardening (if local) | Required | Required | Required | Required | Hardening checklist signed off |
-| MCP-11 | Host/client allowlist enforcement | Recommended | Required | Required | Required | Platform config export |
-| MCP-12 | Tool chaining review for agent configs | Required | Required | Required | Required | Connected-server list per agent |
+
+| Control ID | Control                                                                                                                                                      | Tier 0–1     | Tier 2       | Tier 3   | Tier 4   | Evidence required                                                                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ------------ | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MCP-01     | Named owner documented                                                                                                                                       | Required     | Required     | Required | Required | Intake record with owner name                                                                                                                                   |
+| MCP-02     | Data and action scope documented                                                                                                                             | Required     | Required     | Required | Required | Scope statement in inventory                                                                                                                                    |
+| MCP-03     | For authenticated HTTP-based servers: OAuth 2.1 with audience/resource validation. For STDIO/local servers: credential handling and local hardening controls | If HTTP auth | If HTTP auth | Required | Required | Authorization test results ([Authorization Test Cases](#authorization-test-cases)) or signed [Local MCP Hardening](#local-mcp-hardening-requirements) checklist |
+| MCP-04     | No token passthrough                                                                                                                                         | Required     | Required     | Required | Required | Architecture review + test rejection of passthrough                                                                                                             |
+| MCP-05     | Audit logging with required fields                                                                                                                           | Recommended  | Required     | Required | Required | Sample log export + SIEM field mapping                                                                                                                          |
+| MCP-06     | HITL for write/delete/deploy                                                                                                                                 | Optional     | Recommended  | Required | Required | Screenshot or test of approval prompt                                                                                                                           |
+| MCP-07     | Periodic review per tier cadence                                                                                                                             | Required     | Required     | Required | Required | Review date in risk register                                                                                                                                    |
+| MCP-08     | Tool inventory and highest-risk classification                                                                                                               | Required     | Required     | Required | Required | Tool list with tier rationale                                                                                                                                   |
+| MCP-09     | Vendor/SBOM review for external servers                                                                                                                      | If external  | Required     | Required | Required | SBOM, CVE scan, version pin                                                                                                                                     |
+| MCP-10     | Local MCP hardening (if local)                                                                                                                               | Required     | Required     | Required | Required | Hardening checklist signed off                                                                                                                                  |
+| MCP-11     | Host/client allowlist enforcement                                                                                                                            | Recommended  | Required     | Required | Required | Platform config export                                                                                                                                          |
+| MCP-12     | Tool chaining review for agent configs                                                                                                                       | Required     | Required     | Required | Required | Connected-server list per agent                                                                                                                                 |
+
+
+---
+
+## Evidence Pack (Tier 2+ Approvals)
+
+For every Tier 2 and above approval, collect and retain an **evidence pack** in the approval record. AppSec, GRC, and CISO reviewers should be able to reconstruct the decision without re-interviewing the requester.
+
+
+| Artifact                               | Purpose                                                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Architecture diagram                   | Shows host, client, server, transport, downstream APIs, and identity flow                                                                   |
+| Tool inventory                         | Lists every exposed tool with read/write/delete classification                                                                              |
+| OAuth/audience validation test results | Documents pass/fail for [Authorization Test Cases](#authorization-test-cases) on HTTP servers; N/A for STDIO-only with documented rationale |
+| Logging sample                         | Demonstrates required fields are captured and SIEM-mappable                                                                                 |
+| HITL screenshot for write actions      | Confirms meaningful human approval prompts for write/delete/deploy tools                                                                    |
+| SBOM or dependency scan                | Required for external/OSS servers — version pin and CVE review                                                                              |
+| Owner and risk acceptance record       | Named owner, approver, date, and residual risk acceptance for conditional approvals                                                         |
+| Connected-server list                  | Documents tool chaining risk for agent configs using multiple MCP servers                                                                   |
+
+
+Evidence packs are mandatory for Tier 2+ approvals. Tier 0–1 pilots may use a lightweight subset; Tier 3–4 require complete packs plus security architecture review.
 
 ---
 
@@ -1602,12 +1616,14 @@ The v1.0 guide aligns with security baselines conceptually; this catalog lists c
 
 MCP architecture includes MCP Host, MCP Client, and MCP Server. Govern all three — not only the server.
 
-| Surface | Examples | Minimum governance |
-| ------- | -------- | ------------------ |
-| **Desktop hosts** | Claude Desktop, Cursor, VS Code | Inventory `mcp.json` / host configs; allowlist approved servers; block unlisted servers where platform supports it |
-| **Internal agent platforms** | Custom agent orchestrators, RAG platforms | Central MCP registry; require intake before connection; log all tool calls |
-| **CI/CD agents** | Pipeline-embedded MCP clients | Treat as Tier 3+ by default; no production credentials on build agents without review |
-| **Browser clients** | Web-based AI assistants with MCP | Same auth, logging, and allowlist requirements as desktop hosts |
+
+| Surface                      | Examples                                  | Minimum governance                                                                                                 |
+| ---------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Desktop hosts**            | Claude Desktop, Cursor, VS Code           | Inventory `mcp.json` / host configs; allowlist approved servers; block unlisted servers where platform supports it |
+| **Internal agent platforms** | Custom agent orchestrators, RAG platforms | Central MCP registry; require intake before connection; log all tool calls                                         |
+| **CI/CD agents**             | Pipeline-embedded MCP clients             | Treat as Tier 3+ by default; no production credentials on build agents without review                              |
+| **Browser clients**          | Web-based AI assistants with MCP          | Same auth, logging, and allowlist requirements as desktop hosts                                                    |
+
 
 For each host, maintain: host name, platform owner, list of connected MCP servers, approval status of each connection, and last configuration review date.
 
@@ -1632,18 +1648,20 @@ Local deployment without these controls scores **Exposure 3 minimum** in the ris
 
 ## Authorization Test Cases
 
-Run these tests during security review for Tier 1+ servers. Document pass/fail results in the approval record. Any failure on a hard-gate test requires rejection.
+Run these tests during security review for Tier 1+ **HTTP-based** servers. Document pass/fail results in the approval record. Any failure on an authorization hard-gate test requires rejection. STDIO/local servers use the [Local MCP Hardening Requirements](#local-mcp-hardening-requirements) checklist instead.
 
-| Test | Procedure | Pass criteria |
-| ---- | --------- | ------------- |
-| **Audience validation** | Present token with wrong `aud` claim to server | Server rejects token |
-| **Token passthrough rejection** | Attempt to use client token on downstream API via server without server-issued token | Passthrough blocked; server uses its own credential |
-| **PKCE** | Initiate auth flow from public client without PKCE | Authorization server rejects request |
-| **State validation** | Replay authorization callback with missing or altered `state` | Request rejected |
-| **Redirect URI matching** | Submit callback with non-exact registered redirect URI | Request rejected |
-| **Scope enforcement** | Invoke tool outside granted OAuth scope | Tool call denied and logged |
-| **Protected resource metadata** | Fetch server metadata document | Metadata present and matches registered authorization configuration |
-| **Token rejection** | Present expired, revoked, or malformed token | Server rejects with no tool execution |
+
+| Test                            | Procedure                                                                            | Pass criteria                                                       |
+| ------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
+| **Audience validation**         | Present token with wrong `aud` claim to server                                       | Server rejects token                                                |
+| **Token passthrough rejection** | Attempt to use client token on downstream API via server without server-issued token | Passthrough blocked; server uses its own credential                 |
+| **PKCE**                        | Initiate auth flow from public client without PKCE                                   | Authorization server rejects request                                |
+| **State validation**            | Replay authorization callback with missing or altered `state`                        | Request rejected                                                    |
+| **Redirect URI matching**       | Submit callback with non-exact registered redirect URI                               | Request rejected                                                    |
+| **Scope enforcement**           | Invoke tool outside granted OAuth scope                                              | Tool call denied and logged                                         |
+| **Protected resource metadata** | Fetch server metadata document                                                       | Metadata present and matches registered authorization configuration |
+| **Token rejection**             | Present expired, revoked, or malformed token                                         | Server rejects with no tool execution                               |
+
 
 ---
 
@@ -1659,13 +1677,15 @@ Forward these fields to SIEM for Tier 2+ servers (align with [Principle 5](#prin
 
 ### Detection use cases
 
-| Detection | Trigger | Response |
-| --------- | ------- | -------- |
-| Shadow MCP connection | Tool call from unlisted server | Alert AppSec; initiate shadow MCP workflow |
+
+| Detection                       | Trigger                                                               | Response                                    |
+| ------------------------------- | --------------------------------------------------------------------- | ------------------------------------------- |
+| Shadow MCP connection           | Tool call from unlisted server                                        | Alert AppSec; initiate shadow MCP workflow  |
 | Cross-tool exfiltration pattern | Read from sensitive source followed by write/send within same session | Alert; suspend agent session pending review |
-| Auth failure spike | Repeated audience or scope validation failures | Alert; block server pending investigation |
-| Privileged tool after hours | Tier 4 tool invocation outside business hours | Alert owner and AppSec |
-| New tool without re-approval | Tool name not in approved inventory | Alert; suspend server until re-classified |
+| Auth failure spike              | Repeated audience or scope validation failures                        | Alert; block server pending investigation   |
+| Privileged tool after hours     | Tier 4 tool invocation outside business hours                         | Alert owner and AppSec                      |
+| New tool without re-approval    | Tool name not in approved inventory                                   | Alert; suspend server until re-classified   |
+
 
 ### MCP incident response playbook (summary)
 
@@ -1673,7 +1693,7 @@ Forward these fields to SIEM for Tier 2+ servers (align with [Principle 5](#prin
 2. **Contain** — revoke OAuth tokens, remove from host allowlists, disable server process
 3. **Investigate** — reconstruct tool call timeline from SIEM; check for tool chaining abuse
 4. **Eradicate** — patch misconfiguration, rotate credentials, remove malicious tools or dependencies
-5. **Recover** — re-approve only after hard gates and tier controls pass
+5. **Recover** — re-approve only after authorization and production hard gates and tier controls pass
 6. **Document** — update risk register, incident ticket, and lessons learned
 
 ---
@@ -1683,18 +1703,18 @@ If you cannot answer these questions today, you have work to do. Each question m
 ## Ten Questions Every Security Leader Should Be Able to Answer
 
 
-| #   | Question                                            | What a good answer looks like                                                                                                           |
-| --- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Which MCP servers are allowed?**                  | A maintained inventory with approval status for every server — not a partial list of "the ones we know about"                           |
-| 2   | **Who approved them?**                              | Named approvers, approval dates, and conditions documented per server — retrievable within minutes, not reconstructed after an incident |
-| 3   | **What data can they access?**                      | Data classification documented per server: public, internal, sensitive, regulated — with DLP and minimization controls where required   |
-| 4   | **What actions can they perform?**                  | Tool-level inventory: read vs. write vs. execute vs. deploy — classified by highest-risk tool, not server name alone                    |
-| 5   | **Internal, third-party, OSS, or shadow?**          | Source and deployment model documented; shadow MCP prohibited and actively discovered                                                   |
-| 6   | **What auth model do they use?**                    | OAuth 2.1 with audience validation, no token passthrough, SSO for internal servers — verified during security review                    |
-| 7   | **Are tool calls logged and auditable?**            | Logs capture user, agent, tool, action, timestamp, and outcome — integrated with SIEM for Tier 2+                                       |
-| 8   | **Can they write, delete, execute, or exfiltrate?** | Write and execute capabilities explicitly documented; human-in-the-loop approval for sensitive actions                                  |
-| 9   | **What happens if compromised?**                    | Incident response playbook with break-glass procedures, owner escalation paths, and revocation steps                                    |
-| 10  | **Who owns the risk?**                              | Named business or technical owner per server; RACI matrix published; residual risk accepted in writing for Tier 3–4                     |
+| #   | Question                                            | What a good answer looks like                                                                                                                    |
+| --- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | **Which MCP servers are allowed?**                  | A maintained inventory with approval status for every server — not a partial list of "the ones we know about"                                    |
+| 2   | **Who approved them?**                              | Named approvers, approval dates, and conditions documented per server — retrievable within minutes, not reconstructed after an incident          |
+| 3   | **What data can they access?**                      | Data classification documented per server: public, internal, sensitive, regulated — with DLP and minimization controls where required            |
+| 4   | **What actions can they perform?**                  | Tool-level inventory: read vs. write vs. execute vs. deploy — classified by highest-risk tool, not server name alone                             |
+| 5   | **Internal, third-party, OSS, or shadow?**          | Source and deployment model documented; shadow MCP prohibited and actively discovered                                                            |
+| 6   | **What auth model do they use?**                    | HTTP: OAuth 2.1 with audience validation, no token passthrough. STDIO: local credential handling and hardening — verified during security review |
+| 7   | **Are tool calls logged and auditable?**            | Logs capture user, agent, tool, action, timestamp, and outcome — integrated with SIEM for Tier 2+                                                |
+| 8   | **Can they write, delete, execute, or exfiltrate?** | Write and execute capabilities explicitly documented; human-in-the-loop approval for sensitive actions                                           |
+| 9   | **What happens if compromised?**                    | Incident response playbook with break-glass procedures, owner escalation paths, and revocation steps                                             |
+| 10  | **Who owns the risk?**                              | Named business or technical owner per server; RACI matrix published; residual risk accepted in writing for Tier 3–4                              |
 
 
 ---
@@ -1723,17 +1743,17 @@ If you cannot answer these questions today, you have work to do. Each question m
 These sources inform the controls and language used throughout this guide. Security teams should review them directly; executive sponsors should at minimum understand the official MCP security guidance and OWASP MCP Top 10.
 
 
-| Source                                                                                                                | Relevance to this guide                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [MCP Specification](https://spec.modelcontextprotocol.io/)                                                            | Defines the protocol this guide governs — tools, resources, transports, and authorization                     |
-| [MCP Authorization Specification](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) | OAuth 2.1 requirements, audience validation, token handling — mandatory for Tier 1+                           |
-| [MCP Security Best Practices](https://modelcontextprotocol.io/docs/concepts/security)                                 | Official guidance on confused deputy, token passthrough, session security, and authorization design           |
-| [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/)                                                         | Top ten MCP-specific risks — see [Formal Control Catalog](#formal-control-catalog) for evidence requirements |
-| [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)      | LLM risks that intersect with MCP — prompt injection, excessive agency, supply chain                          |
-| [NIST AI Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/itl/ai-risk-management-framework)               | Govern, Map, Measure, Manage functions — use [reference.md](reference.md) to build organizational mappings  |
-| [ISO/IEC 42001:2023](https://www.iso.org/standard/81230.html)                                                         | AI management system standard — useful for organizations building formal AI governance programs               |
-| [Awesome MCP Security List](https://github.com/awesome-mcp-security/awesome-mcp-security)                             | Curated tools, research, and community guidance as the MCP landscape evolves                                  |
-| [Awesome MCP CVE](https://github.com/awesome-mcp-security/awesome-mcp-cve)                                            | Real-world MCP failure patterns for threat modeling and vendor review                                         |
+| Source                                                                                                                             | Relevance to this guide                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [MCP Specification](https://spec.modelcontextprotocol.io/)                                                                         | Defines the protocol this guide governs — tools, resources, transports, and authorization                    |
+| [MCP Authorization Specification (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/) | Optional authorization; OAuth 2.1, audience validation, and token handling for authenticated HTTP transports |
+| [MCP Security Best Practices](https://modelcontextprotocol.io/docs/concepts/security)                                              | Official guidance on confused deputy, token passthrough, session security, and authorization design          |
+| [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/)                                                                      | Top ten MCP-specific risks — see [Formal Control Catalog](#formal-control-catalog) for evidence requirements |
+| [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)                   | LLM risks that intersect with MCP — prompt injection, excessive agency, supply chain                         |
+| [NIST AI Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/itl/ai-risk-management-framework)                            | Govern, Map, Measure, Manage functions — use [reference.md](reference.md) to build organizational mappings   |
+| [ISO/IEC 42001:2023](https://www.iso.org/standard/81230.html)                                                                      | AI management system standard — useful for organizations building formal AI governance programs              |
+| [Awesome MCP Security List](https://github.com/awesome-mcp-security/awesome-mcp-security)                                          | Curated tools, research, and community guidance as the MCP landscape evolves                                 |
+| [Awesome MCP CVE](https://github.com/awesome-mcp-security/awesome-mcp-cve)                                                         | Real-world MCP failure patterns for threat modeling and vendor review                                        |
 
 
 ---
@@ -1747,7 +1767,7 @@ Use this checklist to assess readiness before presenting MCP governance to execu
 - [ ] Executive sponsor identified for MCP governance program (typically CISO or delegated risk board chair)
 - [ ] Cross-functional stakeholders identified: security, engineering, legal, privacy, procurement, business owners
 - [ ] Official MCP security guidance reviewed by AppSec team
-- [ ] OAuth 2.1 / audience validation requirements documented as mandatory for Tier 1+
+- [ ] OAuth 2.1 / audience validation requirements documented for authenticated HTTP-based MCP servers; local hardening requirements documented for STDIO servers
 
 ### Inventory and classification
 
@@ -1762,6 +1782,7 @@ Use this checklist to assess readiness before presenting MCP governance to execu
 - [ ] Approval authority defined per risk tier
 - [ ] Shadow MCP prohibition policy drafted
 - [ ] Exception / risk acceptance process defined for conditional approvals
+- [ ] Evidence pack template defined for Tier 2+ approvals (see [Evidence Pack](#evidence-pack-tier-2-approvals))
 
 ### Ownership and monitoring
 

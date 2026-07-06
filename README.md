@@ -1,8 +1,8 @@
 # MCP Governance & Risk Framework
 
-A practical governance framework for organizations adopting the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) — the open standard that lets AI agents connect to external tools, data sources, and systems.
+A practical governance framework for organizations adopting the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/), the open standard that lets AI agents connect to external tools, data sources, and systems.
 
-MCP adoption is accelerating across engineering teams. Agents can read wikis, open pull requests, post to Slack, and trigger production workflows — often at machine speed and without the user seeing every intermediate step. This repository provides a structured way to answer the central governance question:
+MCP adoption is accelerating across engineering teams. Agents can read wikis, open pull requests, post to Slack, and trigger production workflows often at machine speed and without the user seeing every intermediate step. This repository provides a structured way to answer the central governance question:
 
 > **Should this MCP server be allowed in our environment, and under what controls?**
 
@@ -21,13 +21,13 @@ MCP adoption is accelerating across engineering teams. Agents can read wikis, op
 
 The v1.0 guide covers six core chapters plus a closing appendix:
 
-1. **Executive Summary** — business case, key rules, first steps, 90-day rollout plan
-2. **Why MCP Needs Governance** — threat landscape and security model shift
-3. **MCP Governance Principles** — foundational rules for MCP programs
-4. **MCP Asset Inventory** — discovery, intake, and shadow MCP detection
-5. **MCP Server Classification Model** — Tier 0–4 classification by risk
-6. **MCP Risk Scoring Model** — eight-factor quantitative scoring
-7. **Appendix** — standards alignment, practitioner checklist, references
+1. [Chapter 1: Executive Summary](mcp-governance-risk-framework-v1.0.md#chapter-1-executive-summary)
+2. [Chapter 2: Why MCP Needs Governance](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance)
+3. [Chapter 3: MCP Governance Principles](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles)
+4. [Chapter 4: MCP Asset Inventory](mcp-governance-risk-framework-v1.0.md#chapter-4-mcp-asset-inventory)
+5. [Chapter 5: MCP Server Classification Model](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model)
+6. [Chapter 6: MCP Risk Scoring Model](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model)
+7. [Appendix: Closing](mcp-governance-risk-framework-v1.0.md#appendix-closing)
 
 ---
 
@@ -74,8 +74,6 @@ These four rules are designed to be adopted as organizational policy:
 4. **Publish policy** — Adopt the four governance rules and tier-based control requirements
 5. **Assign owners** — Name business and technical owners for every Tier 2+ server
 6. **Report metrics** — Track inventory coverage, shadow MCP count, and overdue reviews monthly
-
-
 
 ---
 
