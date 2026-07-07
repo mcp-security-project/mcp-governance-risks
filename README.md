@@ -13,8 +13,8 @@ MCP adoption is accelerating across engineering teams. Agents can read wikis, op
 
 | Document                                                                       | Description                                                                                                  |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| [mcp-governance-risk-framework-v1.0.md](mcp-governance-risk-framework-v1.0.md) | **Main guide (v1.0)** — inventory, classification, risk scoring, governance principles, and rollout guidance |
-| [reference.md](reference.md)                                                   | **Reference links** — curated URLs for MCP security, compliance, threat modeling, and vendor review          |
+| [mcp-governance-risk-framework-v1.0.md](mcp-governance-risk-framework-v1.0.md) | **Main guide (v1.0)**: inventory, classification, risk scoring, governance principles, and rollout guidance |
+| [reference.md](reference.md)                                                   | **Reference links**: curated URLs for MCP security, compliance, threat modeling, and vendor review          |
 
 
 ### Framework v1.0 scope
@@ -68,12 +68,12 @@ These four rules are designed to be adopted as organizational policy:
 
 ## Quick start (30 days)
 
-1. **Inventory** — Capture every known MCP server, including suspected shadow deployments
-2. **Classify** — Assign Tier 0–4 based on the highest-risk tool each server exposes
-3. **Score** — Apply the eight-factor risk model for nuanced decisions
-4. **Publish policy** — Adopt the four governance rules and tier-based control requirements
-5. **Assign owners** — Name business and technical owners for every Tier 2+ server
-6. **Report metrics** — Track inventory coverage, shadow MCP count, and overdue reviews monthly
+1. **Inventory**: Capture every known MCP server, including suspected shadow deployments
+2. **Classify**: Assign Tier 0–4 based on the highest-risk tool each server exposes
+3. **Score**: Apply the eight-factor risk model for nuanced decisions
+4. **Publish policy**: Adopt the four governance rules and tier-based control requirements
+5. **Assign owners**: Name business and technical owners for every Tier 2+ server
+6. **Report metrics**: Track inventory coverage, shadow MCP count, and overdue reviews monthly
 
 ---
 
