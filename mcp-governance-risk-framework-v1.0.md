@@ -1057,14 +1057,14 @@ flowchart TD
     start[Evaluate MCP Server] --> q1{Accesses only public data?}
     q1 -->|Yes| q1b{Any write actions?}
     q1b -->|No| tier0[Tier 0: Public Read-Only]
-    q1b -->|Yes| tier3[Tier 3: Write-Capable]
+    q1b -->|Yes| q3
     q1 -->|No| q2{Read-only access?}
     q2 -->|Yes| q2b{Sensitive data?}
     q2b -->|No| tier1[Tier 1: Internal Read-Only]
     q2b -->|Yes| tier2[Tier 2: Sensitive Read]
     q2 -->|No| q3{Affects production identity finance or security controls?}
     q3 -->|Yes| tier4[Tier 4: Privileged / Critical]
-    q3 -->|No| tier3
+    q3 -->|No| tier3[Tier 3: Write-Capable]
 ```
 
 
