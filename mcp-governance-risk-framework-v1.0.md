@@ -124,11 +124,13 @@ You do not need a perfect program on day one. You need a credible start that pro
 
 ### Step 1: Stand up an MCP inventory
 
-Capture every MCP server you can identify  approved, in-flight, and suspected shadow deployments.  AppSec or security architecture, with engineering team leads as data sources.
+**What:** Capture every MCP server you can identify — approved, in-flight, and suspected shadow deployments.
 
-Server name, owner (or "unknown"), use case, data accessed, actions permitted, source (internal / third-party / OSS), deployment location, approval status.
+**Who:** AppSec or security architecture, with engineering team leads as data sources.
 
-Every other governance activity depends on knowing what exists. Organizations that skip inventory discover shadow MCP only during incidents, the most expensive discovery method.
+**Fields to capture:** Server name, owner (or "unknown"), use case, data accessed, actions permitted, source (internal / third-party / OSS), deployment location, approval status.
+
+**Why:** Every other governance activity depends on knowing what exists. Organizations that skip inventory discover shadow MCP only during incidents — the most expensive discovery method.
 
 ### Step 2: Classify existing servers
 
@@ -148,7 +150,7 @@ Apply the Tier 0–4 model from Chapter 5 to every inventoried server. Classify 
 
 Classification determines required controls, approval authority, and review cadence. Without it, every server gets the same treatment which means either everything is blocked or everything is allowed.
 
-Every inventoried server has a tier assignment and a list of required controls from the [control catalog](#formal-control-catalog) in the appendix.
+**Success criteria:** Every inventoried server has a tier assignment and a list of required controls from the [control catalog](#formal-control-catalog) in the appendix.
 
 ---
 
@@ -156,12 +158,14 @@ Every inventoried server has a tier assignment and a list of required controls f
 
 Adapt the policy language from [Chapter 3](#chapter-3-mcp-governance-principles) into your AI usage policy, acceptable use policy, or secure development lifecycle.
 
- At minimum, 
+At minimum, publish:
 
-- publish the four governance rules (no owner, no logging, no scope, no review) and a shadow MCP prohibition.
+- The four governance rules (no owner, no logging, no scope, no review) and a shadow MCP prohibition.
 - Required controls by tier, authentication requirements (OAuth 2.1 with audience validation for authenticated HTTP servers; local hardening for STDIO), logging mandates, and consequences for non-compliant deployments.
-- Policy creates the mandate for governance. Without published expectations, inventory and classification remain voluntary and shadow MCP continues.
-- Policy published and communicated to engineering and AI platform teams within 30 days.
+
+**Why:** Policy creates the mandate for governance. Without published expectations, inventory and classification remain voluntary and shadow MCP continues.
+
+**Success criteria:** Policy published and communicated to engineering and AI platform teams within 30 days.
 
 ---
 
@@ -176,7 +180,9 @@ Use the RACI guidance in [Chapter 3](#principle-1-no-mcp-without-ownership) to a
 - **AppSec:** Classifies servers, reviews technical risk, monitors compliance
 - **CISO:** Approves Tier 4 servers, accepts critical residual risk, sponsors the program
 
-The RACI matrix prevents the most common governance failure: everyone assumes someone else is responsible. Named owners survive reorganizations and incidents better than role titles alone. Every Tier 2+ server has a named business owner and a named technical owner in the risk register.
+The RACI matrix prevents the most common governance failure: everyone assumes someone else is responsible. Named owners survive reorganizations and incidents better than role titles alone.
+
+**Success criteria:** Every Tier 2+ server has a named business owner and a named technical owner in the risk register.
 
 ---
 
@@ -192,7 +198,7 @@ Select KPIs and establish a monthly reporting cadence to security leadership. St
 
 Metrics make governance visible. Without them, programs lose executive attention and funding and drift back to ad hoc adoption.
 
-First monthly MCP governance dashboard delivered within 60 days of starting Step 1.
+**Success criteria:** First monthly MCP governance dashboard delivered within 60 days of starting Step 1.
 
 ---
 
@@ -457,7 +463,7 @@ Tool chaining is the highest-priority MCP attack pattern for most organizations.
 - Monitor for unusual cross-tool workflows
 - Treat tool chaining as a scoring and classification input, not an edge case (see [Chapter 6](#tool-chaining-adjustment))
 
-### **Prompt Injection via Tool Output**
+### **1. Prompt Injection via Tool Output**
 
 **Attack flow:**
 
@@ -481,7 +487,7 @@ The payload does not exploit a software vulnerability in the MCP server. It expl
 
 **References:** [OWASP MCP06: Intent Flow Subversion](https://owasp.org/www-project-mcp-top-10/), [OWASP LLM01: Prompt Injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
-**2. Over-Privileged Tools**
+### **2. Over-Privileged Tools**
 
 **Attack flow:**
 
@@ -495,7 +501,7 @@ The payload does not exploit a software vulnerability in the MCP server. It expl
 - Require separate MCP servers for read vs. write vs. admin where possible
 - Re-classify when new tools are added to an existing server ([OWASP MCP02: Privilege Escalation via Scope Creep](https://owasp.org/www-project-mcp-top-10/))
 
-**3**. **Shadow MCP Servers**
+### **3. Shadow MCP Servers**
 
 **Attack flow:**
 
@@ -535,27 +541,29 @@ Organizations that defer MCP governance "we'll deal with it when it matures" typ
 
 ### **1. Undiscovered shadow MCP**
 
-MCP servers are discovered only during a security incident, compliance audit, or employee departure not through any inventory process.
+**Symptom:** MCP servers are discovered only during a security incident, compliance audit, or employee departure — not through any inventory process.
 
-Incident response starts from zero. You do not know what data was accessed, what tools were available, or who installed the server. Remediation is guesswork.
+**Cost:** Incident response starts from zero. You do not know what data was accessed, what tools were available, or who installed the server. Remediation is guesswork.
 
 ### **2. Inconsistent controls**
 
-Some teams use SSO, scoped OAuth, and centralized logging. Others use hardcoded API keys, personal tokens, and local configs. There is no organizational standard.
+**Symptom:** Some teams use SSO, scoped OAuth, and centralized logging. Others use hardcoded API keys, personal tokens, and local configs. There is no organizational standard.
 
-Attackers target the weakest configuration. Auditors find gaps. Security teams cannot enforce policy because there is no baseline to enforce against.
+**Cost:** Attackers target the weakest configuration. Auditors find gaps. Security teams cannot enforce policy because there is no baseline to enforce against.
 
-**3. Slow incident response**
+### **3. Slow incident response**
 
-When an MCP-related event occurs, no one knows who owns the server, what it was authorized to do, or where the logs are. Mean time to contain increases. Regulated data may be exfiltrated while teams argue about accountability.
+**Symptom:** When an MCP-related event occurs, no one knows who owns the server, what it was authorized to do, or where the logs are.
 
-**4. Regulatory exposure**
+**Cost:** Mean time to contain increases. Regulated data may be exfiltrated while teams argue about accountability.
 
-Agents access customer PII, health data, or financial records through MCP servers that were never assessed for data processing agreements, consent, or data minimization.
+### **4. Regulatory exposure**
 
-GDPR, HIPAA, PCI, and sector-specific regulations apply to *how* data is accessed not just *where* it is stored. An agent reading customer records via MCP is a data processing activity.
+**Symptom:** Agents access customer PII, health data, or financial records through MCP servers that were never assessed for data processing agreements, consent, or data minimization.
 
-**5. Vendor risk without contracts**
+**Cost:** GDPR, HIPAA, PCI, and sector-specific regulations apply to *how* data is accessed not just *where* it is stored. An agent reading customer records via MCP is a data processing activity.
+
+### **5. Vendor risk without contracts**
 
 **Symptom:** Third-party or open-source MCP servers process corporate data without procurement review, security assessment, or contractual protections (SLA, breach notification, data handling terms).
 
@@ -605,9 +613,6 @@ Every MCP server must have a **named owner**,  a specific person accountable for
 | Condition           | Rule                     | What it means in practice                                   |
 | ------------------- | ------------------------ | ----------------------------------------------------------- |
 | No owner            | No approval              | Intake forms without a named owner are returned immediately |
-| No logging          | No production use        | Servers without audit trails cannot operate in production   |
-| No scope definition | No access                | Data and action scope must be documented before connection  |
-| No review           | No enterprise deployment | Periodic review cadence is mandatory by risk tier           |
 
 
 ### Why ownership requires formal accountability
@@ -838,7 +843,7 @@ MCP servers appear in environments through multiple channels. No single discover
 
 ### Method 1: Configuration scanning
 
-MCP entries in config files on endpoints and in repositories.
+**What it finds:** MCP entries in config files on endpoints and in repositories.
 
 **Where to look:**
 
@@ -867,7 +872,7 @@ MCP entries in config files on endpoints and in repositories.
 
 ### Method 2: Network and endpoint monitoring
 
- Live MCP traffic and processes not visible in static configs.
+**What it finds:** Live MCP traffic and processes not visible in static configs.
 
 **Techniques:**
 
@@ -893,7 +898,7 @@ MCP entries in config files on endpoints and in repositories.
 
 ### Method 3: Developer surveys and self-reporting
 
-Servers developers know about but scanners miss — especially new or personal setups.
+**What it finds:** Servers developers know about but scanners miss — especially new or personal setups.
 
 **How to run:**
 
@@ -907,7 +912,7 @@ Servers developers know about but scanners miss — especially new or personal s
 
 ### Method 4: Platform integration
 
-Everything connected through a centralized AI platform — the most controllable surface.
+**What it finds:** Everything connected through a centralized AI platform — the most controllable surface.
 
 **How to run:**
 
@@ -997,11 +1002,6 @@ Changes trigger re-classification (Chapter 5) and may require re-approval.
 
 **4. Periodic review**
 
-- MCP inventory exists (spreadsheet, GRC tool, or CMDB entry)
-- Required fields defined and enforced via intake form
-- Risk register established as single source of truth
-- Decommissioning process documented
-
 
 | Tier | Review frequency |
 | ---- | ---------------- |
@@ -1025,6 +1025,12 @@ When a server is retired:
 
 Quarterly: verify every server still has a valid, reachable owner. Orphaned servers are suspended until ownership is reassigned.
 
+### Inventory program checklist
+
+- MCP inventory exists (spreadsheet, GRC tool, or CMDB entry)
+- Required fields defined and enforced via intake form
+- Risk register established as single source of truth
+- Decommissioning process documented
 - Inventory review cadence assigned to responsible team (AppSec or governance PM)
 - Change notification process communicated to MCP owners
 - Intake SLAs published to engineering teams
