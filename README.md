@@ -14,12 +14,13 @@ MCP adoption is accelerating across engineering teams. Agents can read wikis, op
 | Document                                                                       | Description                                                                                                  |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | [mcp-governance-risk-framework-v1.0.md](mcp-governance-risk-framework-v1.0.md) | **Main guide (v1.0)**: inventory, classification, risk scoring, governance principles, and rollout guidance |
-| [reference.md](reference.md)                                                   | **Reference links**: curated URLs for MCP security, compliance, threat modeling, and vendor review          |
+| [framework-mapping.md](framework-mapping.md)                                   | **Framework mapping**: control mappings to OWASP MCP Top 10, OWASP LLM Top 10, NIST AI RMF, ISO 42001, and SOC 2 |
+| [reference.md](reference.md)                                                   | **Reference links**: curated external URLs for MCP security, threat modeling, vendor review, and standards |
 
 
 ### Framework v1.0 scope
 
-The v1.0 guide covers six core chapters plus a closing appendix:
+The v1.0 guide covers six core chapters plus a closing appendix. Treat the content in three layers: **policy** (Chapters 1 and 3), **controls** (Chapters 2–6 and the appendix control catalog), and **checklists** (chapter-end and appendix practitioner checklists). Compliance framework mappings live in the companion [framework-mapping.md](framework-mapping.md) document.
 
 1. [Chapter 1: Executive Summary](mcp-governance-risk-framework-v1.0.md#chapter-1-executive-summary)
 2. [Chapter 2: Why MCP Needs Governance](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance)
@@ -27,7 +28,7 @@ The v1.0 guide covers six core chapters plus a closing appendix:
 4. [Chapter 4: MCP Asset Inventory](mcp-governance-risk-framework-v1.0.md#chapter-4-mcp-asset-inventory)
 5. [Chapter 5: MCP Server Classification Model](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model)
 6. [Chapter 6: MCP Risk Scoring Model](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model)
-7. [Appendix: Closing](mcp-governance-risk-framework-v1.0.md#appendix-closing)
+7. [Appendix: Closing](mcp-governance-risk-framework-v1.0.md#appendix-closing) — control catalog, evidence pack, authorization test cases, detection and incident response, and practitioner checklist
 
 ---
 
@@ -39,7 +40,7 @@ Read [Chapter 1: Executive Summary](mcp-governance-risk-framework-v1.0.md#chapte
 
 ### AppSec / Security architecture
 
-Start with [Chapter 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance) and [Chapter 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles), then implement [Chapter 4: Asset Inventory](mcp-governance-risk-framework-v1.0.md#chapter-4-mcp-asset-inventory) and the [Classification Model (Chapter 5)](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model). Use [reference.md](reference.md) for OWASP MCP Top 10, MCP authorization spec, and compliance mappings.
+Start with [Chapter 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance) and [Chapter 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles), then implement [Chapter 4: Asset Inventory](mcp-governance-risk-framework-v1.0.md#chapter-4-mcp-asset-inventory) and the [Classification Model (Chapter 5)](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model). Use [framework-mapping.md](framework-mapping.md) for OWASP and compliance control mappings; use [reference.md](reference.md) for MCP authorization spec, OWASP MCP Top 10, and other external sources.
 
 ### Engineering / Platform teams
 
@@ -47,7 +48,7 @@ Review the [Tier 0–4 classification summary](mcp-governance-risk-framework-v1.
 
 ### Legal / Privacy / Procurement
 
-Focus on data scope, third-party server review, and vendor trust factors in [Chapter 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model) and [Chapter 6: Risk Scoring](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model). External policy references are in [reference.md](reference.md).
+Focus on data scope, third-party server review, and vendor trust factors in [Chapter 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model) and [Chapter 6: Risk Scoring](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model). Use [framework-mapping.md](framework-mapping.md) for audit and compliance alignment; external policy references are in [reference.md](reference.md).
 
 ---
 
@@ -91,14 +92,10 @@ These four rules are designed to be adopted as organizational policy:
 
 ---
 
-## External references
+## External references and compliance mapping
 
-The [reference.md](reference.md) document consolidates links to:
-
-- MCP specification and authorization requirements
-- OWASP MCP Top 10 and OWASP LLM Top 10
-- NIST AI RMF, ISO/IEC 42001, and SOC 2 alignment resources
-- MCP security community resources and CVE tracking
+- **[framework-mapping.md](framework-mapping.md)** maps guide controls to OWASP MCP Top 10, OWASP LLM Top 10, NIST AI RMF, ISO/IEC 42001, and SOC 2 — use this for audits, gap assessments, and program integration.
+- **[reference.md](reference.md)** consolidates external links for MCP specification and authorization requirements, OWASP and NIST/ISO source documents, and MCP security community resources and CVE tracking.
 
 ---
 
