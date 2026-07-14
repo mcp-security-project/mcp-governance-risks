@@ -1,10 +1,3 @@
----
-title: MCP Governance & Risk — Reference Links
-draft: true
-status: draft
-description: Curated URLs for MCP governance, risk, security, and compliance resources
----
-
 # MCP Governance & Risk — Reference Links
 
 This document consolidates external references for the **MCP Governance & Risk Model** guide, including every URL cited in the guide chapters, related resources from the broader MCP security and AI governance ecosystem, and additional links useful for threat modeling, vendor review, compliance mapping, and control validation.
@@ -15,129 +8,204 @@ This document consolidates external references for the **MCP Governance & Risk M
 
 These links appear in the [MCP Governance & Risk Framework](mcp-governance-risk-framework.md) and related documents.
 
-| Resource | URL | Used in |
-|----------|-----|---------|
-| MCP Specification | https://spec.modelcontextprotocol.io/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
-| MCP Authorization Specification (2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/ | [Ch. 1](mcp-governance-risk-framework-v1.0.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles), [Ch. 6](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) |
-| MCP Security Best Practices | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
-| OWASP MCP Top 10 | https://owasp.org/www-project-mcp-top-10/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary)–[Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases)–[Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) |
-| OWASP Top 10 for LLM Applications | https://owasp.org/www-project-top-10-for-large-language-model-applications/ | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) |
-| NIST AI Risk Management Framework (AI RMF 1.0) | https://www.nist.gov/itl/ai-risk-management-framework | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary) |
-| ISO/IEC 42001:2023 | https://www.iso.org/standard/81230.html | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary) |
-| Awesome MCP Security List | https://github.com/awesome-mcp-security/awesome-mcp-security | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
-| Awesome MCP CVE | https://github.com/awesome-mcp-security/awesome-mcp-cve | [Ch. 1](mcp-governance-risk-framework.md#chapter-1-executive-summary), [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance) |
-| NIST SP 800-61 Rev. 2 (Incident Response) | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) |
+
+| Resource | URL |
+|----------|-----|
+| MCP Specification | https://spec.modelcontextprotocol.io/ |
+| MCP Authorization Specification (2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/ |
+| MCP Security Best Practices | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices |
+| OWASP MCP Top 10 | https://owasp.org/www-project-mcp-top-10/ |
+| OWASP Top 10 for LLM Applications | https://owasp.org/www-project-top-10-for-large-language-model-applications/ |
+| NIST AI Risk Management Framework (AI RMF 1.0) | https://www.nist.gov/itl/ai-risk-management-framework |
+| ISO/IEC 42001:2023 | https://www.iso.org/standard/81230.html |
+| Awesome MCP Security List | https://github.com/awesome-mcp-security/awesome-mcp-security |
+| Awesome MCP CVE | https://github.com/awesome-mcp-security/awesome-mcp-cve |
+| NIST SP 800-61 Rev. 2 (Incident Response) | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final |
+
 
 ---
 
 ## Internal Guide Documents
 
-| Document | Path | Purpose |
-|----------|------|---------|
-| MCP Governance & Risk Framework | [mcp-governance-risk-framework.md](mcp-governance-risk-framework.md) | Complete 16-chapter guide in one document |
-| README / guide index | [README.md](README.md) | Navigation and audience routing |
-| Framework Mapping Appendix | [framework-mapping.md](framework-mapping.md) | OWASP, NIST AI RMF, ISO 42001, SOC 2 alignment |
-| OWASP Project Submission Draft | [owasp-project-submission-draft.md](owasp-project-submission-draft.md) | Project charter and ecosystem positioning |
-| Intake Form | [important-forms/intake-form.md](important-forms/intake-form.md) | New MCP server request |
-| Risk Register | [important-forms/risk-register.md](important-forms/risk-register.md) | Approved server inventory |
-| Vendor Questionnaire | [important-forms/vendor-questionnaire.md](important-forms/vendor-questionnaire.md) | Third-party / OSS review |
-| Approval Decision Form | [important-forms/approval-decision-form.md](important-forms/approval-decision-form.md) | Approve / conditional / reject |
-| Exception / Risk Acceptance Form | [important-forms/exception-risk-acceptance-form.md](important-forms/exception-risk-acceptance-form.md) | Formal risk acceptance |
+
+| Document                         | Path                                                                                                   | Purpose                                        |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| MCP Governance & Risk Framework  | [mcp-governance-risk-framework.md](mcp-governance-risk-framework.md)                                   | Complete 16-chapter guide in one document      |
+| README / guide index             | [README.md](README.md)                                                                                 | Navigation and audience routing                |
+| Framework Mapping Appendix       | [framework-mapping.md](framework-mapping.md)                                                           | OWASP, NIST AI RMF, ISO 42001, SOC 2 alignment |
+| Reference Links                  | [reference.md](reference.md)                                                                           | Curated external URLs and quick topic index    |
+| OWASP Project Submission Draft   | [owasp-project-submission-draft.md](owasp-project-submission-draft.md)                                 | Project charter and ecosystem positioning      |
+| Intake Form                      | [important-forms/intake-form.md](important-forms/intake-form.md)                                       | New MCP server request                         |
+| Risk Register                    | [important-forms/risk-register.md](important-forms/risk-register.md)                                   | Approved server inventory                      |
+| Vendor Questionnaire             | [important-forms/vendor-questionnaire.md](important-forms/vendor-questionnaire.md)                     | Third-party / OSS review                       |
+| Approval Decision Form           | [important-forms/approval-decision-form.md](important-forms/approval-decision-form.md)                 | Approve / conditional / reject                 |
+| Exception / Risk Acceptance Form | [important-forms/exception-risk-acceptance-form.md](important-forms/exception-risk-acceptance-form.md) | Formal risk acceptance                         |
+
 
 ---
 
 ## MCP Official Protocol & Security
 
-| Resource | URL |
-|----------|-----|
-| Model Context Protocol (main site) | https://modelcontextprotocol.io/ |
-| MCP documentation index (`llms.txt`) | https://modelcontextprotocol.io/llms.txt |
-| MCP Specification (spec site) | https://spec.modelcontextprotocol.io/ |
-| MCP Specification (2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/ |
-| MCP Authorization (2025-11-25) | https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization |
-| MCP Authorization (spec site, 2025-11-25) | https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/ |
-| MCP Specification (2025-03-26) | https://spec.modelcontextprotocol.io/specification/2025-03-26/ |
-| MCP Authorization (2025-03-26, historical) | https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization |
-| MCP Authorization (spec site, 2025-03-26, historical) | https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/ |
-| MCP Security Best Practices (draft spec path) | https://modelcontextprotocol.io/specification/draft/basic/security_best_practices |
-| MCP Security Best Practices (2025-11-25) | https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices |
-| MCP Security Best Practices (docs tutorial) | https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices |
-| Anthropic: Introducing MCP | https://www.anthropic.com/news/model-context-protocol |
-| MCP GitHub organization | https://github.com/modelcontextprotocol |
-| MCP specification repository | https://github.com/modelcontextprotocol/modelcontextprotocol |
-| Official MCP Registry | https://registry.modelcontextprotocol.io/ |
-| MCP Registry: about | https://modelcontextprotocol.io/registry/about |
-| MCP Registry: charter | https://modelcontextprotocol.io/community/registry/charter |
-| MCP Registry: GitHub | https://github.com/modelcontextprotocol/registry |
-| MCP Registry launch announcement | https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/ |
+
+| Resource                                              | URL                                                                                                                                                                              |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Model Context Protocol (main site)                    | [https://modelcontextprotocol.io/](https://modelcontextprotocol.io/)                                                                                                             |
+| MCP documentation index (`llms.txt`)                  | [https://modelcontextprotocol.io/llms.txt](https://modelcontextprotocol.io/llms.txt)                                                                                             |
+| MCP Specification (spec site)                         | [https://spec.modelcontextprotocol.io/](https://spec.modelcontextprotocol.io/)                                                                                                   |
+| MCP Specification (2025-11-25)                        | [https://spec.modelcontextprotocol.io/specification/2025-11-25/](https://spec.modelcontextprotocol.io/specification/2025-11-25/)                                                 |
+| MCP Authorization (2025-11-25)                        | [https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)                     |
+| MCP Authorization (spec site, 2025-11-25)             | [https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/)         |
+| MCP Specification (2025-06-18)                        | [https://modelcontextprotocol.io/specification/2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18)                                                             |
+| MCP Key Changes (2025-06-18)                          | [https://modelcontextprotocol.io/specification/2025-06-18/changelog](https://modelcontextprotocol.io/specification/2025-06-18/changelog)                                         |
+| MCP Authorization (2025-06-18)                        | [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization)                     |
+| MCP Transports (2025-06-18)                           | [https://modelcontextprotocol.io/specification/2025-06-18/basic/transports](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)                           |
+| MCP Tools (2025-06-18)                                | [https://modelcontextprotocol.io/specification/2025-06-18/server/tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools)                                   |
+| MCP Sampling (2025-06-18)                             | [https://modelcontextprotocol.io/specification/2025-06-18/client/sampling](https://modelcontextprotocol.io/specification/2025-06-18/client/sampling)                             |
+| MCP Elicitation (2025-06-18)                          | [https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation](https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation)                       |
+| MCP Roots (2025-06-18)                                | [https://modelcontextprotocol.io/specification/2025-06-18/client/roots](https://modelcontextprotocol.io/specification/2025-06-18/client/roots)                                   |
+| MCP Specification (2025-03-26, historical)            | [https://spec.modelcontextprotocol.io/specification/2025-03-26/](https://spec.modelcontextprotocol.io/specification/2025-03-26/)                                                 |
+| MCP Authorization (2025-03-26, historical)            | [https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization)                     |
+| MCP Authorization (spec site, 2025-03-26, historical) | [https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/)         |
+| MCP Security Best Practices (draft spec path)         | [https://modelcontextprotocol.io/specification/draft/basic/security_best_practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices)           |
+| MCP Security Best Practices (2025-11-25)              | [https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices) |
+| MCP Security Best Practices (docs tutorial)           | [https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices)               |
+| MCP Logging utility (2025-11-25)                      | [https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging](https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging)           |
+| Understanding Authorization in MCP                    | [https://modelcontextprotocol.io/docs/tutorials/security/authorization](https://modelcontextprotocol.io/docs/tutorials/security/authorization)                                   |
+| MCP Client Best Practices                             | [https://modelcontextprotocol.io/docs/develop/clients/client-best-practices](https://modelcontextprotocol.io/docs/develop/clients/client-best-practices)                         |
+| Connect to remote MCP servers                         | [https://modelcontextprotocol.io/docs/develop/connect-remote-servers](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)                                       |
+| MCP Inspector                                         | [https://modelcontextprotocol.io/docs/tools/inspector](https://modelcontextprotocol.io/docs/tools/inspector)                                                                     |
+| MCP SDKs                                              | [https://modelcontextprotocol.io/docs/sdk](https://modelcontextprotocol.io/docs/sdk)                                                                                             |
+| Anthropic: Introducing MCP                            | [https://www.anthropic.com/news/model-context-protocol](https://www.anthropic.com/news/model-context-protocol)                                                                   |
+| MCP GitHub organization                               | [https://github.com/modelcontextprotocol](https://github.com/modelcontextprotocol)                                                                                               |
+| MCP specification repository                          | [https://github.com/modelcontextprotocol/modelcontextprotocol](https://github.com/modelcontextprotocol/modelcontextprotocol)                                                     |
+| Official MCP Registry                                 | [https://registry.modelcontextprotocol.io/](https://registry.modelcontextprotocol.io/)                                                                                           |
+| MCP Registry: about                                   | [https://modelcontextprotocol.io/registry/about](https://modelcontextprotocol.io/registry/about)                                                                                 |
+| MCP Registry: charter                                 | [https://modelcontextprotocol.io/community/registry/charter](https://modelcontextprotocol.io/community/registry/charter)                                                         |
+| MCP Registry: GitHub                                  | [https://github.com/modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry)                                                                             |
+| MCP Registry launch announcement                      | [https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/](https://blog.modelcontextprotocol.io/posts/2025-09-08-mcp-registry-preview/)                       |
+
+
+### MCP Governance, Community, and Security Process
+
+
+| Resource                                     | URL                                                                                                                                                                                      |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MCP Governance and Stewardship               | [https://modelcontextprotocol.io/community/governance](https://modelcontextprotocol.io/community/governance)                                                                             |
+| MCP Security Policy                          | [https://modelcontextprotocol.io/community/security](https://modelcontextprotocol.io/community/security)                                                                                 |
+| MCP Security Interest Group Charter          | [https://modelcontextprotocol.io/community/interest-groups/security](https://modelcontextprotocol.io/community/interest-groups/security)                                                 |
+| MCP Authorization Interest Group Charter     | [https://modelcontextprotocol.io/community/interest-groups/auth](https://modelcontextprotocol.io/community/interest-groups/auth)                                                         |
+| MCP Enterprise-Managed Authorization Charter | [https://modelcontextprotocol.io/community/interest-groups/enterprise-managed-authorization](https://modelcontextprotocol.io/community/interest-groups/enterprise-managed-authorization) |
+| MCP Working and Interest Groups              | [https://modelcontextprotocol.io/community/working-interest-groups](https://modelcontextprotocol.io/community/working-interest-groups)                                                   |
+| MCP Feature Lifecycle and Deprecation Policy | [https://modelcontextprotocol.io/community/feature-lifecycle](https://modelcontextprotocol.io/community/feature-lifecycle)                                                               |
+| MCP Roadmap                                  | [https://modelcontextprotocol.io/development/roadmap](https://modelcontextprotocol.io/development/roadmap)                                                                               |
+| MCP SEPs index                               | [https://modelcontextprotocol.io/seps/index](https://modelcontextprotocol.io/seps/index)                                                                                                 |
+
+
+### Security-Relevant MCP SEPs
+
+
+| Resource                                                                        | URL                                                                                                                                                                                          |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SEP-932: Model Context Protocol Governance                                      | [https://modelcontextprotocol.io/seps/932-model-context-protocol-governance](https://modelcontextprotocol.io/seps/932-model-context-protocol-governance)                                     |
+| SEP-1024: MCP Client Security Requirements for Local Server Installation        | [https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-](https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-) |
+| SEP-414: OpenTelemetry Trace Context Propagation Conventions                    | [https://modelcontextprotocol.io/seps/414-request-meta](https://modelcontextprotocol.io/seps/414-request-meta)                                                                               |
+| SEP-985: Align OAuth 2.0 Protected Resource Metadata with RFC 9728              | [https://modelcontextprotocol.io/seps/985-align-oauth-20-protected-resource-metadata-with-rf](https://modelcontextprotocol.io/seps/985-align-oauth-20-protected-resource-metadata-with-rf)   |
+| SEP-990: Enterprise IdP Policy Controls During MCP OAuth Flows                  | [https://modelcontextprotocol.io/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o](https://modelcontextprotocol.io/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o)   |
+| SEP-991: URL-Based Client Registration Using OAuth Client ID Metadata Documents | [https://modelcontextprotocol.io/seps/991-enable-url-based-client-registration-using-oauth-c](https://modelcontextprotocol.io/seps/991-enable-url-based-client-registration-using-oauth-c)   |
+| SEP-1046: OAuth Client Credentials Flow in Authorization                        | [https://modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza](https://modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza) |
+| SEP-2207: OIDC-Flavored Refresh Token Guidance                                  | [https://modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance](https://modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance)                                               |
+| SEP-2243: HTTP Header Standardization for Streamable HTTP Transport             | [https://modelcontextprotocol.io/seps/2243-http-standardization](https://modelcontextprotocol.io/seps/2243-http-standardization)                                                             |
+| SEP-2468: Recommend Issuer Claim for Auth                                       | [https://modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth](https://modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth)                                       |
+| SEP-2577: Deprecate Roots, Sampling, and Logging                                | [https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging](https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging)                             |
+
 
 ### OAuth & Transport Standards (referenced by MCP auth spec)
 
-| Resource | URL |
-|----------|-----|
-| OAuth 2.1 (IETF draft) | https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-11 |
-| OAuth 2.0 Security Best Current Practice (RFC 9700) | https://datatracker.ietf.org/doc/html/rfc9700 |
-| OAuth 2.0 Authorization Server Metadata (RFC 8414) | https://datatracker.ietf.org/doc/html/rfc8414 |
-| OAuth 2.0 Dynamic Client Registration (RFC 7591) | https://datatracker.ietf.org/doc/html/rfc7591 |
-| OAuth 2.0 Token Exchange (RFC 8693) | https://datatracker.ietf.org/doc/html/rfc8693 |
-| IETF Internet-Draft: Secure MCP (message signing & tool integrity) | https://datatracker.ietf.org/doc/draft-secure-mcp/ |
+
+| Resource                                                           | URL                                                                                                                              |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| OAuth 2.1 (IETF draft)                                             | [https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-11](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-11) |
+| OAuth 2.0 Security Best Current Practice (RFC 9700)                | [https://datatracker.ietf.org/doc/html/rfc9700](https://datatracker.ietf.org/doc/html/rfc9700)                                   |
+| OAuth 2.0 Authorization Server Metadata (RFC 8414)                 | [https://datatracker.ietf.org/doc/html/rfc8414](https://datatracker.ietf.org/doc/html/rfc8414)                                   |
+| OAuth 2.0 Dynamic Client Registration (RFC 7591)                   | [https://datatracker.ietf.org/doc/html/rfc7591](https://datatracker.ietf.org/doc/html/rfc7591)                                   |
+| OAuth 2.0 Token Exchange (RFC 8693)                                | [https://datatracker.ietf.org/doc/html/rfc8693](https://datatracker.ietf.org/doc/html/rfc8693)                                   |
+| IETF Internet-Draft: Secure MCP (message signing & tool integrity) | [https://datatracker.ietf.org/doc/draft-secure-mcp/](https://datatracker.ietf.org/doc/draft-secure-mcp/)                         |
+
 
 ---
 
 ## OWASP MCP Top 10
 
-| Resource | URL |
-|----------|-----|
-| OWASP MCP Top 10 (project page) | https://owasp.org/www-project-mcp-top-10/ |
-| OWASP MCP Top 10 (GitHub repository) | https://github.com/OWASP/www-project-mcp-top-10/ |
+
+| Resource                             | URL                                                                                                  |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| OWASP MCP Top 10 (project page)      | [https://owasp.org/www-project-mcp-top-10/](https://owasp.org/www-project-mcp-top-10/)               |
+| OWASP MCP Top 10 (GitHub repository) | [https://github.com/OWASP/www-project-mcp-top-10/](https://github.com/OWASP/www-project-mcp-top-10/) |
+
 
 ### Individual Risk Categories (2025 v0.1)
 
-| ID | Risk | URL |
-|----|------|-----|
-| MCP01 | Token Mismanagement & Secret Exposure | https://owasp.org/www-project-mcp-top-10/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure |
-| MCP02 | Privilege Escalation via Scope Creep | https://owasp.org/www-project-mcp-top-10/2025/MCP02-2025-%E2%80%93Privilege-Escalation-via-Scope-Creep |
-| MCP03 | Tool Poisoning | https://owasp.org/www-project-mcp-top-10/2025/MCP03-2025-%E2%80%93Tool-Poisoning |
-| MCP04 | Software Supply Chain Attacks & Dependency Tampering | https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025-%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering |
-| MCP05 | Command Injection & Execution | https://owasp.org/www-project-mcp-top-10/2025/MCP05-2025-%E2%80%93Command-Injection&Execution |
-| MCP06 | Intent Flow Subversion / Prompt Injection via Contextual Payloads | https://owasp.org/www-project-mcp-top-10/2025/MCP06-2025-%E2%80%93Prompt-InjectionviaContextual-Payloads |
-| MCP07 | Insufficient Authentication & Authorization | https://owasp.org/www-project-mcp-top-10/2025/MCP07-2025-%E2%80%93Insufficient-Authentication&Authorization |
-| MCP08 | Lack of Audit and Telemetry | https://owasp.org/www-project-mcp-top-10/2025/MCP08-2025-%E2%80%93Lack-of-Audit-and-Telemetry |
-| MCP09 | Shadow MCP Servers | https://owasp.org/www-project-mcp-top-10/2025/MCP09-2025-%E2%80%93Shadow-MCP-Servers |
-| MCP10 | Context Injection & Over-Sharing | https://owasp.org/www-project-mcp-top-10/2025/MCP10-2025-%E2%80%93ContextInjection&OverSharing |
+
+| ID    | Risk                                                              | URL                                                                                                                                                                                                                                          |
+| ----- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MCP01 | Token Mismanagement & Secret Exposure                             | [https://owasp.org/www-project-mcp-top-10/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure](https://owasp.org/www-project-mcp-top-10/2025/MCP01-2025-Token-Mismanagement-and-Secret-Exposure)                                         |
+| MCP02 | Privilege Escalation via Scope Creep                              | [https://owasp.org/www-project-mcp-top-10/2025/MCP02-2025-%E2%80%93Privilege-Escalation-via-Scope-Creep](https://owasp.org/www-project-mcp-top-10/2025/MCP02-2025-%E2%80%93Privilege-Escalation-via-Scope-Creep)                             |
+| MCP03 | Tool Poisoning                                                    | [https://owasp.org/www-project-mcp-top-10/2025/MCP03-2025-%E2%80%93Tool-Poisoning](https://owasp.org/www-project-mcp-top-10/2025/MCP03-2025-%E2%80%93Tool-Poisoning)                                                                         |
+| MCP04 | Software Supply Chain Attacks & Dependency Tampering              | [https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025-%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering](https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025-%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering) |
+| MCP05 | Command Injection & Execution                                     | [https://owasp.org/www-project-mcp-top-10/2025/MCP05-2025-%E2%80%93Command-Injection&Execution](https://owasp.org/www-project-mcp-top-10/2025/MCP05-2025-%E2%80%93Command-Injection&Execution)                                               |
+| MCP06 | Intent Flow Subversion / Prompt Injection via Contextual Payloads | [https://owasp.org/www-project-mcp-top-10/2025/MCP06-2025-%E2%80%93Prompt-InjectionviaContextual-Payloads](https://owasp.org/www-project-mcp-top-10/2025/MCP06-2025-%E2%80%93Prompt-InjectionviaContextual-Payloads)                         |
+| MCP07 | Insufficient Authentication & Authorization                       | [https://owasp.org/www-project-mcp-top-10/2025/MCP07-2025-%E2%80%93Insufficient-Authentication&Authorization](https://owasp.org/www-project-mcp-top-10/2025/MCP07-2025-%E2%80%93Insufficient-Authentication&Authorization)                   |
+| MCP08 | Lack of Audit and Telemetry                                       | [https://owasp.org/www-project-mcp-top-10/2025/MCP08-2025-%E2%80%93Lack-of-Audit-and-Telemetry](https://owasp.org/www-project-mcp-top-10/2025/MCP08-2025-%E2%80%93Lack-of-Audit-and-Telemetry)                                               |
+| MCP09 | Shadow MCP Servers                                                | [https://owasp.org/www-project-mcp-top-10/2025/MCP09-2025-%E2%80%93Shadow-MCP-Servers](https://owasp.org/www-project-mcp-top-10/2025/MCP09-2025-%E2%80%93Shadow-MCP-Servers)                                                                 |
+| MCP10 | Context Injection & Over-Sharing                                  | [https://owasp.org/www-project-mcp-top-10/2025/MCP10-2025-%E2%80%93ContextInjection&OverSharing](https://owasp.org/www-project-mcp-top-10/2025/MCP10-2025-%E2%80%93ContextInjection&OverSharing)                                             |
+
 
 ---
 
 ## OWASP LLM, GenAI & Agentic Security
 
-| Resource | URL |
-|----------|-----|
-| OWASP Top 10 for LLM Applications (project page) | https://owasp.org/www-project-top-10-for-large-language-model-applications/ |
-| OWASP Top 10 for LLM Applications (GitHub) | https://github.com/OWASP/Top10LLMForLLMApp |
-| OWASP GenAI Security Project | https://genai.owasp.org/ |
-| OWASP LLM Top 10 (latest) | https://genai.owasp.org/llm-top-10/ |
-| OWASP Top 10 for Agentic Applications (2026) | https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ |
-| OWASP GenAI: Contribute | https://genai.owasp.org/contribute/ |
-| OWASP GenAI: Meetings | https://genai.owasp.org/meetings/ |
-| OWASP MCP Security Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html |
-| OWASP AI Security Verification Standard (AISVS) | https://owasp.org/www-project-ai-security-verification-standard/ |
-| OWASP AISVS: C10 MCP Security | https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C10-MCP-Security.md |
-| OWASP SSRF Prevention Cheat Sheet | https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html |
+
+| Resource                                          | URL                                                                                                                                                                                                              |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OWASP Top 10 for LLM Applications (project page)  | [https://owasp.org/www-project-top-10-for-large-language-model-applications/](https://owasp.org/www-project-top-10-for-large-language-model-applications/)                                                       |
+| OWASP Top 10 for LLM Applications (GitHub)        | [https://github.com/OWASP/Top10LLMForLLMApp](https://github.com/OWASP/Top10LLMForLLMApp)                                                                                                                         |
+| OWASP GenAI Security Project                      | [https://genai.owasp.org/](https://genai.owasp.org/)                                                                                                                                                             |
+| OWASP LLM Top 10 (latest)                         | [https://genai.owasp.org/llm-top-10/](https://genai.owasp.org/llm-top-10/)                                                                                                                                       |
+| OWASP Top 10 for Agentic Applications (2026)      | [https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)                                             |
+| OWASP GenAI: Contribute                           | [https://genai.owasp.org/contribute/](https://genai.owasp.org/contribute/)                                                                                                                                       |
+| OWASP GenAI: Meetings                             | [https://genai.owasp.org/meetings/](https://genai.owasp.org/meetings/)                                                                                                                                           |
+| OWASP MCP Security Cheat Sheet                    | [https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html)                                                     |
+| OWASP AI Security Verification Standard (AISVS)   | [https://owasp.org/www-project-ai-security-verification-standard/](https://owasp.org/www-project-ai-security-verification-standard/)                                                                             |
+| OWASP AISVS: C10 MCP Security                     | [https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C10-MCP-Security.md](https://github.com/OWASP/AISVS/blob/main/1.0/en/0x10-C10-MCP-Security.md)                                                             |
+| OWASP SSRF Prevention Cheat Sheet                 | [https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html) |
+| OWASP AI Agent Security Cheat Sheet               | [https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html)                                           |
+| OWASP LLM Prompt Injection Prevention Cheat Sheet | [https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)               |
+| OWASP RAG Security Cheat Sheet                    | [https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/RAG_Security_Cheat_Sheet.html)                                                     |
+| OWASP Logging Cheat Sheet                         | [https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)                                                               |
+| OWASP Secrets Management Cheat Sheet              | [https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)                                         |
+| OWASP Software Supply Chain Security Cheat Sheet  | [https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Software_Supply_Chain_Security_Cheat_Sheet.html)                 |
+
 
 ---
 
 ## AI Governance & Risk Frameworks
 
-| Resource | URL | Relevance |
-|----------|-----|-----------|
-| NIST AI Risk Management Framework (AI RMF 1.0) | https://www.nist.gov/itl/ai-risk-management-framework | Govern, Map, Measure, Manage: [Framework Mapping Appendix](framework-mapping.md) |
-| NIST AI RMF Playbook | https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-1-0 | Implementation guidance |
-| NIST AI RMF: Generative AI Profile | https://www.nist.gov/itl/ai-risk-management-framework/generative-artificial-intelligence-profile | GenAI-specific RMF guidance |
-| NIST Cybersecurity Framework 2.0 | https://www.nist.gov/cyberframework | Mapped in COMPEL MCP baseline |
-| NIST SP 800-61 Rev. 2: Incident Response | https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) IR alignment |
-| NIST SP 800-207: Zero Trust Architecture | https://csrc.nist.gov/pubs/sp/800/207/final | OWASP AISVS MCP controls |
-| ISO/IEC 42001:2023: AI management systems | https://www.iso.org/standard/81230.html | Formal AI governance programs |
-| EU AI Act (official text) | https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689 | Regulated AI system obligations |
+
+| Resource                                              | URL                                                                                                                                                                                                  | Relevance                                                                                      |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| NIST AI Risk Management Framework (AI RMF 1.0)        | [https://www.nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework)                                                                                       | Govern, Map, Measure, Manage: [Framework Mapping Appendix](framework-mapping.md)               |
+| NIST AI RMF Playbook                                  | [https://airc.nist.gov/airmf-resources/playbook/](https://airc.nist.gov/airmf-resources/playbook/)                                                                                                   | Implementation guidance                                                                        |
+| NIST AI RMF Playbook (overview page)                  | [https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-1-0](https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-1-0)                                                       | NIST overview and download links                                                               |
+| NIST AI RMF Crosswalk Documents                       | [https://airc.nist.gov/airmf-resources/crosswalks/](https://airc.nist.gov/airmf-resources/crosswalks/)                                                                                               | Compliance mappings                                                                            |
+| NIST Cybersecurity Framework 2.0                      | [https://www.nist.gov/cyberframework](https://www.nist.gov/cyberframework)                                                                                                                           | Mapped in COMPEL MCP baseline                                                                  |
+| NIST SP 800-61 Rev. 3: Incident Response              | [https://csrc.nist.gov/pubs/sp/800/61/r3/final](https://csrc.nist.gov/pubs/sp/800/61/r3/final)                                                                                                       | Current primary IR reference                                                                   |
+| NIST SP 800-61 Rev. 3 DOI                             | [https://doi.org/10.6028/NIST.SP.800-61r3](https://doi.org/10.6028/NIST.SP.800-61r3)                                                                                                                 | Stable DOI for citation                                                                        |
+| NIST SP 800-61 Rev. 2: Incident Response (historical) | [https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)                                                                   | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) IR alignment |
+| NIST AI RMF: Generative AI Profile                    | [https://www.nist.gov/itl/ai-risk-management-framework/generative-artificial-intelligence-profile](https://www.nist.gov/itl/ai-risk-management-framework/generative-artificial-intelligence-profile) | GenAI-specific RMF guidance                                                                    |
+| NIST SP 800-207: Zero Trust Architecture              | [https://csrc.nist.gov/pubs/sp/800/207/final](https://csrc.nist.gov/pubs/sp/800/207/final)                                                                                                           | OWASP AISVS MCP controls                                                                       |
+| ISO/IEC 42001:2023: AI management systems             | [https://www.iso.org/standard/81230.html](https://www.iso.org/standard/81230.html)                                                                                                                   | Formal AI governance programs                                                                  |
+| EU AI Act (official text)                             | [https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689)                                                         | Regulated AI system obligations                                                                |
+
 
 ---
 
@@ -145,32 +213,49 @@ These links appear in the [MCP Governance & Risk Framework](mcp-governance-risk-
 
 Testable control frameworks useful for tier alignment, vendor questionnaires, and audit evidence.
 
-| Resource | URL | Notes |
-|----------|-----|-------|
-| MCP Server Security Standard (MSSS) | https://github.com/mcp-security-standard/mcp-server-security-standard | 24 controls, 4 levels (L1–L4), deployment profiles |
-| COMPEL: MCP 12-Control Hardening Baseline | https://www.compelframework.org/articles/model-context-protocol-security-standards | Maps to NIST CSF 2.0 and ISO 42001 |
-| SlowMist MCP Security Checklist | https://github.com/slowmist/MCP-Security-Checklist | Server, client, host, multi-MCP scenarios |
-| Appsecco: Pentesting MCP Servers Checklist | https://github.com/appsecco/pentesting-mcp-servers-checklist | Traffic, auth, tool behavior, injection |
-| SAF-MCP: Secure Agentic Framework | https://github.com/safe-agentic-framework/safe-mcp | MITRE ATT&CK-style MCP TTP taxonomy |
-| MCPSEC: MCP Security Benchmark | https://github.com/paolovella/vellaveto/tree/main/mcpsec | 10 properties, 105 attack test cases |
+
+| Resource                                   | URL                                                                                                                                                                      | Notes                                              |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| MCP Server Security Standard (MSSS)        | [https://github.com/mcp-security-standard/mcp-server-security-standard](https://github.com/mcp-security-standard/mcp-server-security-standard)                           | 24 controls, 4 levels (L1–L4), deployment profiles |
+| COMPEL: MCP 12-Control Hardening Baseline  | [https://www.compelframework.org/articles/model-context-protocol-security-standards](https://www.compelframework.org/articles/model-context-protocol-security-standards) | Maps to NIST CSF 2.0 and ISO 42001                 |
+| SlowMist MCP Security Checklist            | [https://github.com/slowmist/MCP-Security-Checklist](https://github.com/slowmist/MCP-Security-Checklist)                                                                 | Server, client, host, multi-MCP scenarios          |
+| Appsecco: Pentesting MCP Servers Checklist | [https://github.com/appsecco/pentesting-mcp-servers-checklist](https://github.com/appsecco/pentesting-mcp-servers-checklist)                                             | Traffic, auth, tool behavior, injection            |
+| SAF-MCP: Secure Agentic Framework          | [https://github.com/safe-agentic-framework/safe-mcp](https://github.com/safe-agentic-framework/safe-mcp)                                                                 | MITRE ATT&CK-style MCP TTP taxonomy                |
+| MCPSEC: MCP Security Benchmark             | [https://github.com/paolovella/vellaveto/tree/main/mcpsec](https://github.com/paolovella/vellaveto/tree/main/mcpsec)                                                     | 10 properties, 105 attack test cases               |
+
 
 ---
 
 ## Cloud & Enterprise Governance Guides
 
-| Resource | URL | Focus |
-|----------|-----|-------|
-| AWS: MCP Strategies (introduction) | https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/introduction.html | Tool design, hosting, governance pillars |
-| AWS: MCP Governance Strategy | https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-governance-strategy.html | Auth, rate limits, metrics, distribution |
-| AWS: MCP Hosting Strategy | https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-hosting-strategy.html | Local vs remote, registries, gateways |
-| AWS: MCP Strategies (PDF) | https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/mcp-strategies/mcp-strategies.pdf | Full guide download |
-| AWS: AgentCore OBO Token Exchange | https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html | Confused-deputy mitigation pattern |
-| Microsoft: MCP Azure Security Guide | https://github.com/microsoft/mcp-azure-security-guide | OWASP MCP Top 10 on Azure |
-| Microsoft: MCP Azure Security Guide (site) | https://microsoft.github.io/mcp-azure-security-guide/ | Published controls and architectures |
-| Microsoft: Agent Governance Toolkit | https://github.com/microsoft/agent-governance-toolkit | MCP OWASP compliance mapping |
-| Microsoft: MCP for Beginners (Security module) | https://github.com/microsoft/mcp-for-beginners/tree/main/02-Security | Learning path with OWASP mapping |
-| Microsoft: State of MCP Security in 2026 | https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327 | Industry threat landscape summary |
-| Microsoft: APIM as MCP Auth Gateway | https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-api-management-your-auth-gateway-for-mcp-servers/4402690 | Gateway enforcement pattern |
+
+| Resource                                       | URL                                                                                                                                                                                                                                                                | Focus                                    |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
+| AWS: MCP Strategies (introduction)             | [https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/introduction.html](https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/introduction.html)                                                                             | Tool design, hosting, governance pillars |
+| AWS: MCP Governance Strategy                   | [https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-governance-strategy.html](https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-governance-strategy.html)                                                       | Auth, rate limits, metrics, distribution |
+| AWS: MCP Hosting Strategy                      | [https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-hosting-strategy.html](https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-hosting-strategy.html)                                                             | Local vs remote, registries, gateways    |
+| AWS: MCP Strategies (PDF)                      | [https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/mcp-strategies/mcp-strategies.pdf](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/mcp-strategies/mcp-strategies.pdf)                                                                 | Full guide download                      |
+| AWS: AgentCore OBO Token Exchange              | [https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/on-behalf-of-token-exchange.html)                                                                   | Confused-deputy mitigation pattern       |
+| Microsoft: MCP Azure Security Guide            | [https://github.com/microsoft/mcp-azure-security-guide](https://github.com/microsoft/mcp-azure-security-guide)                                                                                                                                                     | OWASP MCP Top 10 on Azure                |
+| Microsoft: MCP Azure Security Guide (site)     | [https://microsoft.github.io/mcp-azure-security-guide/](https://microsoft.github.io/mcp-azure-security-guide/)                                                                                                                                                     | Published controls and architectures     |
+| Microsoft: Agent Governance Toolkit            | [https://github.com/microsoft/agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit)                                                                                                                                                     | MCP OWASP compliance mapping             |
+| Microsoft: MCP for Beginners (Security module) | [https://github.com/microsoft/mcp-for-beginners/tree/main/02-Security](https://github.com/microsoft/mcp-for-beginners/tree/main/02-Security)                                                                                                                       | Learning path with OWASP mapping         |
+| Microsoft: State of MCP Security in 2026       | [https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327](https://techcommunity.microsoft.com/blog/microsoft-security-blog/the-state-of-mcp-security-in-2026/4531327)                                           | Industry threat landscape summary        |
+| Microsoft: APIM as MCP Auth Gateway            | [https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-api-management-your-auth-gateway-for-mcp-servers/4402690](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-api-management-your-auth-gateway-for-mcp-servers/4402690) | Gateway enforcement pattern              |
+
+
+---
+
+## Platform Implementation References
+
+
+| Resource                                      | URL                                                                                                                                                                | Focus                                     |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| OpenAI API: MCP and Connectors                | [https://developers.openai.com/api/docs/guides/tools-connectors-mcp](https://developers.openai.com/api/docs/guides/tools-connectors-mcp)                           | Hosted MCP and connectors                 |
+| OpenAI Agents SDK: MCP                        | [https://openai.github.io/openai-agents-python/mcp/](https://openai.github.io/openai-agents-python/mcp/)                                                           | Transports, approvals, filtering, tracing |
+| OpenAI Apps SDK examples                      | [https://developers.openai.com/apps-sdk/build/examples](https://developers.openai.com/apps-sdk/build/examples)                                                     | MCP Apps and interactive components       |
+| Microsoft Semantic Kernel: MCP concept sample | [https://learn.microsoft.com/semantic-kernel/concepts/plugins/adding-mcp-plugins](https://learn.microsoft.com/semantic-kernel/concepts/plugins/adding-mcp-plugins) | MCP plugins on Semantic Kernel            |
+
 
 ---
 
@@ -178,16 +263,23 @@ Testable control frameworks useful for tier alignment, vendor questionnaires, an
 
 Academic and formal frameworks that inform classification, threat modeling, and vendor review.
 
-| Resource | URL | Notes |
-|----------|-----|-------|
-| MCP Landscape, Security Threats & Future Research (Hou et al.) | https://arxiv.org/abs/2503.23278 | Lifecycle threat taxonomy; 16 scenarios |
-| MCP Landscape: HTML version | https://arxiv.org/html/2503.23278v3 | Same paper, web format |
-| MCP Landscape: data repository | https://github.com/security-pride/MCP_Landscape | Case studies and implementation examples |
-| SoK: Security and Safety in the MCP Ecosystem | https://arxiv.org/html/2512.08290 | Security vs safety taxonomy; context weaponization |
-| MCPShield: Formal Security Framework for MCP Agents | https://arxiv.org/abs/2604.05969 | 7 categories, 23 attack vectors, verification model |
-| Simplified and Secure MCP Gateways (enterprise integration) | https://arxiv.org/abs/2504.19997 | Gateway architecture for enterprise AI |
-| Wiz: MCP Security Research Briefing | https://www.wiz.io/blog/mcp-security-research-briefing | Remote server risk analysis |
-| Invariant Labs: Tool Poisoning Attacks | https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks | Rug pulls and description injection |
+
+| Resource                                                           | URL                                                                                                                                                              | Notes                                                    |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| MCP Landscape, Security Threats & Future Research (Hou et al.)     | [https://arxiv.org/abs/2503.23278](https://arxiv.org/abs/2503.23278)                                                                                             | Lifecycle threat taxonomy; 16 scenarios                  |
+| MCP Landscape: HTML version                                        | [https://arxiv.org/html/2503.23278v3](https://arxiv.org/html/2503.23278v3)                                                                                       | Same paper, web format                                   |
+| MCP Landscape: data repository                                     | [https://github.com/security-pride/MCP_Landscape](https://github.com/security-pride/MCP_Landscape)                                                               | Case studies and implementation examples                 |
+| SoK: Security and Safety in the MCP Ecosystem                      | [https://arxiv.org/html/2512.08290](https://arxiv.org/html/2512.08290)                                                                                           | Security vs safety taxonomy; context weaponization       |
+| MCPShield: Formal Security Framework for MCP Agents                | [https://arxiv.org/abs/2604.05969](https://arxiv.org/abs/2604.05969)                                                                                             | 7 categories, 23 attack vectors, verification model      |
+| Simplified and Secure MCP Gateways (enterprise integration)        | [https://arxiv.org/abs/2504.19997](https://arxiv.org/abs/2504.19997)                                                                                             | Gateway architecture for enterprise AI                   |
+| Wiz: MCP Security Research Briefing                                | [https://www.wiz.io/blog/mcp-security-research-briefing](https://www.wiz.io/blog/mcp-security-research-briefing)                                                 | Remote server risk analysis                              |
+| Invariant Labs: Tool Poisoning Attacks                             | [https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks](https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks) | Rug pulls and description injection                      |
+| Breaking the Protocol: Security Analysis of MCP (arxiv)            | [https://arxiv.org/abs/2601.17549](https://arxiv.org/abs/2601.17549)                                                                                             | Protocol-level security analysis; MCPBench / MCPSec      |
+| SMCP: Secure Model Context Protocol                                | [https://arxiv.org/abs/2602.01129](https://arxiv.org/abs/2602.01129)                                                                                             | Proposed secure MCP variant with identity, policy, audit |
+| MCPShield: Security Cognition Layer for Adaptive Trust Calibration | [https://arxiv.org/abs/2602.14281](https://arxiv.org/abs/2602.14281)                                                                                             | Runtime trust and tool validation research               |
+| Making REST APIs Agent-Ready: OpenAPI to MCP Servers               | [https://arxiv.org/abs/2507.16044](https://arxiv.org/abs/2507.16044)                                                                                             | API-to-MCP governance and generated server review        |
+| Making OpenAPI Documentation Agent-Ready                           | [https://arxiv.org/abs/2605.14312](https://arxiv.org/abs/2605.14312)                                                                                             | API documentation quality and tool-readiness governance  |
+
 
 ---
 
@@ -195,26 +287,30 @@ Academic and formal frameworks that inform classification, threat modeling, and 
 
 Tools that support governance evidence collection, third-party review, and continuous monitoring.
 
-| Resource | URL | Use in governance |
-|----------|-----|-------------------|
-| mcp-scan (Invariant Labs) | https://github.com/invariantlabs-ai/mcp-scan | Tool poisoning / shadowing detection |
-| MCP Tool Poisoning Experiments | https://github.com/invariantlabs-ai/mcp-injection-experiments | Prompt injection via tool output research |
-| SecureMCP | https://github.com/makalin/SecureMCP | Vulnerability and misconfiguration auditing |
-| MCP Audit Extension (VS Code / Copilot) | https://github.com/Agentity-com/mcp-audit-extension | Tool call logging for review evidence |
-| ToolHive (Stacklok) | https://github.com/StacklokLabs/toolhive | MCP server isolation and lifecycle |
-| MCP Defender | https://github.com/MCP-Defender/MCP-Defender | MCP-specific defense tooling |
-| AI-Infra-Guard (Tencent) | https://github.com/Tencent/AI-Infra-Guard | AI infrastructure security scanning |
+
+| Resource                                | URL                                                                                                                            | Use in governance                           |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
+| mcp-scan (Invariant Labs)               | [https://github.com/invariantlabs-ai/mcp-scan](https://github.com/invariantlabs-ai/mcp-scan)                                   | Tool poisoning / shadowing detection        |
+| MCP Tool Poisoning Experiments          | [https://github.com/invariantlabs-ai/mcp-injection-experiments](https://github.com/invariantlabs-ai/mcp-injection-experiments) | Prompt injection via tool output research   |
+| SecureMCP                               | [https://github.com/makalin/SecureMCP](https://github.com/makalin/SecureMCP)                                                   | Vulnerability and misconfiguration auditing |
+| MCP Audit Extension (VS Code / Copilot) | [https://github.com/Agentity-com/mcp-audit-extension](https://github.com/Agentity-com/mcp-audit-extension)                     | Tool call logging for review evidence       |
+| ToolHive (Stacklok)                     | [https://github.com/StacklokLabs/toolhive](https://github.com/StacklokLabs/toolhive)                                           | MCP server isolation and lifecycle          |
+| MCP Defender                            | [https://github.com/MCP-Defender/MCP-Defender](https://github.com/MCP-Defender/MCP-Defender)                                   | MCP-specific defense tooling                |
+| AI-Infra-Guard (Tencent)                | [https://github.com/Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard)                                         | AI infrastructure security scanning         |
+
 
 ---
 
 ## MCP Security Community Resources
 
-| Resource | URL |
-|----------|-----|
-| Awesome MCP Security List | https://github.com/awesome-mcp-security/awesome-mcp-security |
-| Awesome MCP CVE | https://github.com/awesome-mcp-security/awesome-mcp-cve |
-| Awesome MCP Security (Puliczek, actively maintained) | https://github.com/Puliczek/awesome-mcp-security |
-| Awesome MCP Security: contributing guide | https://github.com/Puliczek/awesome-mcp-security/blob/main/CONTRIBUTING.md |
+
+| Resource                                             | URL                                                                                                                                                      |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Awesome MCP Security List                            | [https://github.com/awesome-mcp-security/awesome-mcp-security](https://github.com/awesome-mcp-security/awesome-mcp-security)                             |
+| Awesome MCP CVE                                      | [https://github.com/awesome-mcp-security/awesome-mcp-cve](https://github.com/awesome-mcp-security/awesome-mcp-cve)                                       |
+| Awesome MCP Security (Puliczek, actively maintained) | [https://github.com/Puliczek/awesome-mcp-security](https://github.com/Puliczek/awesome-mcp-security)                                                     |
+| Awesome MCP Security: contributing guide             | [https://github.com/Puliczek/awesome-mcp-security/blob/main/CONTRIBUTING.md](https://github.com/Puliczek/awesome-mcp-security/blob/main/CONTRIBUTING.md) |
+
 
 ---
 
@@ -222,19 +318,21 @@ Tools that support governance evidence collection, third-party review, and conti
 
 Selected articles useful for executive briefings, threat modeling, and reviewer education. For exhaustive lists, see Awesome MCP Security.
 
-| Resource | URL | Topic |
-|----------|-----|-------|
-| Trail of Bits: MCP servers attack before first use | https://blog.trailofbits.com/2025/04/21/jumping-the-line-how-mcp-servers-can-attack-you-before-you-ever-use-them/ | Supply chain / install-time risk |
-| Trail of Bits: MCP conversation history theft | https://blog.trailofbits.com/2025/04/23/how-mcp-servers-can-steal-your-conversation-history | Data exfiltration |
-| Trail of Bits: Insecure credential storage in MCP | https://blog.trailofbits.com/2025/04/30/insecure-credential-storage-plagues-mcp/ | MCP01 token mismanagement |
-| Trail of Bits: Security layer MCP needed | https://blog.trailofbits.com/2025/07/28/we-built-the-security-layer-mcp-always-needed/ | Gateway / policy enforcement |
-| Block Goose: Securing MCP | https://block.github.io/goose/blog/2025/03/31/securing-mcp/ | Enterprise MCP hardening |
-| Simon Willison: MCP prompt injection | https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/ | Cross-tool injection demo |
-| Auth0: MCP and Authorization intro | https://auth0.com/blog/an-introduction-to-mcp-and-authorization/ | OAuth patterns for MCP |
-| Aaron Parecki: OAuth for MCP | https://aaronparecki.com/2025/04/03/15/oauth-for-model-context-protocol | Authorization design |
-| Obot: MCP Security Best Practices (2026 guide) | https://obot.ai/resources/learning-center/mcp-security/ | Defense-in-depth framework |
-| Cisco: MCP and Security | https://community.cisco.com/t5/security-blogs/ai-model-context-protocol-mcp-and-security/ba-p/5274394 | Enterprise security perspective |
-| Windows: Securing MCP on Windows | https://blogs.windows.com/windowsexperience/2025/05/19/securing-the-model-context-protocol-building-a-safer-agentic-future-on-windows/ | Platform-level controls |
+
+| Resource                                           | URL                                                                                                                                                                                                                                                                              | Topic                            |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Trail of Bits: MCP servers attack before first use | [https://blog.trailofbits.com/2025/04/21/jumping-the-line-how-mcp-servers-can-attack-you-before-you-ever-use-them/](https://blog.trailofbits.com/2025/04/21/jumping-the-line-how-mcp-servers-can-attack-you-before-you-ever-use-them/)                                           | Supply chain / install-time risk |
+| Trail of Bits: MCP conversation history theft      | [https://blog.trailofbits.com/2025/04/23/how-mcp-servers-can-steal-your-conversation-history](https://blog.trailofbits.com/2025/04/23/how-mcp-servers-can-steal-your-conversation-history)                                                                                       | Data exfiltration                |
+| Trail of Bits: Insecure credential storage in MCP  | [https://blog.trailofbits.com/2025/04/30/insecure-credential-storage-plagues-mcp/](https://blog.trailofbits.com/2025/04/30/insecure-credential-storage-plagues-mcp/)                                                                                                             | MCP01 token mismanagement        |
+| Trail of Bits: Security layer MCP needed           | [https://blog.trailofbits.com/2025/07/28/we-built-the-security-layer-mcp-always-needed/](https://blog.trailofbits.com/2025/07/28/we-built-the-security-layer-mcp-always-needed/)                                                                                                 | Gateway / policy enforcement     |
+| Block Goose: Securing MCP                          | [https://block.github.io/goose/blog/2025/03/31/securing-mcp/](https://block.github.io/goose/blog/2025/03/31/securing-mcp/)                                                                                                                                                       | Enterprise MCP hardening         |
+| Simon Willison: MCP prompt injection               | [https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/)                                                                                                                                                         | Cross-tool injection demo        |
+| Auth0: MCP and Authorization intro                 | [https://auth0.com/blog/an-introduction-to-mcp-and-authorization/](https://auth0.com/blog/an-introduction-to-mcp-and-authorization/)                                                                                                                                             | OAuth patterns for MCP           |
+| Aaron Parecki: OAuth for MCP                       | [https://aaronparecki.com/2025/04/03/15/oauth-for-model-context-protocol](https://aaronparecki.com/2025/04/03/15/oauth-for-model-context-protocol)                                                                                                                               | Authorization design             |
+| Obot: MCP Security Best Practices (2026 guide)     | [https://obot.ai/resources/learning-center/mcp-security/](https://obot.ai/resources/learning-center/mcp-security/)                                                                                                                                                               | Defense-in-depth framework       |
+| Cisco: MCP and Security                            | [https://community.cisco.com/t5/security-blogs/ai-model-context-protocol-mcp-and-security/ba-p/5274394](https://community.cisco.com/t5/security-blogs/ai-model-context-protocol-mcp-and-security/ba-p/5274394)                                                                   | Enterprise security perspective  |
+| Windows: Securing MCP on Windows                   | [https://blogs.windows.com/windowsexperience/2025/05/19/securing-the-model-context-protocol-building-a-safer-agentic-future-on-windows/](https://blogs.windows.com/windowsexperience/2025/05/19/securing-the-model-context-protocol-building-a-safer-agentic-future-on-windows/) | Platform-level controls          |
+
 
 ---
 
@@ -242,36 +340,36 @@ Selected articles useful for executive briefings, threat modeling, and reviewer 
 
 The [README](README.md) and [OWASP submission draft](owasp-project-submission-draft.md) describe a broader MCP security ecosystem:
 
-| Resource | Status | URL / Notes |
-|----------|--------|-------------|
-| **MCP Governance & Risk Model** (this guide) | In development | This repository |
-| **MCP Security Taxonomy** | URL TBD | Shared risk language; see [MCP Landscape paper](https://arxiv.org/abs/2503.23278) and [SAF-MCP](https://github.com/safe-agentic-framework/safe-mcp) for interim taxonomies |
-| **MCP Testing Guide** | URL TBD | Validates whether controls work; see [MCPSEC](https://github.com/paolovella/vellaveto/tree/main/mcpsec) and [Appsecco checklist](https://github.com/appsecco/pentesting-mcp-servers-checklist) |
-| **OWASP MCP Top 10** | Published (beta v0.1) | Defines *what* can go wrong |
-| **Awesome MCP CVE / Awesome MCP Security** | Published | Threat models and vendor review inputs |
-| **MSSS** | Published (v0.1) | Certifiable control standard for MCP servers |
+
+| Resource                                     | Status                | URL / Notes                                                                                                                                                    |
+| -------------------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MCP Governance & Risk Model** (this guide) | In development        | This repository                                                                                                                                                |
+| **MCP Security Taxonomy**                    | URL TBD               | Shared risk language; see [MCP Landscape paper](#research-taxonomies--threat-models) and [SAF-MCP](#standards-baselines--certification) for interim taxonomies |
+| **MCP Testing Guide**                        | URL TBD               | Validates whether controls work; see [MCPSEC](#standards-baselines--certification) and [Appsecco checklist](#standards-baselines--certification)               |
+| **OWASP MCP Top 10**                         | Published (beta v0.1) | Defines *what* can go wrong — see [OWASP MCP Top 10](#owasp-mcp-top-10)                                                                                        |
+| **Awesome MCP CVE / Awesome MCP Security**   | Published             | Threat models and vendor review — see [MCP Security Community Resources](#mcp-security-community-resources)                                                    |
+| **MSSS**                                     | Published (v0.1)      | Certifiable control standard — see [MSSS](#standards-baselines--certification)                                                                                 |
+
 
 ---
 
 ## Quick Reference by Guide Topic
 
-| Guide topic | Primary URLs |
-|-------------|--------------|
-| Approval & authorization | [MCP Authorization Spec (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/), [MCP Security Best Practices](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices), [OWASP MCP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html) |
-| Classification & risk scoring | [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/), [MSSS levels](https://github.com/mcp-security-standard/mcp-server-security-standard), [Framework Mapping Appendix](framework-mapping.md) |
-| Asset inventory & registry | [Official MCP Registry](https://registry.modelcontextprotocol.io/), [MCP Registry about](https://modelcontextprotocol.io/registry/about) |
-| Third-party / supply chain review | [OWASP MCP04](https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025-%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering), [Awesome MCP CVE](https://github.com/awesome-mcp-security/awesome-mcp-cve), [Vendor Questionnaire](important-forms/vendor-questionnaire.md) |
-| Shadow MCP & inventory | [OWASP MCP09](https://owasp.org/www-project-mcp-top-10/2025/MCP09-2025-%E2%80%93Shadow-MCP-Servers), [Ch. 12](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance) |
-| Audit & monitoring | [OWASP MCP08](https://owasp.org/www-project-mcp-top-10/2025/MCP08-2025-%E2%80%93Lack-of-Audit-and-Telemetry), [MCP Audit Extension](https://github.com/Agentity-com/mcp-audit-extension) |
-| High-risk / HITL scenarios | [OWASP MCP06](https://owasp.org/www-project-mcp-top-10/2025/MCP06-2025-%E2%80%93Prompt-InjectionviaContextual-Payloads), [OWASP LLM Top 10](https://genai.owasp.org/llm-top-10/) |
-| Incident response | [NIST SP 800-61](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final), [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) |
-| Compliance mapping | [Framework Mapping Appendix](framework-mapping.md), [COMPEL baseline](https://www.compelframework.org/articles/model-context-protocol-security-standards), [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) |
-| Enterprise rollout | [AWS MCP Governance Strategy](https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-governance-strategy.html), [Microsoft MCP Azure Security Guide](https://microsoft.github.io/mcp-azure-security-guide/) |
-| Reviewer prompts & evidence | [Ch. 7: Approval Workflow](mcp-governance-risk-framework.md#chapter-7-approval-workflow) |
 
----
+| Guide topic                       | Primary URLs                                                                                                                                                                                                                                                                                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Approval & authorization          | [MCP Authorization Spec (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/), [MCP Security Best Practices](https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices), [OWASP MCP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/MCP_Security_Cheat_Sheet.html) |
+| Classification & risk scoring     | [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/), [MSSS levels](https://github.com/mcp-security-standard/mcp-server-security-standard), [Framework Mapping Appendix](framework-mapping.md)                                                                                                                                                 |
+| Asset inventory & registry        | [Official MCP Registry](https://registry.modelcontextprotocol.io/), [MCP Registry about](https://modelcontextprotocol.io/registry/about)                                                                                                                                                                                                                |
+| Third-party / supply chain review | [OWASP MCP04](https://owasp.org/www-project-mcp-top-10/2025/MCP04-2025-%E2%80%93Software-Supply-Chain-Attacks&Dependency-Tampering), [Awesome MCP CVE](https://github.com/awesome-mcp-security/awesome-mcp-cve), [Vendor Questionnaire](important-forms/vendor-questionnaire.md)                                                                        |
+| Shadow MCP & inventory            | [OWASP MCP09](https://owasp.org/www-project-mcp-top-10/2025/MCP09-2025-%E2%80%93Shadow-MCP-Servers), [Ch. 12](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance)                                                                                                                                                                        |
+| Audit & monitoring                | [OWASP MCP08](https://owasp.org/www-project-mcp-top-10/2025/MCP08-2025-%E2%80%93Lack-of-Audit-and-Telemetry), [MCP Audit Extension](https://github.com/Agentity-com/mcp-audit-extension)                                                                                                                                                                |
+| High-risk / HITL scenarios        | [OWASP MCP06](https://owasp.org/www-project-mcp-top-10/2025/MCP06-2025-%E2%80%93Prompt-InjectionviaContextual-Payloads), [OWASP LLM Top 10](https://genai.owasp.org/llm-top-10/)                                                                                                                                                                        |
+| Incident response                 | [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final), [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment)                                                                                                                                                                                               |
+| Compliance mapping                | [Framework Mapping Appendix](framework-mapping.md), [COMPEL baseline](https://www.compelframework.org/articles/model-context-protocol-security-standards), [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework)                                                                                                                         |
+| Enterprise rollout                | [AWS MCP Governance Strategy](https://docs.aws.amazon.com/prescriptive-guidance/latest/mcp-strategies/mcp-governance-strategy.html), [Microsoft MCP Azure Security Guide](https://microsoft.github.io/mcp-azure-security-guide/)                                                                                                                        |
+| Reviewer prompts & evidence       | [Ch. 7: Approval Workflow](mcp-governance-risk-framework.md#chapter-7-approval-workflow)                                                                                                                                                                                                                                                                |
 
-## Maintenance Notes
 
 - **Draft status:** This file is not yet linked from the main guide navigation. Review before promoting to published status.
 - **OWASP MCP Top 10:** Currently in beta (v0.1). Risk names and URLs may change at final release. Note: published OWASP MCP risk names differ slightly from some internal guide chapter mappings; reconcile during final release.
@@ -383,147 +481,3 @@ These references were identified during an internet review and are recommended a
 | MCP Security Best Practices draft path | Prefer the docs tutorial URL for general readers: `https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices`; keep versioned spec paths when citing a specific protocol version |
 | MCP individual OWASP links | Re-check before publishing; OWASP MCP Top 10 remains beta and individual URLs may change |
 | MCP Specification (2025-11-25) | Keep as current/later version reference, but add 2025-06-18 because many ecosystem docs and implementations still refer to it |
-
-# Framework Mapping Appendix
-
-**Purpose:** Map MCP Governance & Risk Model controls to established security and AI governance frameworks. Use this appendix for compliance audits, gap assessments, and alignment with existing organizational programs.
-
-**Related guide:** This mapping references controls defined in the [MCP Governance & Risk Framework v1.0](mcp-governance-risk-framework-v1.0.md) ([Chapter 1: Executive Summary](mcp-governance-risk-framework-v1.0.md#chapter-1-executive-summary) through [Appendix: Closing](mcp-governance-risk-framework-v1.0.md#appendix-closing)).
-
-Coverage: **Covered** = v1.0 defines an explicit control. **Partial** = v1.0 names the risk but defines no enforceable control. **Gap** = not addressed in v1.0.
-
----
-
-## OWASP MCP Top 10
-
-The OWASP MCP Top 10 identifies the most critical security risks for MCP deployments. This table maps each risk category to guide controls.
-
-| OWASP MCP Risk | Coverage | Guide Section (v1.0) | Control / Implementation |
-|----------------|----------|----------------------|--------------------------|
-| MCP01: Token Mismanagement & Secret Exposure | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-security-concerns), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Appendix](mcp-governance-risk-framework-v1.0.md#local-mcp-hardening-requirements) | Token passthrough rejected as an architecture pattern; production credentials on a local STDIO server are a hard-gate rejection; secrets, tokens, and raw PII must be redacted from audit parameters (Principle 5 sanitization rule) |
-| MCP02: Privilege Escalation via Scope Creep | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools), [Ch. 5](mcp-governance-risk-framework-v1.0.md#classification-rules), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Least privilege evaluated per tool, not per server; separate read, write, and admin servers; adding a tool to an approved server triggers mandatory re-classification (Rule 2); Identity Scope and Action Capability scored 1 to 5 |
-| MCP03: Tool Poisoning | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 5](mcp-governance-risk-framework-v1.0.md#tier-summary-table), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Third-party and OSS source review; version pinning; Tier 0 explicitly flagged as not risk-free. **Gap:** v1.0 defines no control for post-approval tool description drift. OWASP names rug pulls, schema poisoning, and tool shadowing as MCP03 sub-techniques; a description-hashing or re-attestation control is needed |
-| MCP04: Software Supply Chain Attacks & Dependency Tampering | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Third-party review checklist for all external servers; SBOM review; dependency CVE scanning; version pinned and recorded as an inventory field; Vendor Trust scored 1 to 5 |
-| MCP05: Command Injection & Execution | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools), [Ch. 5](mcp-governance-risk-framework-v1.0.md#worked-classification-examples), [Appendix](mcp-governance-risk-framework-v1.0.md#local-mcp-hardening-requirements) | Shell and command execution without sandboxing is a documented review red flag; a filesystem server able to execute shell commands classifies as Tier 4; prohibited unless formally justified |
-| MCP06: Intent Flow Subversion | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful), [Appendix](mcp-governance-risk-framework-v1.0.md#client-and-host-governance) | Tool chaining treated as the primary attack pattern; approve agent *configurations*, not servers in isolation; do not connect read-capable and write-capable servers to the same session without documented business need; prompt injection testing for Tier 2+; meaningful HITL before write, delete, deploy, or send |
-| MCP07: Insufficient Authentication & Authorization | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#authorization-design), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Appendix](mcp-governance-risk-framework-v1.0.md#authorization-test-cases) | Confused deputy, session security, and authorization design addressed directly. Authorization hard gates reject token passthrough, missing or invalid audience validation, and over-broad token acceptance. For authenticated HTTP servers: OAuth 2.1 practices, audience validation, PKCE, exact redirect URI matching, state verification. Session binding, rotation, and timeout required for Tier 2+. Verified with evidence and tests, not vendor attestation |
-| MCP08: Lack of Audit and Telemetry | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-5-auditability-requires-production-logging), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | No logging, no production use. Minimum audit fields defined per tool call (timestamp, user or agent identity, server, tool, sanitized parameters, outcome, authorization result). SIEM integration required. Absence of production logging on a Tier 2+ server is a hard-gate rejection. Auditability scored 1 to 5 |
-| MCP09: Shadow MCP Servers | Covered | [Ch. 4](mcp-governance-risk-framework-v1.0.md#discovery-methods), [Ch. 4](mcp-governance-risk-framework-v1.0.md#approved-vs-shadow-mcp), [Appendix](mcp-governance-risk-framework-v1.0.md#client-and-host-governance) | Four discovery methods (config scanning, network and endpoint monitoring, self-reporting, platform integration); shadow MCP priority matrix drives remediation; platform allowlists as the strongest preventive control; shadow MCP prohibition published as policy |
-| MCP10: Context Injection & Over-Sharing | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance), [Ch. 5](mcp-governance-risk-framework-v1.0.md#common-classification-judgment-calls), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Cumulative blast radius named as a threat-model property; read-only access explicitly rejected as a proxy for low risk; Blast Radius scored 1 to 5. **Gap:** v1.0 defines no control for context scoping, persistence, or isolation between tasks, users, or agents sharing a context window |
-
----
-
-## OWASP LLM Top 10
-
-MCP governance intersects with LLM security risks because agents use LLMs to decide which tools to invoke. Rows below follow the **OWASP Top 10 for LLM Applications 2025** edition. LLM06 Excessive Agency is the canonical anchor for autonomous tool use and is therefore the closest single-entry match for the subject of this guide.
-
-| OWASP LLM Risk (2025) | Coverage | Guide Section (v1.0) | Control / Implementation |
-|-----------------------|----------|----------------------|--------------------------|
-| LLM01: Prompt Injection | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful) | Prompt injection via tool output documented as an attack pattern; prompt injection testing required for Tier 2+; meaningful HITL before write actions; tool chaining treated as a scoring and classification input |
-| LLM02: Sensitive Information Disclosure | Covered | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Data classification drives tier assignment; Data Sensitivity scored 1 to 5; Tier 2+ requires data-classification logging; sanitization rule forbids logging secrets or raw PII |
-| LLM03: Supply Chain | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Third-party and OSS review; SBOM; dependency CVE scanning; version pinning tracked in inventory; Vendor Trust scored 1 to 5 |
-| LLM04: Data and Model Poisoning | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns) | v1.0 addresses poisoning of *retrieved content* that an MCP server exposes to an agent. Training and fine-tuning data sit outside the MCP governance boundary. Vendor review should confirm that data accessed via MCP is not used for vendor model training |
-| LLM05: Improper Output Handling | Partial | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Meaningful HITL before consequential actions; Reversibility scored 1 to 5. v1.0 recommends content sanitization but defines no output-validation control at the tool boundary |
-| LLM06: Excessive Agency | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful), [Ch. 5](mcp-governance-risk-framework-v1.0.md#classification-rules), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Primary anchor for this guide. Least privilege per tool; classify by highest-risk tool; HITL required for Tier 3 and for every privileged action at Tier 4; Action Capability and Blast Radius scored 1 to 5; approve agent configurations, not servers alone |
-| LLM07: System Prompt Leakage | Gap | Not addressed in v1.0 | **Gap.** Tool schemas, server descriptions, and system prompts may encode tool scopes, credentials, or guardrail logic. v1.0 defines no control for their exposure |
-| LLM08: Vector and Embedding Weaknesses | Gap | Not addressed in v1.0 | **Gap.** Relevant wherever an MCP server exposes retrieval or knowledge-base tools. v1.0 defines no retrieval-scoping or tenant-isolation control |
-| LLM09: Misinformation | Partial | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful) | Named business owner accountable for residual risk; meaningful HITL shows the user the action and its impact before execution. v1.0 defines no control for an agent *acting* on a hallucinated fact |
-| LLM10: Unbounded Consumption | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance) | Machine speed named as a threat-model property requiring rate limits and abuse detection designed for automation rather than human pace. v1.0 defines no enforceable rate-limiting or consumption control |
-
----
-
-## NIST AI Risk Management Framework (AI RMF)
-
-| NIST AI RMF Function | Category | Guide Section (v1.0) | Implementation |
-|----------------------|----------|----------------------|----------------|
-| **Govern** | GV-1 Policies | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-3-publish-minimum-policy-language), [Ch. 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles) | Four governance rules adopted as policy; shadow MCP prohibition; required controls and authentication requirements published by tier |
-| **Govern** | GV-2 Accountability | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership), [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-4-assign-raci-owners) | Named owner per server (a person, not a team); RACI across business, engineering, AppSec, CISO, legal, privacy, procurement; no owner, no approval |
-| **Govern** | GV-6 Third-party risk | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Source and vendor recorded at intake; third-party review depth determined by source; SBOM and dependency scanning |
-| **Map** | MP-2 Categories of AI systems | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model) | Tier 0 to 4 classification, assigned by highest-risk tool exposed |
-| **Map** | MP-5 Impact assessment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Eight-factor risk scoring (range 8 to 40), including Blast Radius and Reversibility |
-| **Measure** | MS-2 Metrics | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics) | Monthly CISO metrics: inventory coverage, shadow MCP count, overdue reviews, Tier 3 to 4 count and trend, MCP policy violations |
-| **Measure** | MS-2.7 Monitoring | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance), [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Audit logging and SIEM fields; alerting; periodic review cadence by tier (Tier 4 monthly through Tier 0 to 1 annually) |
-| **Manage** | MG-2 Risk treatment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Ch. 6](mcp-governance-risk-framework-v1.0.md#risk-rating-bands) | Hard gates reject before scoring; risk bands drive approve, conditionally approve, or reject |
-| **Manage** | MG-3 Third-party risk | [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Vendor Trust scored 1 to 5; unknown source with no review scores 5 and triggers rejection or heavy review |
-| **Manage** | MG-4 Incident response | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | MCP detection signals and incident response guidance |
-
----
-
-## ISO/IEC 42001 (AI Management System)
-
-| ISO 42001 Area | Guide Section (v1.0) | Implementation |
-|----------------|----------------------|----------------|
-| 6.1: Risk assessment | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Tier classification plus eight-factor quantitative scoring; tier and score cross-checked to detect misclassification |
-| 6.1: Risk treatment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#risk-rating-bands), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Approval decisions with required controls by tier; conditional approval with documented remediation deadlines |
-| 7.4: Communication | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership), [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-4-assign-raci-owners) | RACI and named owners; owners report tool, version, scope, and deployment changes within 5 business days |
-| 8.1: Operational planning | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance), [Ch. 1](mcp-governance-risk-framework-v1.0.md#practical-rollout-plan-90-days) | Governance lifecycle from intake through decommissioning; staged 90-day rollout |
-| 8.2: AI system impact assessment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors), [Appendix](mcp-governance-risk-framework-v1.0.md#evidence-pack-tier-2-approvals) | Eight-factor scoring including blast radius and reversibility; evidence pack required for Tier 2+ approvals |
-| 8.3: Data for AI systems | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-5-auditability-requires-production-logging) | Data accessed and its classification recorded at intake; sanitization rule prohibits logging secrets or raw PII |
-| 8.4: Third-party relationships | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Source and vendor trust recorded; third-party review depth scales with source |
-| 9.1: Monitoring and measurement | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics), [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Monthly KPIs reported to security leadership; continuous monitoring and SIEM integration |
-| 9.2: Internal audit | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance) | Periodic review cadence by tier; quarterly owner validation; orphaned servers suspended |
-| 10.1: Continual improvement | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Post-incident review and governance gap remediation |
-
----
-
-## SOC 2 Trust Service Criteria
-
-| SOC 2 Criteria | Guide Section (v1.0) | Implementation |
-|----------------|----------------------|----------------|
-| **CC6.1**: Logical access | [Ch. 2](mcp-governance-risk-framework-v1.0.md#authorization-design), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable) | OAuth 2.1 practices for authenticated HTTP servers; audience validation; scope enforcement; PKCE; local credential handling for STDIO |
-| **CC6.2**: Access removal | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance) | Decommissioning: revoke OAuth tokens, API keys, and service accounts; remove from allowlists; verify no active connections |
-| **CC6.3**: Role-based access | [Ch. 5](mcp-governance-risk-framework-v1.0.md#tier-summary-table), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership) | Approval authority assigned by tier; CISO or risk board required for Tier 4 |
-| **CC6.6**: System boundaries | [Ch. 4](mcp-governance-risk-framework-v1.0.md#discovery-methods), [Ch. 4](mcp-governance-risk-framework-v1.0.md#approved-vs-shadow-mcp) | Inventory; platform allowlists; shadow MCP prohibition and priority-based remediation |
-| **CC6.7**: Data transmission | [Ch. 2](mcp-governance-risk-framework-v1.0.md#token-passthrough), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable) | Token passthrough rejected; each server authenticates independently; audience validation enforced |
-| **CC6.8**: Malicious software | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | SBOM review; dependency CVE scanning; version pinning and integrity verification |
-| **CC7.1**: Detection | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Alerting rules; anomaly detection on tool call patterns and volume |
-| **CC7.2**: Monitoring | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-5-auditability-requires-production-logging), [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics) | Minimum audit fields per tool call; SIEM integration; monthly governance metrics |
-| **CC7.3**: Incident response | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | MCP incident response guidance |
-| **CC7.4**: Recovery | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Containment and recovery procedures |
-| **CC8.1**: Change management | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance), [Ch. 5](mcp-governance-risk-framework-v1.0.md#rule-2-re-classify-when-tools-change) | Change notification within 5 business days; re-classification when tools are added; version pinning |
-| **CC9.2**: Vendor risk | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Source and vendor recorded at intake; Vendor Trust scored 1 to 5 |
-
----
-
-## Internal AI Governance Policies
-
-Use this section to map guide controls to your organization's internal AI governance policies. Replace the placeholder rows with your actual policy references.
-
-| Internal Policy | Guide Section (v1.0) | Alignment Notes |
-|-----------------|----------------------|-----------------|
-| [Your AI Usage Policy] | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-3-publish-minimum-policy-language), [Ch. 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles) | Adopt the four governance rules and the shadow MCP prohibition as published policy language |
-| [Your AI Risk Assessment Process] | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model) | MCP tier classification and eight-factor scoring as the AI risk assessment method |
-| [Your Third-Party AI Vendor Policy] | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Extend vendor review to cover MCP source, version pinning, and Vendor Trust scoring |
-| [Your AI Incident Response Plan] | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Add MCP-specific detection and response guidance to the existing IR plan |
-| [Your Data Classification Standard] | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Map internal data classes to MCP tier requirements and the Data Sensitivity factor |
-| [Your Privileged Access Policy] | [Ch. 5](mcp-governance-risk-framework-v1.0.md#tier-summary-table), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools) | Tier 4 MCP servers follow PAM and JIT requirements; prefer predefined action templates over standing admin access |
-
----
-
-## Using This Mapping
-
-### For Compliance Audits
-
-1. Identify the framework your auditor is assessing against
-2. Locate the relevant mapping table in this appendix
-3. Reference the guide section that implements each control
-4. Provide evidence: risk register entries, approval decisions, scoring worksheets, and audit logs
-
-### For Gap Assessments
-
-1. Start with the OWASP MCP Top 10 mapping (most MCP-specific)
-2. Cross-reference with NIST AI RMF Govern and Manage functions
-3. Review every row marked **Partial** or **Gap** above, plus any control in the [Formal Control Catalog](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) your organization has not implemented
-4. Prioritize gaps by the risk tier of the affected MCP servers
-
-### For Program Integration
-
-If your organization already has an AI governance program:
-
-- **Do not create a parallel process.** Map the MCP governance lifecycle to your existing AI system approval workflow
-- **Extend existing templates** with the MCP-specific intake fields in [Chapter 4](mcp-governance-risk-framework-v1.0.md#required-fields)
-- **Add MCP metrics** to existing AI governance dashboards using the KPIs in [Chapter 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics)
-
----
-
-[MCP Governance & Risk Framework v1.0](mcp-governance-risk-framework-v1.0.md) · [Guide Home](README.md)
