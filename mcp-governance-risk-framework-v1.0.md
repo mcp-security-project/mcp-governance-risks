@@ -508,7 +508,7 @@ The payload does not exploit a software vulnerability in the MCP server. It expl
 - Log output hash and size for forensics where feasible
 - Treat tool outputs as untrusted input on the next turn ([MCP-13](#formal-control-catalog))
 
-**References:** [OWASP MCP06: Intent Flow Subversion](https://owasp.org/www-project-mcp-top-10/), [OWASP LLM01: Prompt Injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+**References:** [OWASP MCP06: Prompt Injection via Contextual Payloads](https://owasp.org/www-project-mcp-top-10/), [OWASP LLM01: Prompt Injection](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
 ### **2. Over-Privileged Tools**
 
