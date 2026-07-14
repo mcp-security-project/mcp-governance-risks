@@ -388,7 +388,9 @@ These references were identified during an internet review and are recommended a
 
 **Purpose:** Map MCP Governance & Risk Model controls to established security and AI governance frameworks. Use this appendix for compliance audits, gap assessments, and alignment with existing organizational programs.
 
-**Related guide:** This mapping references controls defined in the [MCP Governance & Risk Framework](mcp-governance-risk-framework.md) ([MCP Governance Principles](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) through [Metrics for CISOs](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos)).
+**Related guide:** This mapping references controls defined in the [MCP Governance & Risk Framework v1.0](mcp-governance-risk-framework-v1.0.md) ([Chapter 1: Executive Summary](mcp-governance-risk-framework-v1.0.md#chapter-1-executive-summary) through [Appendix: Closing](mcp-governance-risk-framework-v1.0.md#appendix-closing)).
+
+Coverage: **Covered** = v1.0 defines an explicit control. **Partial** = v1.0 names the risk but defines no enforceable control. **Gap** = not addressed in v1.0.
 
 ---
 
@@ -396,90 +398,90 @@ These references were identified during an internet review and are recommended a
 
 The OWASP MCP Top 10 identifies the most critical security risks for MCP deployments. This table maps each risk category to guide controls.
 
-| OWASP MCP Risk | Guide Section | Control / Implementation |
-|----------------|---------------|--------------------------|
-| MCP01: Token Mismanagement & Audience Confusion | [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance), [Appendix](mcp-governance-risk-framework-v1.0.md#authorization-test-cases) | For authenticated HTTP servers: enforce OAuth 2.1-compatible authorization with audience validation; reject token passthrough; verify during third-party review. For STDIO: enforce local hardening and credential handling |
-| MCP02: Privilege Escalation | [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) (Principle 3), [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Least privilege per tool; separate read/write scopes; JIT access for Tier 4 |
-| MCP03: Lack of Audit and Telemetry | [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) (Principle 5), [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Mandatory audit logging with user/agent/tool/action attribution; SIEM integration |
-| MCP04: Prompt Injection via Tool Output | [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Prompt injection testing for Tier 2+; HITL for write actions; content sanitization |
-| MCP05: Tool Permission Smuggling | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow) | Classify by highest-risk tool; re-classify when tools change; approval before new tools |
-| MCP06: Supply Chain / Dependency Risk | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor questionnaire; SBOM review; dependency CVE scanning; version pinning |
-| MCP07: Insufficient Input Validation | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Parameter validation; DLP on tool inputs; rate limits |
-| MCP08: Session Management Weaknesses | [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Session binding, rotation, and timeout requirements in security review |
-| MCP09: Shadow MCP Deployments | [Ch. 4](mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory), [Ch. 12](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance) | Inventory, discovery, prohibition policy, platform allowlists |
-| MCP10: Insecure Default Configurations | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline), [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow) | Minimum security baseline by tier; secure defaults verified during deployment |
+| OWASP MCP Risk | Coverage | Guide Section (v1.0) | Control / Implementation |
+|----------------|----------|----------------------|--------------------------|
+| MCP01: Token Mismanagement & Secret Exposure | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-security-concerns), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Appendix](mcp-governance-risk-framework-v1.0.md#local-mcp-hardening-requirements) | Token passthrough rejected as an architecture pattern; production credentials on a local STDIO server are a hard-gate rejection; secrets, tokens, and raw PII must be redacted from audit parameters (Principle 5 sanitization rule) |
+| MCP02: Privilege Escalation via Scope Creep | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools), [Ch. 5](mcp-governance-risk-framework-v1.0.md#classification-rules), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Least privilege evaluated per tool, not per server; separate read, write, and admin servers; adding a tool to an approved server triggers mandatory re-classification (Rule 2); Identity Scope and Action Capability scored 1 to 5 |
+| MCP03: Tool Poisoning | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 5](mcp-governance-risk-framework-v1.0.md#tier-summary-table), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Third-party and OSS source review; version pinning; Tier 0 explicitly flagged as not risk-free. **Gap:** v1.0 defines no control for post-approval tool description drift. OWASP names rug pulls, schema poisoning, and tool shadowing as MCP03 sub-techniques; a description-hashing or re-attestation control is needed |
+| MCP04: Software Supply Chain Attacks & Dependency Tampering | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Third-party review checklist for all external servers; SBOM review; dependency CVE scanning; version pinned and recorded as an inventory field; Vendor Trust scored 1 to 5 |
+| MCP05: Command Injection & Execution | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools), [Ch. 5](mcp-governance-risk-framework-v1.0.md#worked-classification-examples), [Appendix](mcp-governance-risk-framework-v1.0.md#local-mcp-hardening-requirements) | Shell and command execution without sandboxing is a documented review red flag; a filesystem server able to execute shell commands classifies as Tier 4; prohibited unless formally justified |
+| MCP06: Intent Flow Subversion | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful), [Appendix](mcp-governance-risk-framework-v1.0.md#client-and-host-governance) | Tool chaining treated as the primary attack pattern; approve agent *configurations*, not servers in isolation; do not connect read-capable and write-capable servers to the same session without documented business need; prompt injection testing for Tier 2+; meaningful HITL before write, delete, deploy, or send |
+| MCP07: Insufficient Authentication & Authorization | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#authorization-design), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Appendix](mcp-governance-risk-framework-v1.0.md#authorization-test-cases) | Confused deputy, session security, and authorization design addressed directly. Authorization hard gates reject token passthrough, missing or invalid audience validation, and over-broad token acceptance. For authenticated HTTP servers: OAuth 2.1 practices, audience validation, PKCE, exact redirect URI matching, state verification. Session binding, rotation, and timeout required for Tier 2+. Verified with evidence and tests, not vendor attestation |
+| MCP08: Lack of Audit and Telemetry | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-5-auditability-requires-production-logging), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | No logging, no production use. Minimum audit fields defined per tool call (timestamp, user or agent identity, server, tool, sanitized parameters, outcome, authorization result). SIEM integration required. Absence of production logging on a Tier 2+ server is a hard-gate rejection. Auditability scored 1 to 5 |
+| MCP09: Shadow MCP Servers | Covered | [Ch. 4](mcp-governance-risk-framework-v1.0.md#discovery-methods), [Ch. 4](mcp-governance-risk-framework-v1.0.md#approved-vs-shadow-mcp), [Appendix](mcp-governance-risk-framework-v1.0.md#client-and-host-governance) | Four discovery methods (config scanning, network and endpoint monitoring, self-reporting, platform integration); shadow MCP priority matrix drives remediation; platform allowlists as the strongest preventive control; shadow MCP prohibition published as policy |
+| MCP10: Context Injection & Over-Sharing | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance), [Ch. 5](mcp-governance-risk-framework-v1.0.md#common-classification-judgment-calls), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Cumulative blast radius named as a threat-model property; read-only access explicitly rejected as a proxy for low risk; Blast Radius scored 1 to 5. **Gap:** v1.0 defines no control for context scoping, persistence, or isolation between tasks, users, or agents sharing a context window |
 
 ---
 
 ## OWASP LLM Top 10
 
-MCP governance intersects with LLM security risks because agents use LLMs to decide which tools to invoke.
+MCP governance intersects with LLM security risks because agents use LLMs to decide which tools to invoke. Rows below follow the **OWASP Top 10 for LLM Applications 2025** edition. LLM06 Excessive Agency is the canonical anchor for autonomous tool use and is therefore the closest single-entry match for the subject of this guide.
 
-| OWASP LLM Risk | Guide Section | Control / Implementation |
-|----------------|---------------|--------------------------|
-| LLM01: Prompt Injection | [Ch. 2](mcp-governance-risk-framework.md#chapter-2-why-mcp-needs-governance), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Prompt injection testing; HITL for high-risk actions; tool chaining awareness |
-| LLM02: Insecure Output Handling | [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | DLP on outbound tool parameters; output sanitization before downstream use |
-| LLM03: Training Data Poisoning | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor review: confirm MCP data is not used for model training |
-| LLM04: Model Denial of Service | [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases), [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Rate limits on tool calls; volume anomaly alerting |
-| LLM05: Supply Chain Vulnerabilities | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Third-party MCP review; SBOM; dependency scanning |
-| LLM06: Sensitive Information Disclosure | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Data classification; DLP; data minimization for Tier 2+ |
-| LLM07: Insecure Plugin/Tool Design | [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles), [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) | Tool-level classification; least privilege; threat modeling for Tier 3–4 |
-| LLM08: Excessive Agency | [Ch. 3](mcp-governance-risk-framework.md#chapter-3-mcp-governance-principles) (Principle 4), [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | HITL approval; scope limits; segregation of duties |
-| LLM09: Overreliance | [Ch. 8](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci) | Business owner accountability; human review of agent decisions |
-| LLM10: Model Theft | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor data handling review; ensure MCP does not expose model weights |
+| OWASP LLM Risk (2025) | Coverage | Guide Section (v1.0) | Control / Implementation |
+|-----------------------|----------|----------------------|--------------------------|
+| LLM01: Prompt Injection | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful) | Prompt injection via tool output documented as an attack pattern; prompt injection testing required for Tier 2+; meaningful HITL before write actions; tool chaining treated as a scoring and classification input |
+| LLM02: Sensitive Information Disclosure | Covered | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Data classification drives tier assignment; Data Sensitivity scored 1 to 5; Tier 2+ requires data-classification logging; sanitization rule forbids logging secrets or raw PII |
+| LLM03: Supply Chain | Covered | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Third-party and OSS review; SBOM; dependency CVE scanning; version pinning tracked in inventory; Vendor Trust scored 1 to 5 |
+| LLM04: Data and Model Poisoning | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns) | v1.0 addresses poisoning of *retrieved content* that an MCP server exposes to an agent. Training and fine-tuning data sit outside the MCP governance boundary. Vendor review should confirm that data accessed via MCP is not used for vendor model training |
+| LLM05: Improper Output Handling | Partial | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Meaningful HITL before consequential actions; Reversibility scored 1 to 5. v1.0 recommends content sanitization but defines no output-validation control at the tool boundary |
+| LLM06: Excessive Agency | Covered | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful), [Ch. 5](mcp-governance-risk-framework-v1.0.md#classification-rules), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Primary anchor for this guide. Least privilege per tool; classify by highest-risk tool; HITL required for Tier 3 and for every privileged action at Tier 4; Action Capability and Blast Radius scored 1 to 5; approve agent configurations, not servers alone |
+| LLM07: System Prompt Leakage | Gap | Not addressed in v1.0 | **Gap.** Tool schemas, server descriptions, and system prompts may encode tool scopes, credentials, or guardrail logic. v1.0 defines no control for their exposure |
+| LLM08: Vector and Embedding Weaknesses | Gap | Not addressed in v1.0 | **Gap.** Relevant wherever an MCP server exposes retrieval or knowledge-base tools. v1.0 defines no retrieval-scoping or tenant-isolation control |
+| LLM09: Misinformation | Partial | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-4-human-approval-must-be-meaningful) | Named business owner accountable for residual risk; meaningful HITL shows the user the action and its impact before execution. v1.0 defines no control for an agent *acting* on a hallucinated fact |
+| LLM10: Unbounded Consumption | Partial | [Ch. 2](mcp-governance-risk-framework-v1.0.md#chapter-2-why-mcp-needs-governance) | Machine speed named as a threat-model property requiring rate limits and abuse detection designed for automation rather than human pace. v1.0 defines no enforceable rate-limiting or consumption control |
 
 ---
 
 ## NIST AI Risk Management Framework (AI RMF)
 
-| NIST AI RMF Function | Category | Guide Section | Implementation |
-|----------------------|----------|---------------|----------------|
-| **Govern** | GV-1 Policies | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | MCP usage policy; shadow MCP prohibition |
-| **Govern** | GV-2 Accountability | [Ch. 8](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci) | RACI matrix; named owners; risk acceptance |
-| **Govern** | GV-6 Third-party risk | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor questionnaire; procurement review |
-| **Map** | MP-2 Categories of AI systems | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) | Tier 0–4 classification model |
-| **Map** | MP-5 Impact assessment | [Ch. 6](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model) | Eight-factor risk scoring |
-| **Measure** | MS-2 Metrics | [Ch. 15](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos) | 15 monthly KPIs |
-| **Measure** | MS-2.7 Monitoring | [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Audit logging, alerting, periodic review |
-| **Manage** | MG-2 Risk treatment | [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow) | Approve / conditional / reject decisions |
-| **Manage** | MG-3 Third-party risk | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor review outcomes |
-| **Manage** | MG-4 Incident response | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) | MCP incident response playbook |
+| NIST AI RMF Function | Category | Guide Section (v1.0) | Implementation |
+|----------------------|----------|----------------------|----------------|
+| **Govern** | GV-1 Policies | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-3-publish-minimum-policy-language), [Ch. 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles) | Four governance rules adopted as policy; shadow MCP prohibition; required controls and authentication requirements published by tier |
+| **Govern** | GV-2 Accountability | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership), [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-4-assign-raci-owners) | Named owner per server (a person, not a team); RACI across business, engineering, AppSec, CISO, legal, privacy, procurement; no owner, no approval |
+| **Govern** | GV-6 Third-party risk | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Source and vendor recorded at intake; third-party review depth determined by source; SBOM and dependency scanning |
+| **Map** | MP-2 Categories of AI systems | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model) | Tier 0 to 4 classification, assigned by highest-risk tool exposed |
+| **Map** | MP-5 Impact assessment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Eight-factor risk scoring (range 8 to 40), including Blast Radius and Reversibility |
+| **Measure** | MS-2 Metrics | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics) | Monthly CISO metrics: inventory coverage, shadow MCP count, overdue reviews, Tier 3 to 4 count and trend, MCP policy violations |
+| **Measure** | MS-2.7 Monitoring | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance), [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Audit logging and SIEM fields; alerting; periodic review cadence by tier (Tier 4 monthly through Tier 0 to 1 annually) |
+| **Manage** | MG-2 Risk treatment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable), [Ch. 6](mcp-governance-risk-framework-v1.0.md#risk-rating-bands) | Hard gates reject before scoring; risk bands drive approve, conditionally approve, or reject |
+| **Manage** | MG-3 Third-party risk | [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Vendor Trust scored 1 to 5; unknown source with no review scores 5 and triggers rejection or heavy review |
+| **Manage** | MG-4 Incident response | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | MCP detection signals and incident response guidance |
 
 ---
 
 ## ISO/IEC 42001 (AI Management System)
 
-| ISO 42001 Area | Guide Section | Implementation |
-|----------------|---------------|----------------|
-| 6.1: Risk assessment | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model) | Tier classification and quantitative scoring |
-| 6.1: Risk treatment | [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow), [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Approval decisions with required controls |
-| 7.4: Communication | [Ch. 8](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci) | RACI matrix; stakeholder notification |
-| 8.1: Operational planning | [Ch. 4](mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory), [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow) | Governance lifecycle (intake through deployment) |
-| 8.2: AI system impact assessment | [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Scenario-specific threat models for Tier 3–4 |
-| 8.3: Data for AI systems | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) (Section 3) | Data handling review; DLP requirements |
-| 8.4: Third-party relationships | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor questionnaire and review outcomes |
-| 9.1: Monitoring and measurement | [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring), [Ch. 15](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos) | Continuous monitoring and monthly KPIs |
-| 9.2: Internal audit | [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Periodic review cadence by tier |
-| 10.1: Continual improvement | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) (Phase 5) | Post-incident review; governance gap remediation |
+| ISO 42001 Area | Guide Section (v1.0) | Implementation |
+|----------------|----------------------|----------------|
+| 6.1: Risk assessment | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Tier classification plus eight-factor quantitative scoring; tier and score cross-checked to detect misclassification |
+| 6.1: Risk treatment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#risk-rating-bands), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Approval decisions with required controls by tier; conditional approval with documented remediation deadlines |
+| 7.4: Communication | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership), [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-4-assign-raci-owners) | RACI and named owners; owners report tool, version, scope, and deployment changes within 5 business days |
+| 8.1: Operational planning | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance), [Ch. 1](mcp-governance-risk-framework-v1.0.md#practical-rollout-plan-90-days) | Governance lifecycle from intake through decommissioning; staged 90-day rollout |
+| 8.2: AI system impact assessment | [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors), [Appendix](mcp-governance-risk-framework-v1.0.md#evidence-pack-tier-2-approvals) | Eight-factor scoring including blast radius and reversibility; evidence pack required for Tier 2+ approvals |
+| 8.3: Data for AI systems | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-5-auditability-requires-production-logging) | Data accessed and its classification recorded at intake; sanitization rule prohibits logging secrets or raw PII |
+| 8.4: Third-party relationships | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | Source and vendor trust recorded; third-party review depth scales with source |
+| 9.1: Monitoring and measurement | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics), [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Monthly KPIs reported to security leadership; continuous monitoring and SIEM integration |
+| 9.2: Internal audit | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance) | Periodic review cadence by tier; quarterly owner validation; orphaned servers suspended |
+| 10.1: Continual improvement | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Post-incident review and governance gap remediation |
 
 ---
 
 ## SOC 2 Trust Service Criteria
 
-| SOC 2 Criteria | Guide Section | Implementation |
-|----------------|---------------|----------------|
-| **CC6.1**: Logical access | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Authentication, scoped authorization, SSO/OAuth |
-| **CC6.2**: Access removal | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) | Credential revocation during incident containment |
-| **CC6.3**: Role-based access | [Ch. 8](mcp-governance-risk-framework.md#chapter-8-risk-ownership-and-raci) | RACI matrix; approval authority by tier |
-| **CC6.6**: System boundaries | [Ch. 4](mcp-governance-risk-framework.md#chapter-4-mcp-asset-inventory), [Ch. 12](mcp-governance-risk-framework.md#chapter-12-shadow-mcp-governance) | Inventory; allowlists; shadow MCP prohibition |
-| **CC6.7**: Data transmission | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Token handling; no passthrough; DLP |
-| **CC6.8**: Malicious software | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Dependency scanning; SBOM review |
-| **CC7.1**: Detection | [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring) | Alerting rules; anomaly detection |
-| **CC7.2**: Monitoring | [Ch. 13](mcp-governance-risk-framework.md#chapter-13-continuous-monitoring), [Ch. 15](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos) | Audit logging; monthly metrics |
-| **CC7.3**: Incident response | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) | MCP incident response playbook |
-| **CC7.4**: Recovery | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) (Phase 4) | Eradicate and recover procedures |
-| **CC8.1**: Change management | [Ch. 7](mcp-governance-risk-framework.md#chapter-7-approval-workflow) | Approval workflow before deployment; version pinning |
-| **CC9.2**: Vendor risk | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Vendor questionnaire and review |
+| SOC 2 Criteria | Guide Section (v1.0) | Implementation |
+|----------------|----------------------|----------------|
+| **CC6.1**: Logical access | [Ch. 2](mcp-governance-risk-framework-v1.0.md#authorization-design), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable) | OAuth 2.1 practices for authenticated HTTP servers; audience validation; scope enforcement; PKCE; local credential handling for STDIO |
+| **CC6.2**: Access removal | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance) | Decommissioning: revoke OAuth tokens, API keys, and service accounts; remove from allowlists; verify no active connections |
+| **CC6.3**: Role-based access | [Ch. 5](mcp-governance-risk-framework-v1.0.md#tier-summary-table), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-1-no-mcp-without-ownership) | Approval authority assigned by tier; CISO or risk board required for Tier 4 |
+| **CC6.6**: System boundaries | [Ch. 4](mcp-governance-risk-framework-v1.0.md#discovery-methods), [Ch. 4](mcp-governance-risk-framework-v1.0.md#approved-vs-shadow-mcp) | Inventory; platform allowlists; shadow MCP prohibition and priority-based remediation |
+| **CC6.7**: Data transmission | [Ch. 2](mcp-governance-risk-framework-v1.0.md#token-passthrough), [Ch. 6](mcp-governance-risk-framework-v1.0.md#hard-gates-non-negotiable) | Token passthrough rejected; each server authenticates independently; audience validation enforced |
+| **CC6.8**: Malicious software | [Ch. 2](mcp-governance-risk-framework-v1.0.md#mcp-specific-attack-patterns), [Appendix](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) | SBOM review; dependency CVE scanning; version pinning and integrity verification |
+| **CC7.1**: Detection | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Alerting rules; anomaly detection on tool call patterns and volume |
+| **CC7.2**: Monitoring | [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-5-auditability-requires-production-logging), [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics) | Minimum audit fields per tool call; SIEM integration; monthly governance metrics |
+| **CC7.3**: Incident response | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | MCP incident response guidance |
+| **CC7.4**: Recovery | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Containment and recovery procedures |
+| **CC8.1**: Change management | [Ch. 4](mcp-governance-risk-framework-v1.0.md#inventory-maintenance), [Ch. 5](mcp-governance-risk-framework-v1.0.md#rule-2-re-classify-when-tools-change) | Change notification within 5 business days; re-classification when tools are added; version pinning |
+| **CC9.2**: Vendor risk | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Source and vendor recorded at intake; Vendor Trust scored 1 to 5 |
 
 ---
 
@@ -487,14 +489,14 @@ MCP governance intersects with LLM security risks because agents use LLMs to dec
 
 Use this section to map guide controls to your organization's internal AI governance policies. Replace the placeholder rows with your actual policy references.
 
-| Internal Policy | Guide Section | Alignment Notes |
-|-----------------|---------------|-----------------|
-| [Your AI Usage Policy] | [Ch. 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) | Adopt MCP-specific policy language from [Minimum Security Baseline](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) |
-| [Your AI Risk Assessment Process] | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework.md#chapter-6-mcp-risk-scoring-model) | MCP tier classification and scoring as AI risk assessment |
-| [Your Third-Party AI Vendor Policy] | [Ch. 9](mcp-governance-risk-framework.md#chapter-9-third-party-mcp-review) | Extend vendor review to include MCP vendor questionnaire |
-| [Your AI Incident Response Plan] | [Ch. 14](mcp-governance-risk-framework.md#chapter-14-incident-response-alignment) | Add MCP-specific playbook to existing IR plan |
-| [Your Data Classification Standard] | [Ch. 5](mcp-governance-risk-framework.md#chapter-5-mcp-server-classification-model) | Map data classes to MCP tier requirements |
-| [Your Privileged Access Policy] | [Ch. 11](mcp-governance-risk-framework.md#chapter-11-high-risk-mcp-use-cases) | Tier 4 MCP servers follow PAM/JIT requirements |
+| Internal Policy | Guide Section (v1.0) | Alignment Notes |
+|-----------------|----------------------|-----------------|
+| [Your AI Usage Policy] | [Ch. 1](mcp-governance-risk-framework-v1.0.md#step-3-publish-minimum-policy-language), [Ch. 3](mcp-governance-risk-framework-v1.0.md#chapter-3-mcp-governance-principles) | Adopt the four governance rules and the shadow MCP prohibition as published policy language |
+| [Your AI Risk Assessment Process] | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#chapter-6-mcp-risk-scoring-model) | MCP tier classification and eight-factor scoring as the AI risk assessment method |
+| [Your Third-Party AI Vendor Policy] | [Ch. 4](mcp-governance-risk-framework-v1.0.md#required-fields), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Extend vendor review to cover MCP source, version pinning, and Vendor Trust scoring |
+| [Your AI Incident Response Plan] | [Appendix](mcp-governance-risk-framework-v1.0.md#detection-and-incident-response) | Add MCP-specific detection and response guidance to the existing IR plan |
+| [Your Data Classification Standard] | [Ch. 5](mcp-governance-risk-framework-v1.0.md#chapter-5-mcp-server-classification-model), [Ch. 6](mcp-governance-risk-framework-v1.0.md#the-eight-risk-factors) | Map internal data classes to MCP tier requirements and the Data Sensitivity factor |
+| [Your Privileged Access Policy] | [Ch. 5](mcp-governance-risk-framework-v1.0.md#tier-summary-table), [Ch. 3](mcp-governance-risk-framework-v1.0.md#principle-3-least-privilege-for-tools) | Tier 4 MCP servers follow PAM and JIT requirements; prefer predefined action templates over standing admin access |
 
 ---
 
@@ -504,24 +506,24 @@ Use this section to map guide controls to your organization's internal AI govern
 
 1. Identify the framework your auditor is assessing against
 2. Locate the relevant mapping table in this appendix
-3. Reference the guide chapter that implements each control
-4. Provide evidence: completed templates, risk register entries, approval decisions, audit logs
+3. Reference the guide section that implements each control
+4. Provide evidence: risk register entries, approval decisions, scoring worksheets, and audit logs
 
 ### For Gap Assessments
 
 1. Start with the OWASP MCP Top 10 mapping (most MCP-specific)
 2. Cross-reference with NIST AI RMF Govern and Manage functions
-3. Identify controls marked as "Recommended" or "Optional" in [Chapter 10](mcp-governance-risk-framework.md#chapter-10-minimum-security-baseline) that your organization has not implemented
-4. Prioritize gaps by risk tier of affected MCP servers
+3. Review every row marked **Partial** or **Gap** above, plus any control in the [Formal Control Catalog](mcp-governance-risk-framework-v1.0.md#formal-control-catalog) your organization has not implemented
+4. Prioritize gaps by the risk tier of the affected MCP servers
 
 ### For Program Integration
 
 If your organization already has an AI governance program:
 
-- **Do not create a parallel process.** Map MCP governance lifecycle stages to existing AI system approval workflows
-- **Extend existing templates** with MCP-specific fields from the [Intake Form](important-forms/intake-form.md)
-- **Add MCP metrics** to existing AI governance dashboards using [Chapter 15](mcp-governance-risk-framework.md#chapter-15-metrics-for-cisos) KPIs
+- **Do not create a parallel process.** Map the MCP governance lifecycle to your existing AI system approval workflow
+- **Extend existing templates** with the MCP-specific intake fields in [Chapter 4](mcp-governance-risk-framework-v1.0.md#required-fields)
+- **Add MCP metrics** to existing AI governance dashboards using the KPIs in [Chapter 1](mcp-governance-risk-framework-v1.0.md#step-5-define-monthly-metrics)
 
 ---
 
-[MCP Governance & Risk Framework](mcp-governance-risk-framework.md) · [Guide Home](README.md)
+[MCP Governance & Risk Framework v1.0](mcp-governance-risk-framework-v1.0.md) · [Guide Home](README.md)
