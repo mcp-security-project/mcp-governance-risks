@@ -91,7 +91,7 @@ Classification provides categories; scoring provides nuance. MCP Risk Scoring Mo
 
 ### **Assign ownership: accountability that survives incidents**
 
-Risk Ownership and RACI guidance in [Chapter 3](#chapter-3-mcp-governance-principles) covers accountability across business, engineering, AppSec, CISO, legal/privacy, and procurement. Every approved MCP server has a named owner who accepts residual risk. When something goes wrong at 2 a.m., someone is accountable, not "the AI team" in the abstract.
+Risk Ownership and the [RACI matrix](#raci-for-mcp-governance-activities) in Chapter 3 cover accountability across business, engineering, AppSec, CISO, legal/privacy, and procurement. Every approved MCP server has a named owner who accepts residual risk. When something goes wrong at 2 a.m., someone is accountable, not "the AI team" in the abstract.
 
 ### **Monitor: governance that continues after approval**
 
@@ -175,7 +175,7 @@ At minimum, publish:
 
 ### Step 4: Assign RACI owners
 
-Use the RACI guidance in [Chapter 3](#principle-1-no-mcp-without-ownership) to assign named owners for every approved MCP server and for governance activities (intake, classification, approval, monitoring, incident response).
+Use the [RACI matrix](#raci-for-mcp-governance-activities) in Chapter 3 to assign named owners for every approved MCP server and for governance activities (intake, classification, approval, monitoring, incident response).
 
 **Key assignments:**
 
@@ -831,6 +831,23 @@ If formal approval takes 6 weeks and `npm install` takes 6 minutes, shadow MCP w
 | User complains HITL prompts are annoying   | 4: Meaningful HITL | Reduce scope so fewer actions require approval; do not weaken prompt content                                                                                                        |
 | Business owner on extended leave           | 1: Ownership       | Reassign owner within 30 days or suspend server                                                                                                                                     |
 
+## RACI for MCP Governance Activities
+
+Principle 1 names who is accountable for a given server. This matrix extends that to the governance activities themselves, so responsibility is explicit before an incident, not reconstructed after one. Assign a named individual to each role; the matrix defines the role, and the risk register records the person.
+
+**R** = Responsible (does the work) · **A** = Accountable (owns the outcome, one per activity) · **C** = Consulted (gives input) · **I** = Informed (kept up to date)
+
+| Governance activity | Business owner | Engineering | AppSec | CISO / risk board | Legal / Privacy | Procurement |
+|---------------------|:--------------:|:-----------:|:------:|:-----------------:|:---------------:|:-----------:|
+| Intake | A | R | C | I | I | I |
+| Classification | C | C | A/R | I | I | I |
+| Approval | A | I | R | C | C | I |
+| Vendor review | I | C | R | A | C | R |
+| Risk acceptance | A | I | C | I | C | I |
+| Monitoring | I | R | A | I | I | I |
+| Incident response | C | R | A | I | C | I |
+
+**Accountability shifts by tier.** The matrix shows the common case for Tier 0 to 2. For Tier 3 to 4, accountability for **Approval** and **Risk acceptance** moves to the **CISO or delegated risk board**, consistent with the tier approval authority in [Chapter 5](#tier-summary-table) and [Principle 1](#principle-1-no-mcp-without-ownership). Below Tier 3 the business owner accepts residual risk for their domain; at Tier 3 to 4 the CISO does.
 
 # Chapter 4: MCP Asset Inventory
 
