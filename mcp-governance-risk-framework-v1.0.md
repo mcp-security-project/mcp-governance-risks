@@ -309,7 +309,7 @@ In traditional application security, the trust boundary is the request: validate
 
 ## MCP Security Concerns
 
-The [MCP Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) document identifies architectural risks that are not implementation bugs; they are design-level concerns every MCP deployment must address. Governance exists partly to ensure these concerns are evaluated before connection, not discovered after compromise.
+The [MCP Security Best Practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices) document identifies architectural risks that are not implementation bugs; they are design-level concerns every MCP deployment must address. Governance exists partly to ensure these concerns are evaluated before connection, not discovered after compromise.
 
 ### **Confused Deputy**
 
@@ -348,7 +348,7 @@ MCP sessions persist across multiple tool invocations. Weak session management (
 - An attacker who obtains a session token can invoke tools with the victim's delegated identity
 - Shared or pooled agent sessions blur attribution between users
 
-Session security is easy to overlook when teams focus on initial authentication. Governance must require session binding, rotation, and timeout policies as part of security review, especially for Tier 2+ servers. This aligns with [MCP Security Best Practices](https://modelcontextprotocol.io/docs/concepts/security) and [OWASP MCP07: Insufficient Authentication and Authorization](https://owasp.org/www-project-mcp-top-10/).
+Session security is easy to overlook when teams focus on initial authentication. Governance must require session binding, rotation, and timeout policies as part of security review, especially for Tier 2+ servers. This aligns with [MCP Security Best Practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices) and [OWASP MCP07: Insufficient Authentication and Authorization](https://owasp.org/www-project-mcp-top-10/).
 
 ### **Authorization Design**
 
@@ -1853,7 +1853,7 @@ These sources inform the controls and language used throughout this guide. Secur
 | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [MCP Specification](https://spec.modelcontextprotocol.io/)                                                                         | Defines the protocol this guide governs: tools, resources, transports, and authorization                     |
 | [MCP Authorization Specification (2025-11-25)](https://spec.modelcontextprotocol.io/specification/2025-11-25/basic/authorization/) | Optional authorization; OAuth 2.1, audience validation, and token handling for authenticated HTTP transports |
-| [MCP Security Best Practices](https://modelcontextprotocol.io/docs/concepts/security)                                              | Official guidance on confused deputy, token passthrough, session security, and authorization design          |
+| [MCP Security Best Practices](https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices)                                              | Official guidance on confused deputy, token passthrough, session security, and authorization design          |
 | [OWASP MCP Top 10](https://owasp.org/www-project-mcp-top-10/)                                                                      | Top ten MCP-specific risks; see [Formal Control Catalog](#formal-control-catalog) for evidence requirements  |
 | [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)                   | LLM risks that intersect with MCP: prompt injection, excessive agency, supply chain                          |
 | [NIST AI Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/itl/ai-risk-management-framework)                            | Govern, Map, Measure, Manage functions: use [reference.md](reference.md) to build organizational mappings    |
